@@ -1,0 +1,361 @@
+<!--
+  Nama          : Muhammad Farand Danendra
+  NIM           : 2510514025
+  Kelas         : A - Sains Data
+  Berkas        : jurnal.html
+  WARNA_UTAMA   : #514025
+  WARNA_AKSEN   : #520415
+  N_EKSPLORASI  : 6
+  Tanggal ketik : 08/09/2026
+-->
+<html>
+
+<head>
+    <title>SIPRAK - Jurnal Eksplorasi CSS</title>
+    <link rel="stylesheet" href="css/gaya.css">
+</head>
+
+<body>
+ 
+    <iframe class="header-frame" src="atas.html" title="Kepala Halaman SIPRAK"></iframe>
+
+  
+    <nav class="menu-tabel" aria-label="Navigasi utama">
+        <a href="index.html" accesskey="b">Beranda</a>
+        <a href="profil.html" accesskey="p">Profil</a>
+        <a href="jadwal.html" accesskey="j">Jadwal</a>
+        <a href="galeri.html" accesskey="g">Galeri</a>
+        <a href="daftar.html" accesskey="d">Pendaftaran</a>
+        <a class="aktif" href="jurnal.html" accesskey="r">Jurnal Eksplorasi</a>
+        <a href="profil.html#prestasi" accesskey="t">Prestasi</a>
+        <a href="https://www.upnvj.ac.id" accesskey="u" target="_blank">UPNVJ Resmi</a>
+        <a href="mailto:muhammadpanji@upnvj.ac.id" accesskey="m">Mail Dosen</a>
+    </nav>
+
+    <div id="isi">
+        <h2>Catatan Eksplorasi Properti CSS</h2>
+        <p class="sub-keterangan">
+            Berdasarkan NIM 2510514025, didapat N_EKSPLORASI = ((2+5) mod 3) + 5 = 6 properti CSS baru di luar materi kelas yang saya coba ulik sendiri.
+        </p>
+
+      
+        <article class="entri-jurnal">
+            <h3>1. border-radius (Status: Berhasil)</h3>
+            <p><strong>Nilai yang sempat saya coba:</strong> <code>0</code>, <code>8px</code>, <code>14px</code>, sampai <code>50%</code></p>
+            <p><strong>Fungsinya menurut pemahaman saya:</strong> Properti ini dipakai buat bikin sudut kotak jadi melengkung atau tumpul, jadi tampilannya nggak kaku serba siku-siku lancip.</p>
+            <p><strong>Potongan kode yang dipakai:</strong></p>
+            <pre><code>.demo-radius-after {
+    border-radius: 14px;
+}</code></pre>
+            
+            <p><strong>Hasil uji coba langsung:</strong></p>
+            <div class="hasil-kode">
+                <div class="hasil-box">
+                    <h4>Sebelum (Sudut Siku 0px)</h4>
+                    <div class="demo-radius demo-radius-before">
+                        <p class="tengah">Sudut Siku Lancip</p>
+                    </div>
+                </div>
+                <div class="hasil-box">
+                    <h4>Sesudah (border-radius: 14px)</h4>
+                    <div class="demo-radius demo-radius-after">
+                        <p class="tengah">Sudut Melengkung 14px</p>
+                    </div>
+                </div>
+            </div>
+
+            <p><strong>Hal yang bikin kaget:</strong> Waktu saya iseng kasih nilai <code>50%</code> di elemen persegi panjang, bentuknya ternyata nggak jadi lingkaran bulat sempurna, melainkan lonjong oval kayak telur.</p>
+            <p><strong>Pertanyaan yang masih bikin penasaran:</strong> Gimana cara paling praktis kalau mau bikin lengkungan sudut yang beda-beda di tiap pojokan cuma dalam satu baris deklarasi?</p>
+        </article>
+
+        <article class="entri-jurnal">
+            <h3>2. box-shadow (Status: Berhasil)</h3>
+            <p><strong>Nilai yang sempat saya coba:</strong> <code>5px 5px 10px rgba(0,0,0,0.4)</code> dan <code>inset 0 0 8px #000000</code></p>
+            <p><strong>Fungsinya menurut pemahaman saya:</strong> Ngasih efek bayangan di belakang elemen kotak biar kelihatan punya kedalaman (3D) dan terkesan agak mengapung dari background.</p>
+            <p><strong>Potongan kode yang dipakai:</strong></p>
+            <pre><code>.demo-shadow-after {
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+}</code></pre>
+
+            <p><strong>Hasil uji coba langsung:</strong></p>
+            <div class="hasil-kode">
+                <div class="hasil-box">
+                    <h4>Sebelum (Tanpa Bayangan)</h4>
+                    <div class="demo-shadow-before">
+                        <p class="tengah">Tampilan Datar (Flat)</p>
+                    </div>
+                </div>
+                <div class="hasil-box">
+                    <h4>Sesudah (box-shadow Aktif)</h4>
+                    <div class="demo-shadow-after">
+                        <p class="tengah">Efek Timbul 3D</p>
+                    </div>
+                </div>
+            </div>
+
+            <p><strong>Hal yang bikin kaget:</strong> Ternyata ada kata kunci <code>inset</code> yang bisa ngebalik arah bayangan ke sisi dalam kotak, jadi tampilannya kayak tombol yang lagi ditekan mendalam.</p>
+            <p><strong>Pertanyaan yang masih bikin penasaran:</strong> Kalau kita pasang bayangan yang blur-nya super tebal, apakah itu bakal memengaruhi posisi dan alur elemen-elemen di sekitarnya?</p>
+        </article>
+
+     
+        <article class="entri-jurnal">
+            <h3>3. transition (Status: Berhasil)</h3>
+            <p><strong>Nilai yang sempat saya coba:</strong> <code>0.3s</code>, <code>0.8s</code>, sampai <code>2s</code> pada warna latar dan teks</p>
+            <p><strong>Fungsinya menurut pemahaman saya:</strong> Buat bikin animasi perubahan warna jadi halus dan bertahap pas kursor diarahkan ke elemen, jadi nggak langsung jepret berubah kaku.</p>
+            <p><strong>Potongan kode yang dipakai:</strong></p>
+            <pre><code>.demo-transition {
+    transition: background-color 0.8s ease, color 0.8s ease;
+}
+.demo-transition:hover {
+    background-color: var(--warna-aksen);
+    color: #FFFFFF;
+}</code></pre>
+
+            <p><strong>Hasil uji coba langsung (coba arahkan kursor ke tombol di bawah):</strong></p>
+            <div class="hasil-kode">
+                <div class="hasil-box">
+                    <h4>Sebelum (Tanpa Transisi - Hover Kaku)</h4>
+                    <div class="demo-no-transition tengah">
+                        Sentuh Saya (Instan / Kaku)
+                    </div>
+                </div>
+                <div class="hasil-box">
+                    <h4>Sesudah (transition: 0.8s - Hover Halus)</h4>
+                    <div class="demo-transition tengah">
+                        Sentuh Saya (Animasi Lembut)
+                    </div>
+                </div>
+            </div>
+
+            <p><strong>Hal yang bikin kaget:</strong> Properti <code>transition</code> ternyata wajib dipasang di selektor utama elemen, bukan di selektor <code>:hover</code>-nya. Kalau ditaruh di <code>:hover</code>, pas kursor mouse digeser keluar perubahannya bakal langsung putus kaku.</p>
+            <p><strong>Pertanyaan yang masih bikin penasaran:</strong> Gimana caranya bikin animasi transisi berjalan terus-menerus tanpa harus nunggu disentuh kursor pengguna?</p>
+        </article>
+
+        <article class="entri-jurnal">
+            <h3>4. transform: scale() (Status: Berhasil)</h3>
+            <p><strong>Nilai yang sempat saya coba:</strong> <code>scale(1.05)</code>, <code>scale(1.08)</code>, dan <code>scale(1.2)</code></p>
+            <p><strong>Fungsinya menurut pemahaman saya:</strong> Buat nge-zoom atau memperbesar ukuran visual elemen secara mulus dari titik tengahnya tanpa dorong-dorong elemen tetangga di sebelahnya.</p>
+            <p><strong>Potongan kode yang dipakai:</strong></p>
+            <pre><code>.demo-transform-after:hover {
+    transform: scale(1.08);
+}</code></pre>
+
+            <p><strong>Hasil uji coba langsung (coba arahkan kursor ke kotak di bawah):</strong></p>
+            <div class="hasil-kode">
+                <div class="hasil-box">
+                    <h4>Sebelum (Ukuran Standar Scale 1.0)</h4>
+                    <div class="demo-transform-before tengah">
+                        Ukuran Statis (Tetap)
+                    </div>
+                </div>
+                <div class="hasil-box">
+                    <h4>Sesudah (Hover Zoom Scale 1.08)</h4>
+                    <div class="demo-transform demo-transform-after tengah">
+                        Sentuh Saya (Zoom 8%)
+                    </div>
+                </div>
+            </div>
+
+            <p><strong>Hal yang bikin kaget:</strong> Efek pembesaran <code>scale()</code> ini naiknya kayak di lapisan atas dokumen, jadi susunan grid atau tabel di sekitarnya sama sekali nggak kegeser atau berantakan.</p>
+            <p><strong>Pertanyaan yang masih bikin penasaran:</strong> Kalau kita nge-scale gambar yang punya Image Map (<code>&lt;map&gt;</code>), apakah koordinat area kliknya bakal ikut membesar secara akurat?</p>
+        </article>
+
+        <article class="entri-jurnal">
+            <h3>5. position: absolute (Status: Percobaan Gagal &amp; Diperbaiki)</h3>
+            <p><strong>Nilai yang sempat saya coba:</strong> <code>position: absolute; top: 4px; right: 4px;</code></p>
+            <p><strong>Fungsinya menurut pemahaman saya:</strong> Menempatkan elemen secara bebas dan presisi berdasarkan jarak koordinat dari elemen pembungkus terdekatnya.</p>
+            <p><strong>Potongan kode pas percobaan gagal:</strong></p>
+            <pre><code>/* Kode awal yang gagal: Wadah lupa dikasih position relative */
+.wadah-gagal {
+    /* Wadah masih posisi static (default) */
+}
+.label-gagal {
+    position: absolute;
+    top: 4px;
+    right: 4px; /* Malah kabur keluar wadah */
+}</code></pre>
+
+            <p><strong>Hasil uji coba langsung:</strong></p>
+            <div class="hasil-kode">
+                <div class="hasil-box demo-position-lab">
+                    <h4>Percobaan Gagal (Wadah Lupa Di-set Relative)</h4>
+                    <div class="demo-position-gagal-wrapper">
+                        <p>Wadah Induk (Static)</p>
+                        <span class="demo-position-gagal-label">Badge Nyasar ke Pojok Luar</span>
+                    </div>
+                </div>
+                <div class="hasil-box demo-position-lab">
+                    <h4>Setelah Diperbaiki (Wadah Diberi Relative)</h4>
+                    <div class="demo-position-wrapper">
+                        <p>Wadah Induk (Relative)</p>
+                        <span class="demo-position-label">Badge Mengunci Rapi di Pojok</span>
+                    </div>
+                </div>
+            </div>
+
+            <p><strong>Cerita kendala &amp; cara menyadarinya:</strong> Niat awal saya pengin bikin lencana (badge) nempel rapi di pojok kanan atas kartu biodata di profil. Tapi begitu dipasang <code>position: absolute</code>, badge-nya malah loncat nyasar ke pojok atas layar browser! Setelah nyari tahu soal konsep <em>containing block</em>, saya baru sadar kalau kotak pembungkusnya wajib dikasih <code>position: relative</code> sebagai jangkar patokan. Begitu wadahnya dipasang relative, baru posisinya ngunci dengan bener.</p>
+            <p><strong>Hal yang bikin kaget:</strong> Elemen yang berposisi absolute bakal terus mencari induk ke atas sampai mentok ke tag <code>&lt;body&gt;</code> kalau nggak ketemu induk yang berposisi relative.</p>
+            <p><strong>Pertanyaan yang masih bikin penasaran:</strong> Kapan situasi yang paling ideal buat pakai <code>position: sticky</code> dibanding gabungan relative dan absolute?</p>
+        </article>
+
+        <article class="entri-jurnal">
+            <h3>6. white-space: nowrap (Status: Percobaan Gagal / Dibatalkan)</h3>
+            <p><strong>Nilai yang sempat saya coba:</strong> <code>white-space: nowrap;</code> dan <code>white-space: normal;</code></p>
+            <p><strong>Fungsinya menurut pemahaman saya:</strong> Memaksa teks di dalam kotak buat terus lurus dalam satu baris tanpa mau turun (wrap) ke baris baru meskipun mentok batas lebar.</p>
+            <p><strong>Potongan kode percobaan:</strong></p>
+            <pre><code>/* Kode yang bikin tampilan teks meluber */
+.demo-nowrap-gagal {
+    width: 160px;
+    white-space: nowrap; /* Teks nabrak dan tembus garis */
+}</code></pre>
+
+            <p><strong>Hasil uji coba langsung:</strong></p>
+            <div class="hasil-kode">
+                <div class="hasil-box">
+                    <h4>Percobaan Gagal (white-space: nowrap)</h4>
+                    <div class="demo-nowrap-gagal">
+                        Label Formulir Pendaftaran Mahasiswa Baru UPNVJ
+                    </div>
+                    <small class="keterangan-gagal">Teks meluber menembus garis batas kotak</small>
+                </div>
+                <div class="hasil-box">
+                    <h4>Sesuai Harapan (white-space: normal)</h4>
+                    <div class="demo-nowrap-normal">
+                        Label Formulir Pendaftaran Mahasiswa Baru UPNVJ
+                    </div>
+                    <small>Teks otomatis melipat rapi ke bawah</small>
+                </div>
+            </div>
+
+            <p><strong>Cerita kendala &amp; cara menyadarinya:</strong> Saya pengin teks judul label formulir selalu rapi dalam satu baris lurus simetris. Makanya saya iseng coba pasang <code>white-space: nowrap</code>. Tapi pas halaman dibuka di layar yang agak sempit, teksnya malah meluber keluar garis tabel dan numpuk di atas kolom input. Karena bikin tampilan layout berantakan dan nggak responsif, eksperimen ini resmi saya batalkan dari form utama.</p>
+            <p><strong>Hal yang bikin kaget:</strong> <code>white-space: nowrap</code> bener-bener keras kepala mengabaikan batas lebar <code>width</code> wadah induknya.</p>
+            <p><strong>Pertanyaan yang masih bikin penasaran:</strong> Apa perbedaan teknis mendalam antara <code>overflow-wrap: break-word</code> dan <code>word-break: break-all</code> saat memecah kata yang panjang tanpa spasi?</p>
+        </article>
+
+        <hr>
+
+  
+        <section class="bagian-tantangan">
+            <h2>Penyelesaian 5 Tantangan Terarah</h2>
+
+            <div class="item-tantangan">
+                <h3>1. Baris tabel selang-seling tanpa atribut bgcolor</h3>
+                <p><strong>Kata kunci pencarian:</strong> <code>CSS alternate table row color pseudo class</code></p>
+                <p><strong>Solusi yang saya terapkan:</strong> Memakai pseudo-class urutan <code>tr:nth-child(even)</code> di berkas CSS eksternal biar baris nomor genap otomatis punya warna latar yang beda.</p>
+            </div>
+
+            <div class="item-tantangan">
+                <h3>2. Menu navigasi berubah warna secara mulus</h3>
+                <p><strong>Kata kunci pencarian:</strong> <code>CSS smooth hover background color transition duration</code></p>
+                <p><strong>Solusi yang saya terapkan:</strong> Menambahkan properti <code>transition: background-color 0.4s ease</code> pada selektor <code>.menu-tabel a</code> agar perpindahan warnanya waktu di-hover terasa lembut.</p>
+            </div>
+
+            <div class="item-tantangan">
+                <h3>3. Kotak biodata melengkung dan punya bayangan</h3>
+                <p><strong>Kata kunci pencarian:</strong> <code>CSS rounded corners box shadow element</code></p>
+                <p><strong>Solusi yang saya terapkan:</strong> Menggabungkan properti <code>border-radius: 10px;</code> dan <code>box-shadow: 5px 5px 10px rgba(0,0,0,0.25);</code> pada kartu biodata.</p>
+            </div>
+
+            <div class="item-tantangan">
+                <h3>4. Garis tabel menyatu (nggak ganda)</h3>
+                <p><strong>Kata kunci pencarian:</strong> <code>CSS table merge double border single line</code></p>
+                <p><strong>Solusi yang saya terapkan:</strong> Memasang properti <code>border-collapse: collapse;</code> pada elemen <code>table</code> di CSS.</p>
+            </div>
+
+            <div class="item-tantangan">
+                <h3>5. Foto galeri sedikit membesar waktu disentuh</h3>
+                <p><strong>Kata kunci pencarian:</strong> <code>CSS image zoom on hover transform scale</code></p>
+                <p><strong>Solusi yang saya terapkan:</strong> Memakai <code>transform: scale(1.05);</code> yang dikombinasikan dengan <code>transition: transform 0.3s ease;</code> pada keadaan <code>.gambar-kegiatan:hover</code>.</p>
+            </div>
+        </section>
+
+        <hr>
+
+    
+        <section class="bagian-refleksi">
+            <h2>Refleksi Pribadi</h2>
+            <ol>
+                <li>
+                    <strong>Perbandingan jumlah baris jadwal.html Tugas 2 vs Tugas 3:</strong><br>
+                    Pada Tugas 2, jadwal.html lebih panjang karena banyak pengaturan tampilan masih ditulis langsung pada elemen HTML. Pada Tugas 3, aturan tampilan dipindahkan ke gaya.css sehingga kode HTML menjadi lebih ringkas.
+                </li>
+                <li>
+                    <strong>Hal yang dulu memakan waktu:</strong><br>
+                    Membuat warna baris tabel selang-seling dulu harus dilakukan satu per satu. Setelah memakai CSS, saya cukup menggunakan <code>tr:nth-child(even)</code>.
+                </li>
+                <li>
+                    <strong>Hal yang justru lebih membingungkan:</strong><br>
+                    Saya masih agak bingung dengan <code>position</code>, terutama perbedaan <code>relative</code>, <code>absolute</code>, dan <code>fixed</code>.
+                </li>
+                <li>
+                    <strong>Contoh inline style yang buruk:</strong><br>
+                    Di situs saya, inline style dipakai tepat satu kali pada daftar.html, yaitu <code>style="font-style: italic;"</code>. Saya tidak menggunakannya di jurnal ini karena style membuat struktur HTML dan tampilan bercampur. Kalau banyak halaman memiliki style sendiri, perubahan tampilan akan lebih merepotkan.
+                </li>
+                <li>
+                    <strong>Pengalaman aturan CSS tidak berlaku:</strong><br>
+                    Saya pernah membuat class isoma pada HTML, tetapi CSS memakai selector <code>.ishoma</code>. Setelah diperiksa, ternyata penamaannya berbeda. Setelah class disamakan, aturan CSS kembali berjalan.
+                </li>
+                <li>
+                    <strong>Penerapan box model:</strong><br>
+                    Pada setiap kartu jurnal saya memakai <code>padding: 16px</code>, <code>border: 1px solid</code>, dan <code>margin-bottom: 24px</code>. Padding 16px dipakai supaya tulisan tidak menempel pada garis, border 1px dipakai untuk membatasi kartu, sedangkan margin-bottom 24px memberi jarak antar-kartu supaya lebih mudah dibaca.
+                </li>
+            </ol>
+        </section>
+
+        <hr>
+
+        <section class="bagian-ringkasan">
+            <h2>Tabel Rekapitulasi Eksplorasi</h2>
+            <table class="tabel-rekap">
+                <thead>
+                    <tr class="judul">
+                        <th>No.</th>
+                        <th>Properti CSS</th>
+                        <th>Status Eksperimen</th>
+                        <th>Hasil Utama</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td><code>border-radius</code></td>
+                        <td>Berhasil</td>
+                        <td>Sudut siku kotak berubah melengkung tumpul dan dinamis.</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td><code>box-shadow</code></td>
+                        <td>Berhasil</td>
+                        <td>Muncul bayangan timbul yang bikin kotak terkesan 3 dimensi.</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td><code>transition</code></td>
+                        <td>Berhasil</td>
+                        <td>Perubahan warna latar saat hover berlangsung secara halus.</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td><code>transform: scale()</code></td>
+                        <td>Berhasil</td>
+                        <td>Elemen membesar proporsional saat di-hover tanpa geser tetangga.</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td><code>position: absolute</code></td>
+                        <td>Gagal lalu Berhasil</td>
+                        <td>Bisa mengunci posisi setelah wadah induknya dipasang `relative`.</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td><code>white-space: nowrap</code></td>
+                        <td>Gagal / Dibatalkan</td>
+                        <td>Teks meluber menembus batas kotak pada ukuran layar sempit.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</body>
+
+</html>

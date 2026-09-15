@@ -1,0 +1,82 @@
+<!--
+  Nama          : Muhammad Farand Danendra
+  NIM           : 2510514025
+  Kelas         : A - Sains Data
+  Berkas        : galeri.html
+  WARNA_UTAMA   : #514025
+  WARNA_AKSEN   : #520415
+  N_EKSPLORASI  : 6
+  Tanggal ketik : 08/09/2026
+-->
+<html>
+
+<head>
+    <title>SIPRAK - Galeri Kegiatan</title>
+    <link rel="stylesheet" href="css/gaya.css">
+</head>
+
+<body>
+    <iframe class="header-frame" src="atas.html" title="Kepala Halaman SIPRAK"></iframe>
+    <nav class="menu-tabel" aria-label="Navigasi utama">
+        <a href="index.html" accesskey="b">Beranda</a>
+        <a href="profil.html" accesskey="p">Profil</a>
+        <a href="jadwal.html" accesskey="j">Jadwal</a>
+        <a class="aktif" href="galeri.html" accesskey="g">Galeri</a>
+        <a href="daftar.html" accesskey="d">Pendaftaran</a>
+        <a href="jurnal.html" accesskey="r">Jurnal Eksplorasi</a>
+        <a href="profil.html#prestasi" accesskey="t">Prestasi</a>
+        <a href="https://www.upnvj.ac.id" accesskey="u" target="_blank">UPNVJ Resmi</a>
+        <a href="mailto:muhammadpanji@upnvj.ac.id" accesskey="m">Mail Dosen</a>
+    </nav>
+
+    <div id="isi">
+        <h2>GALERI KEGIATAN PERKULIAHAN / PRAKTIKUM</h2>
+        <p class="sub-keterangan">Muhammad Farand Danendra - NIM 2510514025</p>
+
+        <img class="gambar-kegiatan" src="gambar/kegiatan.jpg"
+            alt="Foto kegiatan perkuliahan atau praktikum" usemap="#peta">
+
+        <map name="peta">
+            <area shape="rect" coords="182,54,445,200" href="#laptop" alt="Layar laptop" title="Layar laptop">
+            <area shape="circle" coords="395,364,14" href="#koin" alt="Koin" title="Koin">
+            <area shape="poly" coords="488,288,505,282,511,286,517,283,539,290,563,328,572,353,539,376,493,341" href="#mouse" alt="Mouse" title="Mouse">
+        </map>
+
+        <br><br>
+
+        <table class="tabel-peta"
+            title="Keterangan objek pada peta gambar kegiatan perkuliahan">
+            <caption><b>Keterangan Peta Gambar</b></caption>
+            <thead>
+                <tr class="judul">
+                    <th>Objek</th>
+                    <th>Bentuk Area</th>
+                    <th>Alasan Pemilihan Koordinat</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a id="laptop"></a>Layar laptop</td>
+                    <td>rect</td>
+                    <td>Bentuk persegi dipilih karena layar berbentuk kotak, koordinat kiri-atas (182,54)
+                        dan kanan-bawah (445,200) diukur mengikuti tepi bingkai layar pada foto asli.</td>
+                </tr>
+                <tr>
+                    <td><a id="koin"></a>Koin</td>
+                    <td>circle</td>
+                    <td>Bentuk lingkaran dipilih karena koin berbentuk bulat, titik pusat
+                        (395,364) diukur pada tengah koin dan radius 14 piksel mengikuti tepi koin pada
+                        foto asli.</td>
+                </tr>
+                <tr>
+                    <td><a id="mouse"></a>Mouse</td>
+                    <td>poly</td>
+                    <td>Bentuk poligon dipilih karena bentuk mouse melengkung tidak beraturan, sehingga serangkaian
+                        titik koordinat diukur mengikuti kontur tepi mouse pada foto asli.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
