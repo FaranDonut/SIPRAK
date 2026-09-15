@@ -213,14 +213,15 @@
         <br>
 
         <!-- Sesuai D.2.c & D.3.c: Tombol pemanggil fungsi totalSKS dan cekNilai -->
-        <div style="background-color: #FFFFFF; border: 1px solid var(--warna-utama); padding: 16px; border-radius: 6px; width: 60%; box-sizing: border-box;">
-            <h3 style="margin-top: 0;">Kalkulator SKS &amp; Status Kelulusan Nilai</h3>
-            <p style="font-size: 0.9em; margin-bottom: 14px; line-height: 1.4;">
+        <div class="kotak-kalkulator">
+            <h3>Kalkulator SKS &amp; Status Kelulusan Nilai</h3>
+            <p class="keterangan-kalkulator">
                 Fitur ini memanggil fungsi <code>totalSKS(a, b, c)</code> untuk 3 mata kuliah pilihan KRS dan fungsi <code>cekNilai(nilai, batas)</code> dengan ambang batas kelulusan <code>BATAS_LULUS = 61</code>.
             </p>
-            <button type="button" onclick="hitungSKSMahasiswa();" style="background-color: var(--warna-aksen); color: #FFFFFF; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; font-weight: bold;">
+            <button type="button" class="tombol-form" onclick="jalankanKalkulator();">
                 Hitung SKS &amp; Uji Kelulusan Nilai
             </button>
+            <p id="hasilSKS" class="hasil-kalkulator">Hasil akan tampil di sini.</p>
         </div>
     </div>
 

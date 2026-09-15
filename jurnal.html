@@ -61,18 +61,19 @@ console.log(5, ubah(b) + ubah(b));
 console.log(6, typeof c);</code></pre>
 
             <p>
-                <button type="button" onclick="jalankanTabelTelusur();" style="background-color: var(--warna-aksen); color: #FFFFFF; border: none; padding: 9px 18px; border-radius: 4px; cursor: pointer; font-weight: bold;">
+                <button type="button" class="tombol-form" onclick="jalankanTabelTelusur();">
                     ▶ Eksekusi Kode ke Panel Console (F12)
                 </button>
             </p>
+            <p>Setelah tombol dijalankan, buka <strong>F12 &gt; Console</strong> dan ambil tangkapan layar yang menampilkan keenam hasil di bawah.</p>
 
-            <table class="tabel-rekap" style="width: 100%;">
+            <table class="tabel-rekap tabel-telusur">
                 <caption><b>Tabel Telusur Prediksi vs Hasil Sebenarnya</b></caption>
                 <thead>
                     <tr class="judul">
-                        <th style="width: 5%;">No</th>
-                        <th style="width: 15%;">Ramalan saya</th>
-                        <th style="width: 15%;">Hasil sebenarnya</th>
+                        <th class="kolom-no">No</th>
+                        <th class="kolom-ramalan">Ramalan saya</th>
+                        <th class="kolom-hasil">Hasil sebenarnya</th>
                         <th>Penjelasan bila berbeda</th>
                     </tr>
                 </thead>

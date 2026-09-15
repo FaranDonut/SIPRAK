@@ -33,11 +33,11 @@
     <div id="isi">
         <h2>FORMULIR PENDAFTARAN ASISTEN PRAKTIKUM</h2>
         
-        <p class="contoh-inline" style="font-style: italic;">Contoh satu inline style pada halaman Pendaftaran.</p>
+        <p class="contoh-inline">Contoh keterangan pada halaman Pendaftaran.</p>
 
         <!-- Sesuai PDF D.4.d: Form dihubungkan dengan onsubmit="return validasiFormulir();" -->
         <form method="post" action="" enctype="text/plain" onsubmit="return validasiFormulir();">
-            <input type="hidden" id="nim" name="nim" value="2510514025">
+            <input type="text" id="nim" name="nim" value="2510514025">
 
             <fieldset>
                 <legend>Data Diri</legend>
@@ -119,3 +119,25 @@
                                     <option value="Interaksi Manusia dan Komputer">Interaksi Manusia dan Komputer</option>
                                     <option value="Analisis Big Data">Analisis Big Data</option>
                                     <option value="Pemrograman Web">Pemrograman Web</option>
+                                <option value="Pembelajaran Mesin">Pembelajaran Mesin</option>
+                                <option value="Basis Data Lanjut">Basis Data Lanjut</option>
+                                <option value="Rekayasa Data">Rekayasa Data</option>
+                                <option value="Data Mining">Data Mining</option>
+                                </optgroup>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+
+            <p>
+                <button type="submit" class="tombol-form">Kirim Pendaftaran</button>
+                <button type="reset" class="tombol-form tombol-reset">Reset</button>
+            </p>
+        </form>
+    </div>
+
+    <script src="js/skrip.js"></script>
+</body>
+
+</html>

@@ -152,3 +152,16 @@ legend { background-color: var(--warna-utama); color: #FFFFFF; padding: 4px 10px
 .bagian-refleksi ol li { margin-bottom: 14px; line-height: 1.5; }
 code { background-color: #EEE; padding: 2px 5px; border-radius: 3px; font-family: Consolas, monospace; }
 footer { text-align: center; margin-top: 30px; font-size: 0.9em; color: #777777; border-top: 1px solid #DDDDDD; padding: 15px 0 5px 0; }
+
+/* ===== Komponen TP4 ===== */
+.contoh-inline { font-style: italic; }
+.kotak-kalkulator { background-color: #FFFFFF; border: 1px solid var(--warna-utama); padding: 16px; border-radius: 6px; width: 60%; box-sizing: border-box; }
+.kotak-kalkulator h3 { margin-top: 0; }
+.keterangan-kalkulator { font-size: 0.9em; margin-bottom: 14px; line-height: 1.4; }
+.tombol-form { background-color: var(--warna-aksen); color: #FFFFFF; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; font-weight: bold; }
+.tombol-reset { margin-left: 8px; }
+.hasil-kalkulator { margin-top: 14px; padding: 10px; background-color: #F4F4F4; border-left: 4px solid var(--warna-utama); }
+.tabel-telusur { width: 100%; }
+
+.tabel-telusur .kolom-no { width: 5%; }
+.tabel-telusur .kolom-ramalan, .tabel-telusur .kolom-hasil { width: 15%; }
