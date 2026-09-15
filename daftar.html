@@ -15,76 +15,81 @@
 </head>
 
 <body>
-     <iframe class="header-frame" src="atas.html" title="Kepala Halaman SIPRAK"></iframe>
-    <nav class="menu-tabel" aria-label="Navigasi utama">
-        <a href="index.html" accesskey="b">Beranda</a>
-        <a href="profil.html" accesskey="p">Profil</a>
-        <a href="jadwal.html" accesskey="j">Jadwal</a>
-        <a href="galeri.html" accesskey="g">Galeri</a>
-        <a class="aktif" href="daftar.html" accesskey="d">Pendaftaran</a>
-        <a href="jurnal.html" accesskey="r">Jurnal Eksplorasi</a>
-        <a href="profil.html#prestasi" accesskey="t">Prestasi</a>
-        <a href="https://www.upnvj.ac.id" accesskey="u" target="_blank">UPNVJ Resmi</a>
-        <a href="mailto:muhammadpanji@upnvj.ac.id" accesskey="m">Mail Dosen</a>
+    <div id="kepala-situs">
+        <b>Muhammad Farand Danendra</b><br>
+        NIM: 2510514025 | Kelas: A - Sains Data | Semester III
+        <div class="slogan">"hehehe jawa"</div>
+    </div>
+
+    <nav id="navigasi-utama">
+        <ul>
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="profil.html">Profil</a></li>
+            <li><a href="jadwal.html">Jadwal</a></li>
+            <li><a href="galeri.html">Galeri</a></li>
+            <li><a href="daftar.html" class="aktif">Daftar Asisten</a></li>
+            <li><a href="jurnal.html">Jurnal Eksplorasi</a></li>
+            <li><a href="profil.html#prestasi">Prestasi</a></li>
+            <li><a href="https://www.upnvj.ac.id" target="_blank">UPNVJ Resmi</a></li>
+            <li><a href="mailto:muhammadpanji@upnvj.ac.id">Mail Dosen</a></li>
+        </ul>
     </nav>
 
-    <div id="isi">
-        <h2>FORMULIR PENDAFTARAN ASISTEN PRAKTIKUM</h2>
-        
-        <p class="contoh-inline" style="font-style: italic;">Contoh satu inline style pada halaman Pendaftaran.</p>
+    <div id="konten">
+        <h1>Formulir Pendaftaran Asisten Praktikum</h1>
 
-        <form method="post" action="" enctype="text/plain">
+        <form method="post" action="" enctype="text/plain" onsubmit="return validasiFormulir();">
             <input type="hidden" id="nim" name="nim" value="2510514025">
 
             <fieldset>
                 <legend>Data Diri</legend>
                 <table class="tabel-form">
                     <tr>
-                        <td class="label-form"><label for="nama" accesskey="n"><u>N</u>ama Lengkap</label></td>
+                        <td><label for="nama" accesskey="n"><u>N</u>ama Lengkap</label></td>
                         <td><input type="text" id="nama" name="nama" required tabindex="1"></td>
                     </tr>
                     <tr>
-                        <td class="label-form"><label for="nama_Ronly">Nama Terdaftar</label></td>
-                        <td><input type="text" id="nama_Ronly" name="nama_Ronly" value="Muhammad Farand Danendra" readonly tabindex="2"></td>
+                        <td><label for="nama_Ronly">Nama Terdaftar</label></td>
+                        <td><input type="text" id="nama_Ronly" name="nama_Ronly"
+                                value="Muhammad Farand Danendra" readonly tabindex="2"></td>
                     </tr>
                     <tr>
-                        <td class="label-form"><label for="username" accesskey="k"><u>U</u>sername</label></td>
+                        <td><label for="username" accesskey="u"><u>U</u>sername</label></td>
                         <td><input type="text" id="username" name="username" required tabindex="3"></td>
                     </tr>
                     <tr>
-                        <td class="label-form"><label for="password">Password</label></td>
+                        <td><label for="password">Password</label></td>
                         <td><input type="password" id="password" name="password" required tabindex="4"></td>
                     </tr>
                     <tr>
-                        <td class="label-form"><label for="email" accesskey="e"><u>E</u>mail</label></td>
+                        <td><label for="email" accesskey="e"><u>E</u>mail</label></td>
                         <td><input type="email" id="email" name="email" required tabindex="5"></td>
                     </tr>
                     <tr>
-                        <td class="label-form"><label for="telepon">Nomor Telepon</label></td>
-                        <td><input type="tel" id="telepon" name="telepon" pattern="[0-9]{10,13}" required tabindex="6"></td>
+                        <td><label for="telepon">Nomor Telepon</label></td>
+                        <td><input type="tel" id="telepon" name="telepon" pattern="[0-9]{10,13}" required
+                                tabindex="6"></td>
                     </tr>
                     <tr>
-                        <td class="label-form"><label for="ipk">IPK Saat Ini</label></td>
-                        <td><input type="number" id="ipk" name="ipk" min="0" max="4" step="0.01" tabindex="7"></td>
+                        <td><label for="ipk">IPK Saat Ini</label></td>
+                        <td><input type="number" id="ipk" name="ipk" min="0" max="4" tabindex="7"></td>
                     </tr>
                     <tr>
-                        <td class="label-form"><label for="tgl_lahir">Tanggal Lahir</label></td>
+                        <td><label for="tgl_lahir">Tanggal Lahir</label></td>
                         <td><input type="date" id="tgl_lahir" name="tgl_lahir" tabindex="8"></td>
                     </tr>
                     <tr>
-                        <td class="label-form"><label for="foto">Unggah Pas Foto</label></td>
+                        <td><label for="foto">Unggah Pas Foto</label></td>
                         <td><input type="file" id="foto" name="foto" accept="image/*" tabindex="9"></td>
                     </tr>
                 </table>
             </fieldset>
 
-            <br>
-
             <fieldset>
                 <legend>Pilihan Praktikum</legend>
                 <table class="tabel-form">
                     <tr>
-                        <td class="label-form">Jenjang yang Dilamar</td>
+                        <td>Jenjang yang Dilamar</td>
                         <td>
                             <input type="radio" id="asprak" name="jenjang" value="Asisten Praktikum" tabindex="10">
                             <label for="asprak">Asisten Praktikum</label><br>
@@ -95,7 +100,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="label-form">Hari yang Tersedia</td>
+                        <td>Hari yang Tersedia</td>
                         <td>
                             <input type="checkbox" id="senin" name="hari_senin" value="Senin" tabindex="13">
                             <label for="senin">Senin</label>
@@ -108,12 +113,13 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="label-form"><label for="matkul_dikuasai">Mata kuliah yang paling Anda kuasai</label></td>
+                        <td><label for="matkul_dikuasai">Mata kuliah yang paling Anda kuasai semester ini</label></td>
                         <td>
                             <select id="matkul_dikuasai" name="matkul_dikuasai" tabindex="17">
                                 <optgroup label="KRS Semester Berjalan">
                                     <option value="Bahasa Inggris">Bahasa Inggris</option>
-                                    <option value="Interaksi Manusia dan Komputer">Interaksi Manusia dan Komputer</option>
+                                    <option value="Interaksi Manusia dan Komputer">Interaksi Manusia dan Komputer
+                                    </option>
                                     <option value="Analisis Big Data">Analisis Big Data</option>
                                     <option value="Pemrograman Web">Pemrograman Web</option>
                                     <option value="Pembelajaran Mesin">Pembelajaran Mesin</option>
@@ -125,9 +131,9 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="label-form"><label for="matkul_dilamar">Mata kuliah yang Dilamar</label></td>
+                        <td><label for="matkul_dilamar">Mata kuliah yang Dilamar Sebagai Asisten</label></td>
                         <td>
-                            <select id="matkul_dilamar" name="matkul_dilamar" multiple class="matkul-select" tabindex="18">
+                            <select id="matkul_dilamar" name="matkul_dilamar" multiple size="5" tabindex="18">
                                 <option value="Bahasa Inggris">Bahasa Inggris</option>
                                 <option value="Interaksi Manusia dan Komputer">Interaksi Manusia dan Komputer</option>
                                 <option value="Analisis Big Data">Analisis Big Data</option>
@@ -137,29 +143,29 @@
                                 <option value="Rekayasa Data">Rekayasa Data</option>
                                 <option value="Data Mining">Data Mining</option>
                             </select><br>
-                            <small>(tahan tombol Ctrl untuk memilih lebih dari satu)</small>
+                            <small>(tahan Ctrl untuk memilih lebih dari satu)</small>
                         </td>
                     </tr>
                 </table>
             </fieldset>
 
-            <br>
-
             <fieldset>
                 <legend>Motivasi</legend>
                 <table class="tabel-form">
                     <tr>
-                        <td class="label-form"><label for="alasan">Alasan Mendaftar</label></td>
+                        <td><label for="alasan">Alasan Mendaftar</label></td>
                         <td><textarea id="alasan" name="alasan" rows="6" cols="50" tabindex="19"></textarea></td>
                     </tr>
                 </table>
             </fieldset>
 
-            <br>
-            <input type="submit" value="Kirim Pendaftaran" tabindex="20">
-            <input type="reset" value="Ulangi Isi Formulir" tabindex="21">
+            <p>
+                <input type="submit" value="Kirim Pendaftaran" tabindex="20">
+                <input type="reset" value="Ulangi Isi Formulir" tabindex="21">
+            </p>
         </form>
     </div>
+
     <script src="js/skrip.js"></script>
 </body>
 
