@@ -8,14 +8,16 @@
   N_EKSPLORASI  : 6
   Tanggal ketik : 08/09/2026
 -->
-
-<html>
+<!DOCTYPE html>
+<html lang="id">
 
 <head>
+    <meta charset="UTF-8">
     <title>SIPRAK - Beranda</title>
     <link rel="stylesheet" href="css/gaya.css">
 </head>
 
+<!-- Sesuai D.1.c: dipanggil melalui onload pada halaman beranda -->
 <body onload="sapaPengunjung('Selamat datang');">
     <iframe class="header-frame" src="atas.html" title="Kepala Halaman SIPRAK"></iframe>
 
@@ -39,13 +41,15 @@
             <h3>Ringkasan Situs</h3>
             <ul>
                 <li><strong>Profil:</strong> Berisi biodata praktikan, latar belakang pendidikan, dan riwayat prestasi.</li>
-                <li><strong>Jadwal:</strong> Informasi jadwal praktikum perkuliahan semester berjalan.</li>
-                <li><strong>Galeri:</strong> Dokumentasi kegiatan praktikum ada pemetaan gambar interaktif (Image Map).</li>
-                <li><strong>Pendaftaran:</strong> Formulir pendaftaran calon Asisten Praktikum.</li>
-                <li><strong>Jurnal Eksplorasi:</strong> isinya ujicoba css (duarr)</li>
+                <li><strong>Jadwal:</strong> Informasi jadwal praktikum perkuliahan semester berjalan dan kalkulator interaktif SKS/kelulusan.</li>
+                <li><strong>Galeri:</strong> Dokumentasi kegiatan praktikum dengan pemetaan gambar interaktif (Image Map).</li>
+                <li><strong>Pendaftaran:</strong> Formulir pendaftaran asisten praktikum dilengkapi validasi client-side JavaScript.</li>
+                <li><strong>Jurnal Eksplorasi:</strong> Dokumentasi hasil telusur kode, perburuan bug, dan refleksi JavaScript TP4.</li>
             </ul>
         </section>
     </div>
+
+    <!-- Script eksternal tepat sebelum penutup body -->
     <script src="js/skrip.js"></script>
 </body>
 

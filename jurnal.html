@@ -8,11 +8,15 @@
   N_EKSPLORASI  : 6
   Tanggal ketik : 08/09/2026
 -->
-<html>
+<!DOCTYPE html>
+<html lang="id">
+
 <head>
+    <meta charset="UTF-8">
     <title>SIPRAK - Jurnal Eksplorasi &amp; Refleksi JS</title>
     <link rel="stylesheet" href="css/gaya.css">
 </head>
+
 <body>
     <iframe class="header-frame" src="atas.html" title="Kepala Halaman SIPRAK"></iframe>
 
@@ -29,7 +33,7 @@
     </nav>
 
     <div id="isi">
-        <h2>Jurnal Praktikum JavaScript (TP4)</h2>
+        <h2>JURNAL PRAKTIKUM JAVASCRIPT (TP4)</h2>
         <p class="sub-keterangan">
             Muhammad Farand Danendra - NIM 2510514025 (ANGKA_A = 2, ANGKA_B = 5, BATAS_LULUS = 61)
         </p>
@@ -37,7 +41,7 @@
         <!-- BAGIAN KEDUA: TABEL TELUSUR -->
         <section class="bagian-ringkasan">
             <h3>Bagian Kedua: Tabel Telusur</h3>
-            <p>Kode uji coba yang dianalisis:</p>
+            <p>Potongan kode uji coba yang dianalisis:</p>
             <pre><code>var a = 2;
 var b = 5;
 var c = "" + a;
@@ -57,7 +61,7 @@ console.log(5, ubah(b) + ubah(b));
 console.log(6, typeof c);</code></pre>
 
             <p>
-                <button type="button" onclick="jalankanTabelTelusur();" style="background-color: var(--warna-aksen); color: #FFFFFF; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer;">
+                <button type="button" onclick="jalankanTabelTelusur();" style="background-color: var(--warna-aksen); color: #FFFFFF; border: none; padding: 9px 18px; border-radius: 4px; cursor: pointer; font-weight: bold;">
                     ▶ Eksekusi Kode ke Panel Console (F12)
                 </button>
             </p>
@@ -77,37 +81,37 @@ console.log(6, typeof c);</code></pre>
                         <td class="tengah">1</td>
                         <td class="tengah"><code>7</code></td>
                         <td class="tengah"><code>7</code></td>
-                        <td>Sesuai. Variabel <code>a</code> (2) dan <code>b</code> (5) bertipe angka sehingga operator <code>+</code> melakukan penjumlahan matematika biasa (2 + 5 = 7).</td>
+                        <td>Sesuai. Variabel <code>a</code> bernilai angka 2 dan <code>b</code> bernilai angka 5, sehingga operator <code>+</code> melakukan penjumlahan aritmetika numerik biasa (2 + 5 = 7).</td>
                     </tr>
                     <tr>
                         <td class="tengah">2</td>
                         <td class="tengah"><code>7</code></td>
                         <td class="tengah"><code>25</code></td>
-                        <td><strong>Meleset.</strong> Variabel <code>c</code> bernilai <code>"" + 2</code> sehingga bertipe string <code>"2"</code>. Pertemuan string <code>"2"</code> dengan angka <code>5</code> pada operator <code>+</code> memicu konkatenasi (penggabungan teks) menjadi <code>"25"</code>.</td>
+                        <td><strong>Meleset.</strong> Saya mengira hasilnya 7. Namun, variabel <code>c</code> bertipe string karena ekspresi <code>"" + 2</code> menghasilkan <code>"2"</code>. Ketika string <code>"2"</code> digabung dengan angka <code>5</code> lewat operator <code>+</code>, JavaScript melakukan konversi implisit (<em>type coercion</em>) menjadi konkatenasi teks sehingga menghasilkan <code>"25"</code>.</td>
                     </tr>
                     <tr>
                         <td class="tengah">3</td>
                         <td class="tengah"><code>3</code></td>
                         <td class="tengah"><code>2</code></td>
-                        <td><strong>Meleset.</strong> Awalnya saya menduga nilai <code>a</code> bertambah menjadi 3 setelah <code>ubah(a)</code>. Namun di JavaScript parameter primitif bersifat <em>pass-by-value</em>, sehingga <code>x = x + 1</code> hanya mengubah variabel lokal fungsi dan tidak memengaruhi nilai <code>a</code> di luar fungsi.</td>
+                        <td><strong>Meleset.</strong> Saya mengira nilai <code>a</code> berubah menjadi 3 setelah baris <code>ubah(a)</code>. Kenyataannya, tipe data primitif pada JavaScript dilewatkan secara <em>pass-by-value</em>. Operasi <code>x = x + 1</code> di dalam fungsi hanya mengubah parameter lokal <code>x</code>, tanpa mengubah nilai asli variabel <code>a</code> di luar fungsi.</td>
                     </tr>
                     <tr>
                         <td class="tengah">4</td>
                         <td class="tengah"><code>3</code></td>
                         <td class="tengah"><code>3</code></td>
-                        <td>Sesuai. Variabel <code>d</code> menampung nilai return dari <code>ubah(2)</code>, yaitu 2 + 1 = 3.</td>
+                        <td>Sesuai. Variabel <code>d</code> menampung nilai kembalian (<em>return value</em>) fungsi <code>ubah(2)</code>, yaitu 2 + 1 = 3.</td>
                     </tr>
                     <tr>
                         <td class="tengah">5</td>
                         <td class="tengah"><code>12</code></td>
                         <td class="tengah"><code>12</code></td>
-                        <td>Sesuai. Pemanggilan <code>ubah(5)</code> menghasilkan 6. Dua pemanggilan tersebut dijumlahkan (6 + 6 = 12).</td>
+                        <td>Sesuai. Pemanggilan pertama <code>ubah(5)</code> menghasilkan 6, dan pemanggilan kedua menghasilkan 6. Penjumlahan aritmetika keduanya adalah 6 + 6 = 12.</td>
                     </tr>
                     <tr>
                         <td class="tengah">6</td>
                         <td class="tengah"><code>string</code></td>
                         <td class="tengah"><code>string</code></td>
-                        <td>Sesuai. Variabel <code>c</code> adalah data teks, sehingga <code>typeof c</code> mengembalikan nilai <code>"string"</code>.</td>
+                        <td>Sesuai. Variabel <code>c</code> berjenis data teks, sehingga operator <code>typeof c</code> mengembalikan string <code>"string"</code>.</td>
                     </tr>
                 </tbody>
             </table>
@@ -122,38 +126,40 @@ console.log(6, typeof c);</code></pre>
             <div class="item-tantangan">
                 <h4>1. Analisis Kode Rusak 1</h4>
                 <ul>
-                    <li><strong>Gejala yang terlihat:</strong> Peringatan alert tidak pernah muncul saat halaman web dimuat.</li>
-                    <li><strong>Letak barisnya:</strong> Pada baris definisi fungsi <code>function Sapa()</code> dan baris pemanggil <code>onload="sapa();"</code>.</li>
-                    <li><strong>Perbaikan yang dilakukan:</strong> Menyamakan nama fungsi menjadi huruf kecil: <code>function sapa() { ... }</code>.</li>
-                    <li><strong>Penjelasan penyebab:</strong> JavaScript bersifat <em>case-sensitive</em>. Pemanggilan <code>sapa()</code> mencari fungsi berhuruf kecil yang belum terdefinisi.</li>
-                    <li><strong>Pesan pada Console:</strong> Muncul error merah <code>Uncaught ReferenceError: sapa is not defined</code>.</li>
+                    <li><strong>Gejala yang terlihat:</strong> Alert tidak muncul saat halaman dimuat ke peramban.</li>
+                    <li><strong>Letak barisnya:</strong> Deklarasi nama fungsi <code>function Sapa()</code> (berawalan huruf kapital) dan atribut pemanggil <code>onload="sapa();"</code> (berawalan huruf kecil).</li>
+                    <li><strong>Perbaikan yang dilakukan:</strong> Menyamakan penulisan nama fungsi menjadi konsisten berhuruf kecil: <code>function sapa() { alert("Selamat datang"); }</code>.</li>
+                    <li><strong>Penjelasan penyebab:</strong> JavaScript bersifat <em>case-sensitive</em> (membedakan huruf besar dan kecil secara mutlak). Browser mencari fungsi <code>sapa()</code> yang belum didefinisikan.</li>
+                    <li><strong>Pesan pada Console:</strong> Menghasilkan galat merah: <code>Uncaught ReferenceError: sapa is not defined</code>.</li>
                 </ul>
             </div>
 
             <div class="item-tantangan">
                 <h4>2. Analisis Kode Rusak 2</h4>
                 <ul>
-                    <li><strong>Gejala yang terlihat:</strong> Input angka 5 dan 3 menghasilkan alert "Jumlahnya 53", bukan 8.</li>
-                    <li><strong>Letak barisnya:</strong> Baris <code>alert("Jumlahnya " + x + y);</code> dan pembacaan prompt.</li>
-                    <li><strong>Perbaikan yang dilakukan:</strong> Mengubah input teks menjadi angka menggunakan <code>Number()</code>:
-                        <pre><code>var x = Number(prompt("Angka pertama"));
-var y = Number(prompt("Angka kedua"));
-var total = x + y;
-alert("Jumlahnya " + total);</code></pre>
+                    <li><strong>Gejala yang terlihat:</strong> Ketika pengguna memasukkan angka 5 dan 3, pesan alert menampilkan "Jumlahnya 53", bukannya 8.</li>
+                    <li><strong>Letak barisnya:</strong> Baris pembacaan input <code>prompt()</code> dan baris penjumlahan teks <code>alert("Jumlahnya " + x + y);</code>.</li>
+                    <li><strong>Perbaikan yang dilakukan:</strong> Melakukan konversi eksplisit nilai kembalian prompt menjadi angka numerik dengan <code>Number()</code>:
+                        <pre><code>function hitung() {
+    var x = Number(prompt("Angka pertama"));
+    var y = Number(prompt("Angka kedua"));
+    var total = x + y;
+    alert("Jumlahnya " + total);
+}</code></pre>
                     </li>
-                    <li><strong>Penjelasan penyebab:</strong> Fungsi <code>prompt()</code> selalu mengembalikan tipe data string. Operator <code>+</code> pada string melakukan penggabungan teks ("5" + "3" = "53").</li>
-                    <li><strong>Pesan pada Console:</strong> Tidak memunculkan pesan error apapun di Console (*silent logic error*).</li>
+                    <li><strong>Penjelasan penyebab:</strong> Fungsi bawaan <code>prompt()</code> selalu mengembalikan tipe data string. Operator <code>+</code> antara dua string melakukan penggabungan string (<em>string concatenation</em>), sehingga "5" + "3" menghasilkan "53".</li>
+                    <li><strong>Pesan pada Console:</strong> Tidak memunculkan pesan error apapun (<em>silent logic error</em>).</li>
                 </ul>
             </div>
 
             <div class="item-tantangan">
                 <h4>3. Analisis Kode Rusak 3</h4>
                 <ul>
-                    <li><strong>Gejala yang terlihat:</strong> Pemanggilan <code>cek(20)</code> tetap menampilkan "Nilai sempurna".</li>
-                    <li><strong>Letak barisnya:</strong> Baris kondisi <code>if (nilai = 100)</code>.</li>
-                    <li><strong>Perbaikan yang dilakukan:</strong> Mengganti operator penugasan menjadi operator pembanding: <code>if (nilai == 100)</code>.</li>
-                    <li><strong>Penjelasan penyebab:</strong> Tanda sama dengan satu (<code>=</code>) adalah penugasan (*assignment*). Pernyataan <code>nilai = 100</code> mengubah nilai menjadi 100, yang dievaluasi sebagai kondisi benar (*truthy*), sehingga blok <code>if</code> selalu dijalankan.</li>
-                    <li><strong>Pesan pada Console:</strong> Tidak memunculkan pesan error di Console karena secara sintaks penugasan di dalam if tetap sah.</li>
+                    <li><strong>Gejala yang terlihat:</strong> Saat fungsi dipanggil dengan <code>cek(20)</code>, sistem tetap menampilkan "Nilai sempurna".</li>
+                    <li><strong>Letak barisnya:</strong> Baris kondisi percabangan <code>if (nilai = 100)</code>.</li>
+                    <li><strong>Perbaikan yang dilakukan:</strong> Mengganti operator penugasan tunggal (<code>=</code>) menjadi operator perbandingan kesetaraan (<code>===</code> atau <code>==</code>): <code>if (nilai === 100)</code>.</li>
+                    <li><strong>Penjelasan penyebab:</strong> Simbol <code>=</code> adalah operator penugasan (<em>assignment</em>). Sintaks <code>nilai = 100</code> mengubah isi variabel menjadi 100, lalu angka 100 dievaluasi sebagai nilai <em>truthy</em>, sehingga blok kode <code>if</code> selalu dijalankan terlepas dari nilai masukan awal.</li>
+                    <li><strong>Pesan pada Console:</strong> Tidak memunculkan pesan error sama sekali karena penugasan di dalam ekspresi if secara sintaksis tetap sah.</li>
                 </ul>
             </div>
         </section>
@@ -162,28 +168,34 @@ alert("Jumlahnya " + total);</code></pre>
 
         <!-- BAGIAN KEEMPAT: REFLEKSI -->
         <section class="bagian-refleksi">
-            <h2>Bagian Keempat: Refleksi</h2>
+            <h3>Bagian Keempat: Refleksi</h3>
             <ol>
                 <li>
                     <strong>Baris Tabel Telusur yang Meleset &amp; Pelajarannya:</strong><br>
-                    Ramalan saya meleset pada baris 2 (<code>c + b</code> menghasilkan <code>25</code>) dan baris 3 (<code>a</code> tetap bernilai <code>2</code>). Pelajaran penting yang saya peroleh adalah bahwa JavaScript secara otomatis melakukan konversi tipe data ke string (*type coercion*) ketika operator <code>+</code> bertemu dengan data teks. Selain itu, saya memahami bahwa passing parameter primitif ke dalam fungsi bersifat <em>pass-by-value</em>, sehingga modifikasi parameter lokal di dalam fungsi tidak memengaruhi variabel aslinya di luar fungsi.
+                    Ramalan saya meleset pada <strong>baris 2</strong> (<code>c + b</code> menghasilkan <code>25</code>) dan <strong>baris 3</strong> (<code>a</code> tetap <code>2</code>). Pelajaran penting yang saya peroleh adalah bahwa JavaScript secara otomatis mengubah tipe data menjadi string saat operator <code>+</code> menemukan operand berupa teks. Selain itu, passing parameter untuk tipe data primitif bersifat <em>pass-by-value</em> (menyalin nilai), sehingga manipulasi nilai pada variabel fungsi lokal tidak akan mengubah variabel di lingkup global/luar.
                 </li>
                 <li>
                     <strong>Kode Rusak yang Paling Sulit Ditemukan Penyebabnya:</strong><br>
-                    Kode Rusak 3 adalah yang paling sulit ditemukan. Hal ini karena penulisan <code>if (nilai = 100)</code> tidak menghasilkan pesan error sama sekali di panel Console (*silent bug*). Jika hanya membaca kode sepintas, tanda sama dengan satu terlihat sangat mirip dengan pembanding kesamaan, padahal fungsinya justru mengubah nilai variabel dan selalu bernilai *true*.
+                    <strong>Kode Rusak 3</strong> adalah yang paling berbahaya dan sulit ditemukan. Kesalahan penulisan satu tanda sama dengan (<code>=</code> alih-alih <code>==</code>) tidak memicu galat sintaks di Console peramban (<em>silent bug</em>). Secara logika program berjalan lancar, namun seluruh percabangan selalu masuk ke kondisi benar akibat sifat nilai <em>truthy</em> pada angka selain nol.
                 </li>
                 <li>
                     <strong>Perbedaan Fungsi dengan Alert vs Fungsi dengan Return:</strong><br>
-                    Fungsi <code>sapaPengunjung()</code> menggunakan <code>alert</code> untuk menampilkan pesan langsung ke pengguna tanpa menghasilkan nilai yang bisa diolah lagi (bersifat prosedur/aksi langsung). Sebaliknya, fungsi <code>totalSKS()</code> dan <code>cekNilai()</code> menggunakan <code>return</code> untuk mengembalikan data hasil kalkulasi murni. Nilai kembalian tersebut dapat disimpan ke variabel lain, digabungkan dengan teks lain, atau diuji lebih lanjut sebelum ditampilkan kepada pengguna.
+                    Berdasarkan implementasi kode saya pada Bagian D:
+                    <ul>
+                        <li>Fungsi <code>sapaPengunjung()</code> hanya menjalankan aksi (prosedur) berupa dialog popup melalui <code>alert</code>, tanpa memberikan nilai kembali (mengembalikan <code>undefined</code>) sehingga nilainya tidak dapat diolah kembali.</li>
+                        <li>Sebaliknya, fungsi <code>totalSKS()</code> dan <code>cekNilai()</code> menggunakan <code>return</code> untuk mengirimkan hasil kalkulasi numerik dan string kembali ke pemanggilnya. Nilai tersebut bersifat modular, bersih dari efek samping (<em>side-effects</em>), dan dapat diolah kembali, dirangkai menjadi teks lain, atau diuji secara otomatis.</li>
+                    </ul>
                 </li>
                 <li>
                     <strong>Urgensi Pemeriksaan di Sisi Klien (Client-Side Validation):</strong><br>
-                    Pemeriksaan di sisi klien tetap sangat berguna dan penting terutama untuk *User Experience* (UX). Validasi JavaScript langsung memberi tahu pengguna seketika bila ada kesalahan input (seperti nama kosong atau panjang NIM yang tidak tepat) tanpa perlu memuat ulang halaman atau membuang lalu lintas jaringan (*bandwidth*) ke server. Meskipun validasi sisi server tetap wajib demi keamanan akhir, validasi sisi klien bertindak sebagai lini pertahanan pertama yang efisien dan responsif bagi pengguna.
+                    Meskipun validasi sisi klien dapat dilewati dengan menonaktifkan JavaScript atau melalui rekayasa jaringan, validasi di sisi klien <strong>tetap sangat penting dan wajib diterapkan</strong>. Fungsi utamanya adalah memaksimalkan kenyamanan pengguna (<em>User Experience/UX</em>) dengan memberikan umpan balik seketika tanpa jeda pemuatan ulang halaman (<em>page reload</em>), serta menghemat kuota lalu lintas jaringan (<em>bandwidth</em>) dan beban server. Validasi klien bertindak sebagai lini pertahanan pertama bagi pengguna, sementara validasi sisi server (<em>server-side validation</em>) tetap bertindak sebagai garda keamanan mutlak.
                 </li>
             </ol>
         </section>
     </div>
 
+    <!-- Script eksternal tepat sebelum penutup body -->
     <script src="js/skrip.js"></script>
 </body>
+
 </html>
