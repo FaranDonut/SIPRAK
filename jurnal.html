@@ -8,11 +8,9 @@
   N_EKSPLORASI  : 6
   Tanggal ketik : 08/09/2026
 -->
-<!DOCTYPE html>
-<html lang="id">
+<html>
 
 <head>
-    <meta charset="UTF-8">
     <title>SIPRAK - Jurnal Eksplorasi &amp; Refleksi JS</title>
     <link rel="stylesheet" href="css/gaya.css">
 </head>
@@ -124,41 +122,80 @@ console.log(6, typeof c);</code></pre>
 
             <div class="item-tantangan">
                 <h4>1. Analisis Kode Rusak 1</h4>
+                <p>Kode Asli pada Foto:</p>
+                <pre><code>&lt;head&gt;
+&lt;script&gt;
+function Sapa() {
+    alert("Selamat datang");
+}
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body onload="sapa();"&gt;</code></pre>
                 <ul>
-                    <li><strong>Gejala yang terlihat:</strong> Alert tidak muncul saat halaman dimuat ke peramban.</li>
-                    <li><strong>Letak barisnya:</strong> Deklarasi nama fungsi <code>function Sapa()</code> (berawalan huruf kapital) dan atribut pemanggil <code>onload="sapa();"</code> (berawalan huruf kecil).</li>
-                    <li><strong>Perbaikan yang dilakukan:</strong> Menyamakan penulisan nama fungsi menjadi konsisten berhuruf kecil: <code>function sapa() { alert("Selamat datang"); }</code>.</li>
-                    <li><strong>Penjelasan penyebab:</strong> JavaScript bersifat <em>case-sensitive</em> (membedakan huruf besar dan kecil secara mutlak). Browser mencari fungsi <code>sapa()</code> yang belum didefinisikan.</li>
-                    <li><strong>Pesan pada Console:</strong> Menghasilkan galat merah: <code>Uncaught ReferenceError: sapa is not defined</code>.</li>
+                    <li>Temuan Kesalahan: Ada perbedaan huruf pada nama fungsi. Fungsi yang dibuat bernama Sapa() (pakai 'S' besar), sedangkan yang dipanggil di dalam tag body adalah sapa(); (pakai 's' kecil).</li>
+                    <li>Perbaikan dan Hasil: Samakan hurufnya. Kita bisa mengubah pemanggilnya atau fungsi aslinya agar sama-sama menggunakan huruf kecil.
+                        <pre><code>&lt;head&gt;
+&lt;script&gt;
+function sapa() {
+    alert("Selamat datang");
+}
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body onload="sapa();"&gt;</code></pre>
+                        Hasil Eksekusi: Saat halaman web dimuat ulang, layar akan langsung memunculkan pop-up alert bertuliskan "Selamat datang".
+                    </li>
+                    <li>Penjelasan Penyebab: JavaScript itu punya sifat case-sensitive, artinya huruf besar dan huruf kecil itu dianggap beda secara mutlak. Jadi, kalau fungsinya dibuat dengan huruf kapital Sapa(), tapi pas dipanggil malah pakai huruf kecil sapa(), peramban atau browser bakal kebingungan karena merasa fungsi sapa() belum pernah didefinisikan sebelumnya. Pastikan penulisan namanya sama persis!</li>
                 </ul>
             </div>
 
             <div class="item-tantangan">
                 <h4>2. Analisis Kode Rusak 2</h4>
+                <p>Kode Asli pada Foto:</p>
+                <pre><code>function hitung() {
+    var x = prompt("Angka pertama");
+    var y = prompt("Angka kedua");
+    alert("Jumlahnya " + x + y);
+}
+/* Pengguna mengetik 5 dan 3, tetapi yang muncul bukan 8. */</code></pre>
                 <ul>
-                    <li><strong>Gejala yang terlihat:</strong> Ketika pengguna memasukkan angka 5 dan 3, pesan alert menampilkan "Jumlahnya 53", bukannya 8.</li>
-                    <li><strong>Letak barisnya:</strong> Baris pembacaan input <code>prompt()</code> dan baris penjumlahan teks <code>alert("Jumlahnya " + x + y);</code>.</li>
-                    <li><strong>Perbaikan yang dilakukan:</strong> Melakukan konversi eksplisit nilai kembalian prompt menjadi angka numerik dengan <code>Number()</code>:
+                    <li>Temuan Kesalahan: Hasil input dari prompt() otomatis dibaca oleh sistem sebagai teks atau string, bukan angka numerik. Saat digabungkan dengan simbol +, sistem malah merangkai teksnya, bukan menambahkannya secara matematika.</li>
+                    <li>Perbaikan dan Hasil: Kita harus mengubah tipe datanya dari teks menjadi angka terlebih dahulu menggunakan Number().
                         <pre><code>function hitung() {
-                        var x = Number(prompt("Angka pertama"));
-                        var y = Number(prompt("Angka kedua"));
-                        var total = x + y;
-                        alert("Jumlahnya " + total);
-                        }</code></pre>
+    var x = Number(prompt("Angka pertama"));
+    var y = Number(prompt("Angka kedua"));
+    var hasil = x + y;
+    alert("Jumlahnya " + hasil);
+}</code></pre>
+                        Hasil Eksekusi: Saat pengguna memasukkan angka 5 lalu 3, alert yang muncul sekarang sudah menampilkan logika hitungan yang benar, yaitu "Jumlahnya 8".
                     </li>
-                    <li><strong>Penjelasan penyebab:</strong> Fungsi bawaan <code>prompt()</code> selalu mengembalikan tipe data string. Operator <code>+</code> antara dua string melakukan penggabungan string (<em>string concatenation</em>), sehingga "5" + "3" menghasilkan "53".</li>
-                    <li><strong>Pesan pada Console:</strong> Tidak memunculkan pesan error apapun (<em>silent logic error</em>).</li>
+                    <li>Penjelasan Penyebab: Fungsi prompt() itu ibaratnya selalu menangkap apa pun yang kita ketik sebagai sebuah teks. Dalam JavaScript, kalau teks bertemu teks lalu dihubungkan pakai tanda +, sistem cuma akan menempelkan kedua karakter tersebut alias string concatenation, sehingga teks "5" ditambah teks "3" jadinya "53". Agar bisa dihitung layaknya angka beneran, kita butuh mengonversi teks tersebut menjadi angka murni dengan bantuan fungsi Number().</li>
                 </ul>
             </div>
 
             <div class="item-tantangan">
                 <h4>3. Analisis Kode Rusak 3</h4>
+                <p>Kode Asli pada Foto:</p>
+                <pre><code>function cek(nilai) {
+    if (nilai = 100) {
+        alert("Nilai sempurna");
+    } else {
+        alert("Belum sempurna");
+    }
+}
+/* cek(20) tetap mengatakan sempurna. */</code></pre>
                 <ul>
-                    <li><strong>Gejala yang terlihat:</strong> Saat fungsi dipanggil dengan <code>cek(20)</code>, sistem tetap menampilkan "Nilai sempurna".</li>
-                    <li><strong>Letak barisnya:</strong> Baris kondisi percabangan <code>if (nilai = 100)</code>.</li>
-                    <li><strong>Perbaikan yang dilakukan:</strong> Mengganti operator penugasan tunggal (<code>=</code>) menjadi operator perbandingan kesetaraan (<code>===</code> atau <code>==</code>): <code>if (nilai === 100)</code>.</li>
-                    <li><strong>Penjelasan penyebab:</strong> Simbol <code>=</code> adalah operator penugasan (<em>assignment</em>). Sintaks <code>nilai = 100</code> mengubah isi variabel menjadi 100, lalu angka 100 dievaluasi sebagai nilai <em>truthy</em>, sehingga blok kode <code>if</code> selalu dijalankan terlepas dari nilai masukan awal.</li>
-                    <li><strong>Pesan pada Console:</strong> Tidak memunculkan pesan error sama sekali karena penugasan di dalam ekspresi if secara sintaksis tetap sah.</li>
+                    <li>Temuan Kesalahan: Menggunakan tanda sama dengan tunggal (=) di dalam tanda kurung kondisi if. Simbol = itu fungsinya untuk memasukkan atau menetapkan nilai, bukan untuk membandingkan kecocokan nilai.</li>
+                    <li>Perbaikan dan Hasil: Ganti tanda sama dengan tunggal tersebut menjadi operator perbandingan kesetaraan, yaitu dua (==) atau tiga (===) tanda sama dengan.
+                        <pre><code>function cek(nilai) {
+    if (nilai === 100) {
+        alert("Nilai sempurna");
+    } else {
+        alert("Belum sempurna");
+    }
+}</code></pre>
+                        Hasil Eksekusi: Saat fungsi dipanggil dengan perintah cek(20), peringatan yang muncul sudah mengevaluasi kondisi dengan benar, yaitu "Belum sempurna".
+                    </li>
+                    <li>Penjelasan Penyebab: Kesalahan ketik satu karakter ini adalah hal yang paling sering bikin pusing pemula! Tanda = tunggal itu disebut assignment operator atau untuk memberi nilai. Jadi saat kode menjalankan if (nilai = 100), sistem tidak melakukan pengecekan, melainkan secara paksa mengubah isi variabel nilai menjadi 100 saat itu juga. Karena angka 100 dianggap bernilai truthy atau sah/benar, program selalu merasa kondisinya terpenuhi dan menjalankan blok "Nilai sempurna" berapapun angka masukan awalnya. Ingat ya, kalau mau membandingkan nilai, selalu biasakan pakai == atau ===.</li>
                 </ul>
             </div>
         </section>
@@ -170,24 +207,24 @@ console.log(6, typeof c);</code></pre>
             <h3>Bagian Keempat: Refleksi</h3>
             <ol>
                 <li>
-                    <strong>Baris Tabel Telusur yang Meleset &amp; Pelajarannya:</strong><br>
-                    Ramalan saya meleset pada <strong>baris 2</strong> (<code>c + b</code> menghasilkan <code>25</code>) dan <strong>baris 3</strong> (<code>a</code> tetap <code>2</code>). Pelajaran penting yang saya peroleh adalah bahwa JavaScript secara otomatis mengubah tipe data menjadi string saat operator <code>+</code> menemukan operand berupa teks. Selain itu, passing parameter untuk tipe data primitif bersifat <em>pass-by-value</em> (menyalin nilai), sehingga manipulasi nilai pada variabel fungsi lokal tidak akan mengubah variabel di lingkup global/luar.
+                    Baris Tabel Telusur yang Meleset dan Pelajarannya:<br>
+                    Tebakan saya meleset di baris 2 (c + b hasilnya 25) dan baris 3 (a nilainya tetap 2). Dari sini saya belajar kalau JavaScript itu suka otomatis mengubah angka jadi teks kalau ditambah pakai tanda + dengan data yang bentuknya teks. Terus, saat kita memasukkan variabel ke dalam sebuah fungsi, fungsi itu cuma meminjam salinan nilainya saja. Jadi, apapun yang diotak-atik di dalam fungsi tidak akan mengubah nilai asli variabel yang ada di luar fungsi tersebut.
                 </li>
                 <li>
-                    <strong>Kode Rusak yang Paling Sulit Ditemukan Penyebabnya:</strong><br>
-                    <strong>Kode Rusak 3</strong> adalah yang paling berbahaya dan sulit ditemukan. Kesalahan penulisan satu tanda sama dengan (<code>=</code> alih-alih <code>==</code>) tidak memicu galat sintaks di Console peramban (<em>silent bug</em>). Secara logika program berjalan lancar, namun seluruh percabangan selalu masuk ke kondisi benar akibat sifat nilai <em>truthy</em> pada angka selain nol.
+                    Kode Rusak yang Paling Sulit Ditemukan Penyebabnya:<br>
+                    Kode Rusak 3 adalah yang paling bikin pusing dan bahaya. Cuma gara-gara kurang satu tanda sama dengan (= yang seharusnya ==), program tidak menampilkan pesan error sama sekali di layar console atau biasa disebut bug diam-diam. Kodenya tetap jalan mulus, tapi logikanya berantakan karena sistem menganggap angka 100 itu sebuah kebenaran yang sah, sehingga kondisi pengecekan selalu dianggap benar terus-menerus terlepas dari angka berapapun yang kita ketik.
                 </li>
                 <li>
-                    <strong>Perbedaan Fungsi dengan Alert vs Fungsi dengan Return:</strong><br>
-                    Berdasarkan implementasi kode saya pada Bagian D:
+                    Perbedaan Fungsi dengan Alert dibandingkan Fungsi dengan Return:<br>
+                    Berdasarkan kode yang saya buat sebelumnya:
                     <ul>
-                        <li>Fungsi <code>sapaPengunjung()</code> hanya menjalankan aksi (prosedur) berupa dialog popup melalui <code>alert</code>, tanpa memberikan nilai kembali (mengembalikan <code>undefined</code>) sehingga nilainya tidak dapat diolah kembali.</li>
-                        <li>Sebaliknya, fungsi <code>totalSKS()</code> dan <code>cekNilai()</code> menggunakan <code>return</code> untuk mengirimkan hasil kalkulasi numerik dan string kembali ke pemanggilnya. Nilai tersebut bersifat modular, bersih dari efek samping (<em>side-effects</em>), dan dapat diolah kembali, dirangkai menjadi teks lain, atau diuji secara otomatis.</li>
+                        <li>Fungsi yang pakai alert itu cuma bertugas menampilkan kotak pesan pop-up saja. Setelah pesannya muncul, ya sudah selesai. Fungsi ini tidak menghasilkan nilai apa-apa yang bisa kita simpan atau kita hitung lagi nantinya.</li>
+                        <li>Beda banget sama fungsi yang pakai perintah return. Fungsi ini berguna untuk "mengembalikan" hasil hitungan kepada kita. Keuntungannya, hasil hitungan ini bisa kita simpan ke dalam variabel, dipakai untuk hitungan matematika lain, atau digabungkan dengan kalimat lain di bagian program yang berbeda. Jadi sifatnya jauh lebih serbaguna dan bisa dipakai ulang.</li>
                     </ul>
                 </li>
                 <li>
-                    <strong>Urgensi Pemeriksaan di Sisi Klien (Client-Side Validation):</strong><br>
-                    Meskipun validasi sisi klien dapat dilewati dengan menonaktifkan JavaScript atau melalui rekayasa jaringan, validasi di sisi klien <strong>tetap sangat penting dan wajib diterapkan</strong>. Fungsi utamanya adalah memaksimalkan kenyamanan pengguna (<em>User Experience/UX</em>) dengan memberikan umpan balik seketika tanpa jeda pemuatan ulang halaman (<em>page reload</em>), serta menghemat kuota lalu lintas jaringan (<em>bandwidth</em>) dan beban server. Validasi klien bertindak sebagai lini pertahanan pertama bagi pengguna, sementara validasi sisi server (<em>server-side validation</em>) tetap bertindak sebagai garda keamanan mutlak.
+                    Pentingnya Pemeriksaan Data Langsung di Halaman Web (Client-Side Validation):<br>
+                    Walaupun pemeriksaan data pakai JavaScript di peramban pengguna ini secara teori bisa diakali oleh orang jahil yang mematikan fitur JavaScript-nya, tapi cara ini tetap sangat penting dan wajib ada. Alasan utamanya adalah demi kenyamanan pengunjung web. Dengan cara ini, kalau ada isian formulir yang salah, pengunjung bisa langsung tahu detik itu juga tanpa perlu menunggu halaman memuat ulang (loading dari awal). Ini juga sangat membantu meringankan kerja server utama web kita. Jadi, ibaratnya ini adalah satpam di depan pintu yang menyortir tamu dengan cepat, sebelum nanti diperiksa lebih ketat dan aman lagi di dalam brankas server.
                 </li>
             </ol>
         </section>
