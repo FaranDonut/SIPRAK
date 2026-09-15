@@ -4,7 +4,6 @@
   Kelas         : A - Sains Data
   Berkas        : js/skrip.js
   Perhitungan Variabel Berbasis NIM:
-  - d1 sampai d10 = 2 5 1 0 5 1 4 0 2 5
   - ANGKA_A     = d9 = 2
   - ANGKA_B     = d10 = 5
   - BATAS_LULUS = ((d9 + d10) mod 3) + 60 = ((2 + 5) mod 3) + 60 = (7 mod 3) + 60 = 1 + 60 = 61
