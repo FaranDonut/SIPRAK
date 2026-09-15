@@ -62,62 +62,60 @@ console.log(6, typeof c);</code></pre>
 
             <p>
                 <button type="button" class="tombol-form" onclick="jalankanTabelTelusur();">
-                    ▶ Eksekusi Kode ke Panel Console (F12)
+                    -> Eksekusi Kode ke Panel Console (F12)
                 </button>
             </p>
             <p>Setelah tombol dijalankan, buka <strong>F12 &gt; Console</strong> dan ambil tangkapan layar yang menampilkan keenam hasil di bawah.</p>
 
-            <table class="tabel-rekap tabel-telusur">
-                <caption><b>Tabel Telusur Prediksi vs Hasil Sebenarnya</b></caption>
-                <thead>
-                    <tr class="judul">
-                        <th class="kolom-no">No</th>
-                        <th class="kolom-ramalan">Ramalan saya</th>
-                        <th class="kolom-hasil">Hasil sebenarnya</th>
-                        <th>Penjelasan bila berbeda</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="tengah">1</td>
-                        <td class="tengah"><code>7</code></td>
-                        <td class="tengah"><code>7</code></td>
-                        <td>Sesuai. Variabel <code>a</code> bernilai angka 2 dan <code>b</code> bernilai angka 5, sehingga operator <code>+</code> melakukan penjumlahan aritmetika numerik biasa (2 + 5 = 7).</td>
-                    </tr>
-                    <tr>
-                        <td class="tengah">2</td>
-                        <td class="tengah"><code>7</code></td>
-                        <td class="tengah"><code>25</code></td>
-                        <td><strong>Meleset.</strong> Saya mengira hasilnya 7. Namun, variabel <code>c</code> bertipe string karena ekspresi <code>"" + 2</code> menghasilkan <code>"2"</code>. Ketika string <code>"2"</code> digabung dengan angka <code>5</code> lewat operator <code>+</code>, JavaScript melakukan konversi implisit (<em>type coercion</em>) menjadi konkatenasi teks sehingga menghasilkan <code>"25"</code>.</td>
-                    </tr>
-                    <tr>
-                        <td class="tengah">3</td>
-                        <td class="tengah"><code>3</code></td>
-                        <td class="tengah"><code>2</code></td>
-                        <td><strong>Meleset.</strong> Saya mengira nilai <code>a</code> berubah menjadi 3 setelah baris <code>ubah(a)</code>. Kenyataannya, tipe data primitif pada JavaScript dilewatkan secara <em>pass-by-value</em>. Operasi <code>x = x + 1</code> di dalam fungsi hanya mengubah parameter lokal <code>x</code>, tanpa mengubah nilai asli variabel <code>a</code> di luar fungsi.</td>
-                    </tr>
-                    <tr>
-                        <td class="tengah">4</td>
-                        <td class="tengah"><code>3</code></td>
-                        <td class="tengah"><code>3</code></td>
-                        <td>Sesuai. Variabel <code>d</code> menampung nilai kembalian (<em>return value</em>) fungsi <code>ubah(2)</code>, yaitu 2 + 1 = 3.</td>
-                    </tr>
-                    <tr>
-                        <td class="tengah">5</td>
-                        <td class="tengah"><code>12</code></td>
-                        <td class="tengah"><code>12</code></td>
-                        <td>Sesuai. Pemanggilan pertama <code>ubah(5)</code> menghasilkan 6, dan pemanggilan kedua menghasilkan 6. Penjumlahan aritmetika keduanya adalah 6 + 6 = 12.</td>
-                    </tr>
-                    <tr>
-                        <td class="tengah">6</td>
-                        <td class="tengah"><code>string</code></td>
-                        <td class="tengah"><code>string</code></td>
-                        <td>Sesuai. Variabel <code>c</code> berjenis data teks, sehingga operator <code>typeof c</code> mengembalikan string <code>"string"</code>.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-
+           <table class="tabel-rekap tabel-telusur">
+    <caption><b>Tabel Telusur Prediksi vs Hasil Sebenarnya</b></caption>
+    <thead>
+        <tr class="judul">
+            <th class="kolom-no">No</th>
+            <th class="kolom-ramalan">Ramalan saya</th>
+            <th class="kolom-hasil">Hasil sebenarnya</th>
+            <th>Penjelasan bila berbeda</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="tengah">1</td>
+            <td class="tengah"><code>7</code></td>
+            <td class="tengah"><code>7</code></td>
+            <td>Sesuai. Karena <code>a</code> adalah angka 2 dan <code>b</code> adalah angka 5, maka tanda <code>+</code> berfungsi untuk menjumlahkan angka biasa (2 + 5 = 7).</td>
+        </tr>
+        <tr>
+            <td class="tengah">2</td>
+            <td class="tengah"><code>7</code></td>
+            <td class="tengah"><code>25</code></td>
+            <td><strong>Meleset.</strong> Kirain hasilnya 7. Ternyata, gabungan teks kosong <code>""</code> dan angka 2 membuat angka 2 berubah menjadi teks <code>"2"</code>. Ketika teks <code>"2"</code> ditambah angka 5, JavaScript tidak menjumlahkannya, melainkan menempelkan kedua karakter tersebut sehingga menjadi <code>"25"</code>.</td>
+        </tr>
+        <tr>
+            <td class="tengah">3</td>
+            <td class="tengah"><code>3</code></td>
+            <td class="tengah"><code>2</code></td>
+            <td><strong>Meleset.</strong> Kirain nilai <code>a</code> bertambah jadi 3 setelah memanggil <code>ubah(a)</code>. Ternyata, fungsi tersebut hanya mengubah salinan nilainya di dalam fungsi saja, sedangkan nilai variabel asli <code>a</code> di luar fungsi tetap 2.</td>
+        </tr>
+        <tr>
+            <td class="tengah">4</td>
+            <td class="tengah"><code>3</code></td>
+            <td class="tengah"><code>3</code></td>
+            <td>Sesuai. Variabel <code>d</code> menyimpan hasil dari fungsi <code>ubah(2)</code>, yaitu 2 + 1 = 3.</td>
+        </tr>
+        <tr>
+            <td class="tengah">5</td>
+            <td class="tengah"><code>12</code></td>
+            <td class="tengah"><code>12</code></td>
+            <td>Sesuai. Pemanggilan <code>ubah(5)</code> yang pertama menghasilkan 6, dan yang kedua juga menghasilkan 6. Ketika dijumlahkan hasilnya 6 + 6 = 12.</td>
+        </tr>
+        <tr>
+            <td class="tengah">6</td>
+            <td class="tengah"><code>string</code></td>
+            <td class="tengah"><code>string</code></td>
+            <td>Sesuai. Karena isi dari variabel <code>c</code> berbentuk teks, perintah <code>typeof c</code> memberi tahu bahwa jenis datanya adalah <code>"string"</code> (teks).</td>
+        </tr>
+    </tbody>
+    </table>
         <hr>
 
         <!-- BAGIAN KETIGA: PERBURUAN KESALAHAN -->
@@ -142,11 +140,11 @@ console.log(6, typeof c);</code></pre>
                     <li><strong>Letak barisnya:</strong> Baris pembacaan input <code>prompt()</code> dan baris penjumlahan teks <code>alert("Jumlahnya " + x + y);</code>.</li>
                     <li><strong>Perbaikan yang dilakukan:</strong> Melakukan konversi eksplisit nilai kembalian prompt menjadi angka numerik dengan <code>Number()</code>:
                         <pre><code>function hitung() {
-    var x = Number(prompt("Angka pertama"));
-    var y = Number(prompt("Angka kedua"));
-    var total = x + y;
-    alert("Jumlahnya " + total);
-}</code></pre>
+                        var x = Number(prompt("Angka pertama"));
+                        var y = Number(prompt("Angka kedua"));
+                        var total = x + y;
+                        alert("Jumlahnya " + total);
+                        }</code></pre>
                     </li>
                     <li><strong>Penjelasan penyebab:</strong> Fungsi bawaan <code>prompt()</code> selalu mengembalikan tipe data string. Operator <code>+</code> antara dua string melakukan penggabungan string (<em>string concatenation</em>), sehingga "5" + "3" menghasilkan "53".</li>
                     <li><strong>Pesan pada Console:</strong> Tidak memunculkan pesan error apapun (<em>silent logic error</em>).</li>
