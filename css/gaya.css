@@ -1,0 +1,154 @@
+/*
+  Nama          : Muhammad Farand Danendra
+  NIM           : 2510514025
+  Kelas         : A - Sains Data
+  Berkas        : css/gaya.css
+  WARNA_UTAMA   = var(--warna-utama) = #514025
+  WARNA_AKSEN   = var(--warna-aksen) = #520415
+  TEBAL_BORDER  = (5 mod 3) + 1 = 3
+  N_EKSPLORASI  = ((2 + 5) mod 3) + 5 = 6
+  Tanggal ketik : 08/09/2026
+*/
+
+:root {
+    --warna-utama: #514025;
+    --warna-aksen: #520415;
+    --tebal-border: 3px;
+    --n-eksplorasi: 6;
+}
+
+/* ===== Tipografi & Elemen Dasar ===== */
+body {
+    font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+    margin: 0;
+    color: #333333;
+    background-color: #FAFAFA;
+}
+
+h2, h3, legend, caption, th, #atas .nama, .hasil-box h4 {
+    font-family: 'Georgia', 'Times New Roman', serif;
+}
+
+h2, h3 { color: var(--warna-utama); }
+table { border-collapse: collapse; }
+hr { border: none; border-top: var(--tebal-border) solid var(--warna-utama); margin: 20px 0; }
+.tengah { text-align: center; }
+.kanan { text-align: right; }
+.sub-keterangan { color: #666; font-size: 0.95em; margin: -6px 0 16px 0; }
+
+/* ===== Kepala Halaman (#atas & Iframe) ===== */
+#atas { background-color: var(--warna-utama); padding: 12px 20px; }
+#atas table { width: 100%; }
+#atas td { color: #FFFFFF; }
+#atas td.logo { text-align: left; vertical-align: middle; }
+#atas td.logo pre { margin: 0; font-family: Consolas, monospace; font-size: 0.9em; line-height: 1.15; }
+#atas td.identitas { text-align: right; vertical-align: middle; }
+#atas .nama { font-size: 1.3em; color: #FFFFFF; }
+#atas .slogan { color: #FFFFFF; margin: 6px 0 0 0; font-size: 0.9em; }
+
+.header-frame {
+    width: 100%;
+    height: 125px;
+    border: none;
+    display: block;
+    overflow: hidden;
+}
+
+body.body-header {
+    overflow: hidden;
+    margin: 0;
+    background-color: var(--warna-utama);
+}
+
+/* ===== Navigasi Utama & State Link ===== */
+.menu-tabel { width: 100%; display: flex; flex-wrap: nowrap; overflow-x: auto; background-color: var(--warna-aksen); padding: 0 14px; box-sizing: border-box; }
+.menu-tabel a { display: block; padding: 13px 16px; text-decoration: none; transition: background-color 0.4s ease, color 0.4s ease; }
+.menu-tabel a:link { color: #FFFFFF; }
+.menu-tabel a:visited { color: #F0E7E0; }
+.menu-tabel a:hover { color: var(--warna-aksen); background-color: #FFFFFF; }
+.menu-tabel a:active { color: var(--warna-aksen); background-color: #EEE8E0; }
+.menu-tabel a.aktif { color: var(--warna-aksen); background-color: #FFFFFF; font-weight: bold; }
+
+/* ===== Layout Isi ===== */
+#isi { padding: 18px 24px; }
+#isi a:link { color: var(--warna-utama); }
+#isi a:visited { color: #7a6142; }
+#isi a:hover, #isi a:active { color: var(--warna-aksen); }
+.beranda-ringkas { border-left: 4px solid var(--warna-aksen); padding: 12px 16px; margin-bottom: 20px; background-color: #FFFFFF; }
+
+/* ===== Box Model Biodata ===== */
+.tabel-biodata { width: 100%; padding: 12px; border: var(--tebal-border) solid var(--warna-utama); margin: 14px 0; border-radius: 10px; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25); background-color: #FFFFFF; }
+.tabel-biodata td { padding: 8px; }
+.tabel-biodata td.label { background-color: var(--warna-utama); color: #FFFFFF; font-weight: bold; width: 22%; }
+.kolom-foto { text-align: center; vertical-align: middle; width: 25%; }
+.foto-profil { max-width: 160px; height: auto; border: 2px solid var(--warna-utama); border-radius: 8px; }
+.kotak-biodata {position: relative;margin: 14px 0;
+}
+
+.badge-status {position: absolute;top: 10px;right: 12px;background-color: var(--warna-aksen);color: #FFFFFF !important;padding: 4px 10px;font-size: 0.8em;font-weight: bold;border-radius: 4px;text-decoration: none; /* Menghilangkan garis bawah link */z-index: 10;display: inline-block;
+}
+
+/* ===== Tabel-Tabel Umum & Jadwal ===== */
+.tabel-prestasi, .tabel-jadwal, .tabel-peta, .tabel-rekap { width: 100%; margin: 12px 0; }
+.tabel-rekap { width: 60%; }
+.tabel-prestasi th, .tabel-prestasi td, .tabel-jadwal th, .tabel-jadwal td, .tabel-peta th, .tabel-peta td, .tabel-rekap th, .tabel-rekap td { border: 1px solid var(--warna-utama); padding: 6px 8px; }
+tr.judul th, tr.sub-judul th, .tabel-jadwal thead tr.judul th, .tabel-rekap thead tr th { background-color: var(--warna-utama); color: #FFFFFF; text-align: center; }
+.tabel-prestasi tr:nth-child(even), .tabel-jadwal tbody tr:nth-child(even), .tabel-rekap tbody tr:nth-child(even) { background-color: #EEE8E0; }
+.tabel-prestasi tfoot td, .tabel-rekap tr.total td { background-color: #D8CFC0; }
+.tabel-jadwal td, .tabel-rekap td { text-align: center; }
+.tabel-jadwal tr.ishoma td { background-color: var(--warna-utama) !important; color: #FFFFFF !important; font-weight: bold; letter-spacing: 2px; }
+.tabel-jadwal td.sel-matkul { background-color: #E2D7C8 !important; vertical-align: middle; }
+.tabel-detail { width: 100%; margin: 0; }
+.tabel-detail td { border: none !important; padding: 2px !important; font-size: 0.85em; background: transparent !important; color: #333 !important; }
+
+/* ===== Galeri & Formulir ===== */
+.gambar-kegiatan { border: var(--tebal-border) solid var(--warna-utama); max-width: 100%; height: auto; transition: transform 0.3s ease; }
+.gambar-kegiatan:hover { transform: scale(1.05); }
+fieldset { border: 1px solid var(--warna-utama); margin-bottom: 15px; padding: 12px; background-color: #FFFFFF; }
+legend { background-color: var(--warna-utama); color: #FFFFFF; padding: 4px 10px; font-weight: bold; }
+.tabel-form { width: 100%; }
+.tabel-form td { padding: 6px; }
+.tabel-form td.label-form { text-align: right; width: 30%; vertical-align: top; }
+.matkul-select { min-height: 120px; }
+
+/* ===== Jurnal Eksplorasi Live Demo ===== */
+.entri-jurnal { border: 1px solid var(--warna-utama); padding: 16px; margin-bottom: 24px; background-color: #FFFFFF; border-radius: 6px; }
+.entri-jurnal pre { background-color: #F4F4F4; border-left: 4px solid var(--warna-aksen); padding: 10px 14px; overflow-x: auto; }
+.hasil-kode { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin: 14px 0; }
+.hasil-box { border: 1px dashed var(--warna-utama); padding: 12px; background-color: #FAF8F5; border-radius: 4px; }
+.hasil-box h4 { margin: 0 0 10px 0; font-size: 0.95em; color: var(--warna-aksen); }
+
+/* Kotak Demo Reusable */
+.demo-radius, .demo-shadow-before, .demo-shadow-after, .demo-transform-before, .demo-transform-after {
+    width: 100%; max-width: 200px; height: 70px; background-color: #EEE8E0; border: 2px solid var(--warna-utama);
+    display: flex; align-items: center; justify-content: center; box-sizing: border-box; font-size: 0.85em;
+}
+.demo-radius p, .demo-shadow-before p, .demo-shadow-after p { margin: 0; }
+.demo-radius-before { border-radius: 0; }
+.demo-radius-after { border-radius: 14px; }
+.demo-shadow-after { box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4); }
+
+/* Demo Transisi & Transform */
+.demo-no-transition, .demo-transition { display: inline-block; padding: 10px 14px; border: 1px solid var(--warna-utama); color: var(--warna-utama); background-color: #FFF; cursor: pointer; font-size: 0.85em; }
+.demo-no-transition:hover { background-color: var(--warna-aksen); color: #FFF; }
+.demo-transition { transition: background-color 0.8s ease, color 0.8s ease; }
+.demo-transition:hover { background-color: var(--warna-aksen); color: #FFF; }
+.demo-transform-after { transition: transform 0.3s ease; cursor: pointer; }
+.demo-transform-after:hover { transform: scale(1.08); }
+
+/* Demo Position & White Space */
+.demo-position-lab, .demo-position-gagal-lab { min-height: 120px; }
+.demo-position-lab { position: relative; overflow: hidden; }
+.demo-position-gagal-wrapper { height: 75px; background-color: #EEE8E0; border: 1px solid var(--warna-utama); padding: 6px; box-sizing: border-box; }
+.demo-position-gagal-label { position: absolute; top: 4px; right: 4px; background-color: var(--warna-aksen); color: #FFF; padding: 3px 6px; font-size: 0.75em; }
+.demo-position-wrapper { position: relative; height: 75px; background-color: #EEE8E0; border: 1px solid var(--warna-utama); padding: 6px; box-sizing: border-box; }
+.demo-position-label { position: absolute; top: 4px; right: 4px; background-color: var(--warna-aksen); color: #FFF; padding: 3px 6px; font-size: 0.75em; }
+.demo-nowrap-gagal { width: 160px; border: 2px dashed var(--warna-aksen); padding: 6px; white-space: nowrap; background-color: #FFF0F0; font-size: 0.85em; }
+.demo-nowrap-normal { width: 160px; border: 2px dashed var(--warna-utama); padding: 6px; white-space: normal; background-color: #FFF; font-size: 0.85em; }
+.keterangan-gagal { color: var(--warna-aksen); font-weight: bold; display: block; margin-top: 6px; }
+
+/* Bagian Tantangan, Refleksi, Kode & Footer */
+.item-tantangan { border-left: 4px solid var(--warna-aksen); padding: 8px 14px; margin-bottom: 16px; background-color: #FFF; }
+.bagian-refleksi ol li { margin-bottom: 14px; line-height: 1.5; }
+code { background-color: #EEE; padding: 2px 5px; border-radius: 3px; font-family: Consolas, monospace; }
+footer { text-align: center; margin-top: 30px; font-size: 0.9em; color: #777777; border-top: 1px solid #DDDDDD; padding: 15px 0 5px 0; }
