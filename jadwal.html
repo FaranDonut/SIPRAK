@@ -30,7 +30,6 @@
         <a href="mailto:muhammadpanji@upnvj.ac.id" accesskey="m">Mail Dosen</a>
     </nav>
 
-
     <div id="isi">
         <h2>JADWAL KULIAH SEMESTER BERJALAN</h2>
         <p class="sub-keterangan">Muhammad Farand Danendra - NIM 2510514025</p>
@@ -52,7 +51,6 @@
                 </tr>
             </thead>
             <tbody>
-       
                 <tr>
                     <td>07.30-08.20</td>
                     <td>&nbsp;</td>
@@ -61,7 +59,6 @@
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
                 </tr>
-              
                 <tr>
                     <td>08.20-09.10</td>
                     <td>&nbsp;</td>
@@ -70,7 +67,6 @@
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
                 </tr>
-             
                 <tr>
                     <td>09.10-10.00</td>
                     <td>&nbsp;</td>
@@ -79,7 +75,6 @@
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
                 </tr>
-                
                 <tr>
                     <td>10.00-10.50</td>
                     <td>&nbsp;</td>
@@ -112,26 +107,22 @@
                         </table>
                     </td>
                 </tr>
-          
                 <tr>
                     <td>10.50-11.40</td>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
                 </tr>
-             
                 <tr>
                     <td>11.40-12.30</td>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
                 </tr>
-              
                 <tr class="ishoma">
                     <td>12.30-13.20</td>
                     <td colspan="5">I S H O M A</td>
                 </tr>
-             
                 <tr>
                     <td>13.20-14.10</td>
                     <td rowspan="3" class="sel-matkul">
@@ -188,12 +179,10 @@
                     </td>
                     <td>&nbsp;</td>
                 </tr>
-                
                 <tr>
                     <td>14.10-15.00</td>
                     <td>&nbsp;</td>
                 </tr>
-           
                 <tr>
                     <td>15.00-15.50</td>
                     <td rowspan="3" class="sel-matkul">
@@ -211,7 +200,6 @@
                     </td>
                     <td>&nbsp;</td>
                 </tr>
-             
                 <tr>
                     <td>15.50-16.40</td>
                     <td>&nbsp;</td>
@@ -231,7 +219,6 @@
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
                 </tr>
-               
                 <tr>
                     <td>16.40-17.30</td>
                     <td>&nbsp;</td>
@@ -243,7 +230,6 @@
 
         <br><br>
 
-        
         <table class="tabel-rekap"
             title="Rekapitulasi mata kuliah beserta bobot SKS pada semester berjalan">
             <caption><b>Rekapitulasi Mata Kuliah dan SKS</b></caption>
@@ -303,27 +289,22 @@
                 </tr>
             </tfoot>
         </table>
-        <hr>
 
-        <h2>Hitung Total SKS (TP4)</h2>
-        <p>
-            Tombol berikut akan meminta jumlah SKS tiga mata kuliah pada KRS saya
-            (Pemrograman Web, Interaksi Manusia dan Komputer, Analisis Big Data)
-            lewat <code>prompt</code>, lalu menjumlahkannya dengan fungsi
-            <code>totalSKS(a, b, c)</code>.
-        </p>
-        <button type="button" onclick="prosesTotalSKS();">Hitung Total SKS</button>
-        <p id="hasil-sks"></p>
+        <br>
 
-        <h2>Cek Status Kelulusan (TP4)</h2>
-        <p>
-            Tombol ini pake  nilai lewat <code>prompt</code>, lalu
-            memeriksanya dengan fungsi <code>cekNilai(nilai, batas)</code>
-            menggunakan <code>BATAS_LULUS = 61</code> milik saya sendiri.
-        </p>
-        <button type="button" onclick="prosesCekNilai();">Cek Nilai</button>
-        <p id="hasil-cek-nilai"></p>
+        <!-- Sesuai PDF D.2.c & D.3.c: Tombol pemanggil fungsi totalSKS dan cekNilai -->
+        <div style="background-color: #FFFFFF; border: 1px solid var(--warna-utama); padding: 14px; border-radius: 6px; width: 60%; box-sizing: border-box;">
+            <h3 style="margin-top: 0;">Kalkulator SKS &amp; Status Kelulusan (JavaScript)</h3>
+            <p style="font-size: 0.9em; margin-bottom: 12px;">
+                Fitur pengujian fungsi <code>totalSKS(a, b, c)</code> untuk 3 mata kuliah KRS dan fungsi <code>cekNilai(nilai, batas)</code> dengan ambang batas kelulusan <code>BATAS_LULUS = 61</code>.
+            </p>
+            <button type="button" onclick="hitungSKSMahasiswa();" style="background-color: var(--warna-aksen); color: #FFFFFF; border: none; padding: 9px 18px; border-radius: 4px; cursor: pointer; font-weight: bold;">
+                Hitung SKS &amp; Cek Nilai
+            </button>
+        </div>
     </div>
+
+    <!-- Pemanggilan script eksternal tepat sebelum penutup body -->
     <script src="js/skrip.js"></script>
 </body>
 

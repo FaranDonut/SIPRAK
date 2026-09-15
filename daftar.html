@@ -9,6 +9,7 @@
   Tanggal ketik : 08/09/2026
 -->
 <html>
+
 <head>
     <title>SIPRAK - Formulir Pendaftaran Asisten</title>
     <link rel="stylesheet" href="css/gaya.css">
@@ -34,6 +35,7 @@
         
         <p class="contoh-inline" style="font-style: italic;">Contoh satu inline style pada halaman Pendaftaran.</p>
 
+        <!-- Sesuai PDF D.4.d: Form dihubungkan dengan onsubmit="return validasiFormulir();" -->
         <form method="post" action="" enctype="text/plain" onsubmit="return validasiFormulir();">
             <input type="hidden" id="nim" name="nim" value="2510514025">
 
@@ -117,51 +119,3 @@
                                     <option value="Interaksi Manusia dan Komputer">Interaksi Manusia dan Komputer</option>
                                     <option value="Analisis Big Data">Analisis Big Data</option>
                                     <option value="Pemrograman Web">Pemrograman Web</option>
-                                    <option value="Pembelajaran Mesin">Pembelajaran Mesin</option>
-                                    <option value="Basis Data Lanjut">Basis Data Lanjut</option>
-                                    <option value="Rekayasa Data">Rekayasa Data</option>
-                                    <option value="Data Mining">Data Mining</option>
-                                </optgroup>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="label-form"><label for="matkul_dilamar">Mata kuliah yang Dilamar</label></td>
-                        <td>
-                            <select id="matkul_dilamar" name="matkul_dilamar" multiple class="matkul-select" tabindex="18">
-                                <option value="Bahasa Inggris">Bahasa Inggris</option>
-                                <option value="Interaksi Manusia dan Komputer">Interaksi Manusia dan Komputer</option>
-                                <option value="Analisis Big Data">Analisis Big Data</option>
-                                <option value="Pemrograman Web">Pemrograman Web</option>
-                                <option value="Pembelajaran Mesin">Pembelajaran Mesin</option>
-                                <option value="Basis Data Lanjut">Basis Data Lanjut</option>
-                                <option value="Rekayasa Data">Rekayasa Data</option>
-                                <option value="Data Mining">Data Mining</option>
-                            </select><br>
-                            <small>(tahan tombol Ctrl untuk memilih lebih dari satu)</small>
-                        </td>
-                    </tr>
-                </table>
-            </fieldset>
-
-            <br>
-
-            <fieldset>
-                <legend>Motivasi</legend>
-                <table class="tabel-form">
-                    <tr>
-                        <td class="label-form"><label for="alasan">Alasan Mendaftar</label></td>
-                        <td><textarea id="alasan" name="alasan" rows="6" cols="50" tabindex="19"></textarea></td>
-                    </tr>
-                </table>
-            </fieldset>
-
-            <br>
-            <input type="submit" value="Kirim Pendaftaran" tabindex="20">
-            <input type="reset" value="Ulangi Isi Formulir" tabindex="21">
-        </form>
-    </div>
-
-    <script src="js/skrip.js"></script>
-</body>
-</html>
