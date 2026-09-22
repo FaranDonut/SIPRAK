@@ -6,7 +6,7 @@
   WARNA_UTAMA   : #514025
   WARNA_AKSEN   : #520415
   N_EKSPLORASI  : 6
-  Tanggal ketik : 08/09/2026
+  Tanggal ketik : 22/09/2026
 -->
 <html>
 
@@ -31,14 +31,17 @@
     </nav>
 
     <div id="isi">
-        <h2>JURNAL PRAKTIKUM JAVASCRIPT (TP4)</h2>
+        <h2>JURNAL PRAKTIKUM JAVASCRIPT</h2>
         <p class="sub-keterangan">
-            Muhammad Farand Danendra - NIM 2510514025 (ANGKA_A = 2, ANGKA_B = 5, BATAS_LULUS = 61)
+            Muhammad Farand Danendra - NIM 2510514025
+            (ANGKA_A = 2, ANGKA_B = 5, BATAS_LULUS = 61, BATAS_ULANG = 8)
         </p>
 
-        <!-- BAGIAN KEDUA: TABEL TELUSUR -->
+        <!-- ========================================================= -->
+        <!-- BAGIAN KEDUA (TP4): TABEL TELUSUR TIPE DATA & OPERATOR    -->
+        <!-- ========================================================= -->
         <section class="bagian-ringkasan">
-            <h3>Bagian Kedua: Tabel Telusur</h3>
+            <h3>Bagian Kedua (TP4): Tabel Telusur Tipe Data &amp; Operator</h3>
             <p>Potongan kode uji coba yang dianalisis:</p>
             <pre><code>var a = 2;
 var b = 5;
@@ -60,65 +63,172 @@ console.log(6, typeof c);</code></pre>
 
             <p>
                 <button type="button" class="tombol-form" onclick="jalankanTabelTelusur();">
-                    -> Eksekusi Kode ke Panel Console (F12)
+                    -&gt; Eksekusi Kode ke Panel Console (F12)
                 </button>
             </p>
-            <p>Setelah tombol dijalankan, buka <strong>F12 &gt; Console</strong> dan ambil tangkapan layar yang menampilkan keenam hasil di bawah.</p>
+            <p>
+                Setelah tombol dijalankan, buka <strong>F12 &gt; Console</strong>
+                dan ambil tangkapan layar yang menampilkan keenam hasil di bawah.
+            </p>
 
-           <table class="tabel-rekap tabel-telusur">
-    <caption><b>Tabel Telusur Prediksi vs Hasil Sebenarnya</b></caption>
-    <thead>
-        <tr class="judul">
-            <th class="kolom-no">No</th>
-            <th class="kolom-ramalan">Ramalan saya</th>
-            <th class="kolom-hasil">Hasil sebenarnya</th>
-            <th>Penjelasan bila berbeda</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td class="tengah">1</td>
-            <td class="tengah"><code>7</code></td>
-            <td class="tengah"><code>7</code></td>
-            <td>Sesuai. Karena <code>a</code> adalah angka 2 dan <code>b</code> adalah angka 5, maka tanda <code>+</code> berfungsi untuk menjumlahkan angka biasa (2 + 5 = 7).</td>
-        </tr>
-        <tr>
-            <td class="tengah">2</td>
-            <td class="tengah"><code>7</code></td>
-            <td class="tengah"><code>25</code></td>
-            <td><strong>Meleset.</strong> Kirain hasilnya 7. Ternyata, gabungan teks kosong <code>""</code> dan angka 2 membuat angka 2 berubah menjadi teks <code>"2"</code>. Ketika teks <code>"2"</code> ditambah angka 5, JavaScript tidak menjumlahkannya, melainkan menempelkan kedua karakter tersebut sehingga menjadi <code>"25"</code>.</td>
-        </tr>
-        <tr>
-            <td class="tengah">3</td>
-            <td class="tengah"><code>3</code></td>
-            <td class="tengah"><code>2</code></td>
-            <td><strong>Meleset.</strong> Kirain nilai <code>a</code> bertambah jadi 3 setelah memanggil <code>ubah(a)</code>. Ternyata, fungsi tersebut hanya mengubah salinan nilainya di dalam fungsi saja, sedangkan nilai variabel asli <code>a</code> di luar fungsi tetap 2.</td>
-        </tr>
-        <tr>
-            <td class="tengah">4</td>
-            <td class="tengah"><code>3</code></td>
-            <td class="tengah"><code>3</code></td>
-            <td>Sesuai. Variabel <code>d</code> menyimpan hasil dari fungsi <code>ubah(2)</code>, yaitu 2 + 1 = 3.</td>
-        </tr>
-        <tr>
-            <td class="tengah">5</td>
-            <td class="tengah"><code>12</code></td>
-            <td class="tengah"><code>12</code></td>
-            <td>Sesuai. Pemanggilan <code>ubah(5)</code> yang pertama menghasilkan 6, dan yang kedua juga menghasilkan 6. Ketika dijumlahkan hasilnya 6 + 6 = 12.</td>
-        </tr>
-        <tr>
-            <td class="tengah">6</td>
-            <td class="tengah"><code>string</code></td>
-            <td class="tengah"><code>string</code></td>
-            <td>Sesuai. Karena isi dari variabel <code>c</code> berbentuk teks, perintah <code>typeof c</code> memberi tahu bahwa jenis datanya adalah <code>"string"</code> (teks).</td>
-        </tr>
-    </tbody>
-    </table>
+            <table class="tabel-rekap tabel-telusur">
+                <caption><b>Tabel Telusur TP4: Prediksi vs Hasil Sebenarnya</b></caption>
+                <thead>
+                    <tr class="judul">
+                        <th class="kolom-no">No</th>
+                        <th class="kolom-ramalan">Ramalan saya</th>
+                        <th class="kolom-hasil">Hasil sebenarnya</th>
+                        <th>Penjelasan bila berbeda</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="tengah">1</td>
+                        <td class="tengah"><code>7</code></td>
+                        <td class="tengah"><code>7</code></td>
+                        <td>Sesuai. <code>a</code> angka 2 dan <code>b</code> angka 5, sehingga tanda <code>+</code> menjumlahkan angka (2 + 5 = 7).</td>
+                    </tr>
+                    <tr>
+                        <td class="tengah">2</td>
+                        <td class="tengah"><code>7</code></td>
+                        <td class="tengah"><code>25</code></td>
+                        <td><strong>Meleset.</strong> Gabungan teks kosong <code>""</code> dan angka 2 membuat angka 2 berubah menjadi teks <code>"2"</code>. Saat teks <code>"2"</code> ditambah angka 5, JavaScript menempelkan kedua karakter sehingga menjadi <code>"25"</code>.</td>
+                    </tr>
+                    <tr>
+                        <td class="tengah">3</td>
+                        <td class="tengah"><code>3</code></td>
+                        <td class="tengah"><code>2</code></td>
+                        <td><strong>Meleset.</strong> Fungsi hanya mengubah salinan nilainya di dalam fungsi, sedangkan nilai variabel asli <code>a</code> di luar fungsi tetap 2.</td>
+                    </tr>
+                    <tr>
+                        <td class="tengah">4</td>
+                        <td class="tengah"><code>3</code></td>
+                        <td class="tengah"><code>3</code></td>
+                        <td>Sesuai. Variabel <code>d</code> menyimpan hasil dari fungsi <code>ubah(2)</code>, yaitu 2 + 1 = 3.</td>
+                    </tr>
+                    <tr>
+                        <td class="tengah">5</td>
+                        <td class="tengah"><code>12</code></td>
+                        <td class="tengah"><code>12</code></td>
+                        <td>Sesuai. Pemanggilan <code>ubah(5)</code> pertama menghasilkan 6, kedua menghasilkan 6, dijumlahkan menjadi 12.</td>
+                    </tr>
+                    <tr>
+                        <td class="tengah">6</td>
+                        <td class="tengah"><code>string</code></td>
+                        <td class="tengah"><code>string</code></td>
+                        <td>Sesuai. Variabel <code>c</code> berbentuk teks, sehingga <code>typeof c</code> memberi tahu jenis datanya <code>"string"</code>.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
         <hr>
 
-        <!-- BAGIAN KETIGA: PERBURUAN KESALAHAN -->
+        <!-- ========================================================= -->
+        <!-- BAGIAN KEDUA-B (TP5): TABEL TELUSUR PERULANGAN            -->
+        <!-- ========================================================= -->
+        <section class="bagian-ringkasan">
+            <h3>Bagian Kedua-B (TP5): Tabel Telusur Perulangan</h3>
+            <p class="sub-keterangan">
+                ANGKA_A = 2, ANGKA_B = 5 (dua digit terakhir NIM 2510514025).
+            </p>
+
+            <p>Potongan kode uji perulangan yang dianalisis:</p>
+            <pre><code>let a = ANGKA_A;  // 2
+let b = ANGKA_B;  // 5
+let hasil = 0;
+
+for (let i = 1; i &lt;= a; i++) { hasil = hasil + i; }
+console.log(1, hasil);
+
+let j = 0;
+while (j &lt; b) { j = j + 2; }
+console.log(2, j);
+
+let k = 10;
+do {
+    k = k - a;
+} while (k &gt; 0);
+console.log(3, k);
+
+let teks = "";
+for (let i = a; i &gt;= 1; i--) { teks = teks + i; }
+console.log(4, teks);
+
+let n = 0;
+for (let i = 0; i &lt; 3; i++) {
+    for (let m = 0; m &lt; 2; m++) { n++; }
+}
+console.log(5, n);</code></pre>
+
+            <p>
+                <button type="button" class="tombol-form" onclick="jalankanTabelTelusurTP5();">
+                    -&gt; Eksekusi Kode ke Panel Console (F12)
+                </button>
+            </p>
+            <p>
+                Setelah tombol diklik, buka <strong>F12 &gt; Console</strong>
+                dan ambil tangkapan layar yang menampilkan kelima hasil.
+            </p>
+
+            <table class="tabel-rekap tabel-telusur">
+                <caption><b>Tabel Telusur Perulangan TP5</b></caption>
+                <thead>
+                    <tr class="judul">
+                        <th class="kolom-no">No</th>
+                        <th class="kolom-ramalan">Ramalan saya</th>
+                        <th class="kolom-hasil">Hasil sebenarnya</th>
+                        <th>Berapa kali berputar</th>
+                        <th>Penjelasan bila berbeda</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="tengah">1</td>
+                        <td class="tengah"><code>3</code></td>
+                        <td class="tengah"><code>3</code></td>
+                        <td class="tengah"><code>2</code></td>
+                        <td>Sesuai. <code>for</code> berjalan untuk <code>i = 1</code> dan <code>i = 2</code>, jadi 2 kali putaran. Akumulasi 1 + 2 = 3.</td>
+                    </tr>
+                    <tr>
+                        <td class="tengah">2</td>
+                        <td class="tengah"><code>6</code></td>
+                        <td class="tengah"><code>6</code></td>
+                        <td class="tengah"><code>3</code></td>
+                        <td>Sesuai. Nilai <code>j</code> naik dari 0 &rarr; 2 &rarr; 4 &rarr; 6. Perulangan berhenti saat <code>j = 6</code> karena <code>6 &lt; 5</code> salah. Putaran = 3 kali.</td>
+                    </tr>
+                    <tr>
+                        <td class="tengah">3</td>
+                        <td class="tengah"><code>0</code></td>
+                        <td class="tengah"><code>0</code></td>
+                        <td class="tengah"><code>5</code></td>
+                        <td>Sesuai. <code>do...while</code> menjalankan badan dulu, baru cek syarat. <code>k</code> turun 10 &rarr; 8 &rarr; 6 &rarr; 4 &rarr; 2 &rarr; 0, berhenti saat <code>0 &gt; 0</code> salah. Putaran = 5 kali.</td>
+                    </tr>
+                    <tr>
+                        <td class="tengah">4</td>
+                        <td class="tengah"><code>21</code></td>
+                        <td class="tengah"><code>21</code></td>
+                        <td class="tengah"><code>2</code></td>
+                        <td>Sesuai. <code>i</code> mulai dari 2 lalu 1, jadi teks bertambah <code>"2"</code> lalu <code>"21"</code>. Hasilnya string <code>"21"</code>, bukan angka 21. Putaran = 2 kali.</td>
+                    </tr>
+                    <tr>
+                        <td class="tengah">5</td>
+                        <td class="tengah"><code>6</code></td>
+                        <td class="tengah"><code>6</code></td>
+                        <td class="tengah"><code>6</code></td>
+                        <td>Sesuai. Nested loop: luar 3 kali, dalam 2 kali. Total <code>n++</code> = 3 &times; 2 = 6 kali. Yang dihitung kolom keempat adalah berapa kali <code>n++</code> dijalankan.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <hr>
+
+        <!-- ========================================================= -->
+        <!-- BAGIAN KETIGA (TP4): PERBURUAN KESALAHAN                  -->
+        <!-- ========================================================= -->
         <section class="bagian-tantangan">
-            <h3>Bagian Ketiga: Perburuan Kesalahan</h3>
+            <h3>Bagian Ketiga (TP4): Perburuan Kesalahan</h3>
 
             <div class="item-tantangan">
                 <h4>1. Analisis Kode Rusak 1</h4>
@@ -132,7 +242,7 @@ function Sapa() {
 &lt;/head&gt;
 &lt;body onload="sapa();"&gt;</code></pre>
                 <ul>
-                    <li>Temuan Kesalahan: Ada perbedaan huruf pada nama fungsi. Fungsi yang dibuat bernama Sapa() (pakai 'S' besar), sedangkan yang dipanggil di dalam tag body adalah sapa(); (pakai 's' kecil).</li>
+                    <li>Temuan Kesalahan: Ada perbedaan huruf pada nama fungsi. Fungsi yang dibuat bernama <code>Sapa()</code> (pakai 'S' besar), sedangkan yang dipanggil di dalam tag body adalah <code>sapa()</code> (pakai 's' kecil).</li>
                     <li>Perbaikan dan Hasil: Samakan hurufnya. Kita bisa mengubah pemanggilnya atau fungsi aslinya agar sama-sama menggunakan huruf kecil.
                         <pre><code>&lt;head&gt;
 &lt;script&gt;
@@ -144,7 +254,7 @@ function sapa() {
 &lt;body onload="sapa();"&gt;</code></pre>
                         Hasil Eksekusi: Saat halaman web dimuat ulang, layar akan langsung memunculkan pop-up alert bertuliskan "Selamat datang".
                     </li>
-                    <li>Penjelasan Penyebab: JavaScript itu punya sifat case-sensitive, artinya huruf besar dan huruf kecil itu dianggap beda secara mutlak. Jadi, kalau fungsinya dibuat dengan huruf kapital Sapa(), tapi pas dipanggil malah pakai huruf kecil sapa(), peramban atau browser bakal kebingungan karena merasa fungsi sapa() belum pernah didefinisikan sebelumnya. Pastikan penulisan namanya sama persis!</li>
+                    <li>Penjelasan Penyebab: JavaScript bersifat case-sensitive, artinya huruf besar dan huruf kecil dianggap berbeda. Kalau fungsinya dibuat dengan huruf kapital <code>Sapa()</code> tetapi dipanggil dengan huruf kecil <code>sapa()</code>, browser kebingungan karena merasa fungsi <code>sapa()</code> belum pernah didefinisikan.</li>
                 </ul>
             </div>
 
@@ -158,17 +268,17 @@ function sapa() {
 }
 /* Pengguna mengetik 5 dan 3, tetapi yang muncul bukan 8. */</code></pre>
                 <ul>
-                    <li>Temuan Kesalahan: Hasil input dari prompt() otomatis dibaca oleh sistem sebagai teks atau string, bukan angka numerik. Saat digabungkan dengan simbol +, sistem malah merangkai teksnya, bukan menambahkannya secara matematika.</li>
-                    <li>Perbaikan dan Hasil: Kita harus mengubah tipe datanya dari teks menjadi angka terlebih dahulu menggunakan Number().
+                    <li>Temuan Kesalahan: Hasil input dari <code>prompt()</code> otomatis dibaca sebagai teks atau string, bukan angka numerik. Saat digabungkan dengan simbol <code>+</code>, sistem merangkai teksnya, bukan menambahkannya.</li>
+                    <li>Perbaikan dan Hasil: Ubah tipe datanya dari teks menjadi angka dengan <code>Number()</code>.
                         <pre><code>function hitung() {
     var x = Number(prompt("Angka pertama"));
     var y = Number(prompt("Angka kedua"));
     var hasil = x + y;
     alert("Jumlahnya " + hasil);
 }</code></pre>
-                        Hasil Eksekusi: Saat pengguna memasukkan angka 5 lalu 3, alert yang muncul sekarang sudah menampilkan logika hitungan yang benar, yaitu "Jumlahnya 8".
+                        Hasil Eksekusi: Saat pengguna memasukkan angka 5 lalu 3, alert yang muncul sekarang menampilkan "Jumlahnya 8".
                     </li>
-                    <li>Penjelasan Penyebab: Fungsi prompt() itu ibaratnya selalu menangkap apa pun yang kita ketik sebagai sebuah teks. Dalam JavaScript, kalau teks bertemu teks lalu dihubungkan pakai tanda +, sistem cuma akan menempelkan kedua karakter tersebut alias string concatenation, sehingga teks "5" ditambah teks "3" jadinya "53". Agar bisa dihitung layaknya angka beneran, kita butuh mengonversi teks tersebut menjadi angka murni dengan bantuan fungsi Number().</li>
+                    <li>Penjelasan Penyebab: Fungsi <code>prompt()</code> selalu menangkap input sebagai teks. Dalam JavaScript, kalau teks dihubungkan dengan tanda <code>+</code>, sistem menempelkan kedua karakter (string concatenation), sehingga teks "5" ditambah teks "3" menjadi "53". Agar bisa dihitung sebagai angka, konversi dengan <code>Number()</code>.</li>
                 </ul>
             </div>
 
@@ -184,8 +294,8 @@ function sapa() {
 }
 /* cek(20) tetap mengatakan sempurna. */</code></pre>
                 <ul>
-                    <li>Temuan Kesalahan: Menggunakan tanda sama dengan tunggal (=) di dalam tanda kurung kondisi if. Simbol = itu fungsinya untuk memasukkan atau menetapkan nilai, bukan untuk membandingkan kecocokan nilai.</li>
-                    <li>Perbaikan dan Hasil: Ganti tanda sama dengan tunggal tersebut menjadi operator perbandingan kesetaraan, yaitu dua (==) atau tiga (===) tanda sama dengan.
+                    <li>Temuan Kesalahan: Menggunakan tanda sama dengan tunggal (<code>=</code>) di dalam tanda kurung kondisi <code>if</code>. Simbol <code>=</code> fungsinya untuk menetapkan nilai, bukan membandingkan.</li>
+                    <li>Perbaikan dan Hasil: Ganti tanda sama dengan tunggal menjadi operator perbandingan kesetaraan, yaitu dua (<code>==</code>) atau tiga (<code>===</code>) tanda sama dengan.
                         <pre><code>function cek(nilai) {
     if (nilai === 100) {
         alert("Nilai sempurna");
@@ -193,40 +303,114 @@ function sapa() {
         alert("Belum sempurna");
     }
 }</code></pre>
-                        Hasil Eksekusi: Saat fungsi dipanggil dengan perintah cek(20), peringatan yang muncul sudah mengevaluasi kondisi dengan benar, yaitu "Belum sempurna".
+                        Hasil Eksekusi: Saat fungsi dipanggil dengan <code>cek(20)</code>, alert yang muncul adalah "Belum sempurna".
                     </li>
-                    <li>Penjelasan Penyebab: Kesalahan ketik satu karakter ini adalah hal yang paling sering bikin pusing pemula! Tanda = tunggal itu disebut assignment operator atau untuk memberi nilai. Jadi saat kode menjalankan if (nilai = 100), sistem tidak melakukan pengecekan, melainkan secara paksa mengubah isi variabel nilai menjadi 100 saat itu juga. Karena angka 100 dianggap bernilai truthy atau sah/benar, program selalu merasa kondisinya terpenuhi dan menjalankan blok "Nilai sempurna" berapapun angka masukan awalnya. Ingat ya, kalau mau membandingkan nilai, selalu biasakan pakai == atau ===.</li>
+                    <li>Penjelasan Penyebab: Tanda <code>=</code> tunggal adalah assignment operator. Saat kode menjalankan <code>if (nilai = 100)</code>, sistem tidak mengecek, melainkan mengubah isi variabel <code>nilai</code> menjadi 100 saat itu juga. Karena 100 dianggap <i>truthy</i>, program selalu menjalankan blok "Nilai sempurna" berapapun angka masukannya.</li>
                 </ul>
             </div>
         </section>
 
         <hr>
 
-        <!-- BAGIAN KEEMPAT: REFLEKSI -->
+        <!-- ========================================================= -->
+        <!-- REFLEKSI TP4                                              -->
+        <!-- ========================================================= -->
         <section class="bagian-refleksi">
-            <h3>Bagian Keempat: Refleksi</h3>
+            <h3>Refleksi Pertemuan 4</h3>
             <ol>
                 <li>
                     Baris Tabel Telusur yang Meleset dan Pelajarannya:<br>
-                    Tebakan saya meleset di baris 2 (c + b hasilnya 25) dan baris 3 (a nilainya tetap 2). Dari sini saya belajar kalau JavaScript itu suka otomatis mengubah angka jadi teks kalau ditambah pakai tanda + dengan data yang bentuknya teks. Terus, saat kita memasukkan variabel ke dalam sebuah fungsi, fungsi itu cuma meminjam salinan nilainya saja. Jadi, apapun yang diotak-atik di dalam fungsi tidak akan mengubah nilai asli variabel yang ada di luar fungsi tersebut.
+                    Tebakan saya meleset di baris 2 (<code>c + b</code> hasilnya 25) dan baris 3 (<code>a</code> nilainya tetap 2). Dari sini saya belajar kalau JavaScript suka otomatis mengubah angka jadi teks kalau ditambah pakai tanda <code>+</code> dengan data yang berbentuk teks. Selain itu, saat kita memasukkan variabel ke dalam sebuah fungsi, fungsi itu cuma meminjam salinan nilainya saja. Jadi apapun yang diotak-atik di dalam fungsi tidak akan mengubah nilai asli variabel di luar fungsi tersebut.
                 </li>
                 <li>
                     Kode Rusak yang Paling Sulit Ditemukan Penyebabnya:<br>
-                    Kode Rusak 3 adalah yang paling bikin pusing dan bahaya. Cuma gara-gara kurang satu tanda sama dengan (= yang seharusnya ==), program tidak menampilkan pesan error sama sekali di layar console atau biasa disebut bug diam-diam. Kodenya tetap jalan mulus, tapi logikanya berantakan karena sistem menganggap angka 100 itu sebuah kebenaran yang sah, sehingga kondisi pengecekan selalu dianggap benar terus-menerus terlepas dari angka berapapun yang kita ketik.
+                    Kode Rusak 3 adalah yang paling bikin pusing dan bahaya. Cuma gara-gara kurang satu tanda sama dengan (<code>=</code> yang seharusnya <code>==</code>), program tidak menampilkan pesan error sama sekali di Console (<i>bug diam-diam</i>). Kodenya tetap jalan mulus, tapi logikanya berantakan karena sistem menganggap angka 100 sebagai kebenaran yang sah, sehingga kondisi pengecekan selalu dianggap benar terus-menerus.
                 </li>
                 <li>
                     Perbedaan Fungsi dengan Alert dibandingkan Fungsi dengan Return:<br>
                     Berdasarkan kode yang saya buat sebelumnya:
                     <ul>
-                        <li>Fungsi yang pakai alert itu cuma bertugas menampilkan kotak pesan pop-up saja. Setelah pesannya muncul, ya sudah selesai. Fungsi ini tidak menghasilkan nilai apa-apa yang bisa kita simpan atau kita hitung lagi nantinya.</li>
-                        <li>Beda banget sama fungsi yang pakai perintah return. Fungsi ini berguna untuk "mengembalikan" hasil hitungan kepada kita. Keuntungannya, hasil hitungan ini bisa kita simpan ke dalam variabel, dipakai untuk hitungan matematika lain, atau digabungkan dengan kalimat lain di bagian program yang berbeda. Jadi sifatnya jauh lebih serbaguna dan bisa dipakai ulang.</li>
+                        <li>Fungsi yang pakai <code>alert</code> hanya bertugas menampilkan kotak pesan pop-up. Setelah pesannya muncul, selesai. Fungsi ini tidak menghasilkan nilai yang bisa disimpan atau dihitung lagi.</li>
+                        <li>Fungsi yang pakai <code>return</code> berguna untuk mengembalikan hasil hitungan. Hasilnya bisa disimpan ke variabel, dipakai untuk hitungan lain, atau digabungkan dengan kalimat lain di bagian program yang berbeda. Sifatnya jauh lebih serbaguna dan bisa dipakai ulang.</li>
                     </ul>
                 </li>
                 <li>
                     Pentingnya Pemeriksaan Data Langsung di Halaman Web (Client-Side Validation):<br>
-                    Walaupun pemeriksaan data pakai JavaScript di peramban pengguna ini secara teori bisa diakali oleh orang jahil yang mematikan fitur JavaScript-nya, tapi cara ini tetap sangat penting dan wajib ada. Alasan utamanya adalah demi kenyamanan pengunjung web. Dengan cara ini, kalau ada isian formulir yang salah, pengunjung bisa langsung tahu detik itu juga tanpa perlu menunggu halaman memuat ulang (loading dari awal). Ini juga sangat membantu meringankan kerja server utama web kita. Jadi, ibaratnya ini adalah satpam di depan pintu yang menyortir tamu dengan cepat, sebelum nanti diperiksa lebih ketat dan aman lagi di dalam brankas server.
+                    Walaupun pemeriksaan data pakai JavaScript di peramban pengguna secara teori bisa diakali oleh orang jahil yang mematikan JavaScript, cara ini tetap penting dan wajib ada. Alasan utamanya demi kenyamanan pengunjung web. Kalau ada isian formulir yang salah, pengunjung bisa langsung tahu tanpa menunggu halaman memuat ulang. Ini juga meringankan kerja server utama. Jadi ini ibarat satpam di depan pintu yang menyortir tamu dengan cepat, sebelum diperiksa lebih ketat di dalam server.
                 </li>
             </ol>
+        </section>
+
+        <hr>
+
+        <!-- ========================================================= -->
+        <!-- REFLEKSI TP5                                              -->
+        <!-- ========================================================= -->
+        <section class="bagian-refleksi">
+            <h3>Refleksi Pertemuan 5</h3>
+            <ol>
+                <li>
+                    <b>Apa yang terjadi bila satu <code>break</code> pada <code>namaHari</code> dihapus?</b><br>
+                    Program akan mengalami <i>fall-through</i>: <code>case</code> yang cocok dijalankan, lalu diteruskan ke <code>case</code> berikutnya tanpa berhenti karena tidak ada <code>break</code>. Akibatnya hasil bisa tertimpa nilai case berikutnya, sehingga fungsi mengembalikan nama hari yang salah. Contoh: kalau <code>break</code> pada <code>case 3</code> dihapus, memanggil <code>namaHari(3)</code> akan mengembalikan "Kamis" karena eksekusi jatuh ke case berikutnya.
+                </li>
+                <li>
+                    <b>Baris Tabel Telusur Perulangan yang ramalannya meleset dan penyebabnya.</b><br>
+                    Untuk NIM 2510514025 semua ramalan cocok. Bila ada yang meleset, penyebab paling umum adalah keliru menghitung berapa kali <code>do...while</code> berputar (karena syarat diperiksa di akhir) atau menganggap <code>n++</code> di dalam nested loop hanya berputar sekali, padahal dikalikan jumlah loop luar.
+                </li>
+                <li>
+                    <b>Perbedaan <code>while</code> dan <code>do...while</code> berdasarkan percobaan.</b><br>
+                    Pada baris 2 (<code>while (j &lt; b)</code>) kalau nilai <code>b = 0</code>, badan perulangan tidak akan dijalankan sama sekali. Tetapi pada baris 3 (<code>do...while</code>), badan perulangan tetap dijalankan minimal satu kali walaupun <code>k &gt; 0</code> sudah salah di awal. Jadi <code>while</code> memeriksa syarat dulu, <code>do...while</code> menjalankan dulu baru memeriksa.
+                </li>
+                <li>
+                    <b>Pernah mengalami perulangan tak berhenti?</b><br>
+                    Pernah. Penyebabnya waktu itu lupa menambah nilai variabel pencacah sehingga syarat selamanya benar. Saya sadar karena tab browser membeku dan muncul peringatan "Halaman tidak merespons". Cara keluarnya: menutup tab paksa lewat Task Manager, lalu memperbaiki kode dengan memastikan variabel pencacah bertambah di dalam badan perulangan dan menambahkan pembatas percobaan maksimum.
+                </li>
+                <li>
+                    <b>Mengapa <code>infoLengkap</code> bisa memanggil method induk padahal tidak ditulis di <code>Praktikan</code>?</b><br>
+                    Karena <code>class Praktikan extends Mahasiswa</code>. Dengan inheritance, seluruh method milik <code>Mahasiswa</code> (termasuk <code>infoDasar()</code> dan <code>hitungSemester()</code>) otomatis diwariskan ke <code>Praktikan</code> melalui <i>prototype chain</i>. Jadi <code>this.infoDasar()</code> di dalam <code>infoLengkap()</code> tetap bisa dipanggil, karena <code>this</code> mengacu ke objek Praktikan yang juga punya rantai ke Mahasiswa.
+                </li>
+            </ol>
+        </section>
+
+        <hr>
+
+        <!-- ========================================================= -->
+        <!-- PERCOBAAN CONSOLE CLASS (TP5 F.f)                         -->
+        <!-- ========================================================= -->
+        <section class="bagian-ringkasan">
+            <h3>Percobaan Console: Class dan Inheritance (TP5 F.f)</h3>
+            <p class="sub-keterangan">
+                Tiga percobaan sengaja dilakukan untuk melihat pesan error,
+                lalu kode dikembalikan seperti semula. Screenshot tiap percobaan
+                dilampirkan pada folder <code>gambar/</code>.
+            </p>
+
+            <table class="tabel-rekap tabel-telusur">
+                <thead>
+                    <tr class="judul">
+                        <th>Percobaan</th>
+                        <th>Pesan Error di Console</th>
+                        <th>Mengapa Gagal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1. Hapus <code>new</code> saat membuat objek</td>
+                        <td><code>TypeError: Class constructor Mahasiswa cannot be invoked without 'new'</code></td>
+                        <td>Constructor <code>class</code> wajib dipanggil dengan <code>new</code>. Tanpa <code>new</code>, JavaScript menolak karena class bukan fungsi biasa.</td>
+                    </tr>
+                    <tr>
+                        <td>2. Hapus <code>super()</code> di constructor <code>Praktikan</code></td>
+                        <td><code>ReferenceError: Must call super constructor in derived class before accessing 'this'</code></td>
+                        <td>Class turunan (<code>extends</code>) tidak boleh memakai <code>this</code> sebelum <code>super()</code> dipanggil. <code>super()</code> memasang properti dari induk dulu.</td>
+                    </tr>
+                    <tr>
+                        <td>3. Panggil <code>infoLengkap</code> pada objek <code>Mahasiswa</code></td>
+                        <td><code>TypeError: m.infoLengkap is not a function</code></td>
+                        <td>Method <code>infoLengkap</code> hanya ada di class <code>Praktikan</code>. Inheritance mengalir dari induk ke anak, bukan sebaliknya, jadi objek <code>Mahasiswa</code> tidak memilikinya.</td>
+                    </tr>
+                </tbody>
+            </table>
         </section>
     </div>
 
