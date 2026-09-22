@@ -5,16 +5,12 @@
   Berkas        : js/skrip.js
   Perhitungan Variabel Berbasis NIM:
   - Digit NIM     = 2 5 1 0 5 1 4 0 2 5
-  - d9 (ke-9)     = 2
-  - d10 (ke-10)   = 5
   - ANGKA_A       = 2
   - ANGKA_B       = 5
-  - BATAS_LULUS   = ((d9 + d10) mod 3) + 60
-                  = ((2 + 5) mod 3) + 60
+  - BATAS_LULUS   = ((2 + 5) mod 3) + 60
                   = (7 mod 3) + 60
                   = 1 + 60 = 61
-  - BATAS_ULANG   = ((d9 + d10) mod 4) + 5
-                  = ((2 + 5) mod 4) + 5
+  - BATAS_ULANG   = ((2 + 5) mod 4) + 5
                   = (7 mod 4) + 5
                   = 3 + 5 = 8
   - TAHUN_MASUK   = 2025 (dari dua digit pertama NIM)
@@ -27,9 +23,6 @@ var BATAS_LULUS = 61;
 var BATAS_ULANG = 8;
 
 
-/* =========================================================
-   BAGIAN D (TP4) - FUNGSI DASAR
-   ========================================================= */
 
 // D.1: Menyapa pengunjung dengan meminta nama melalui prompt
 function sapaPengunjung(waktu) {
@@ -184,9 +177,7 @@ function jalankanTabelTelusur() {
 }
 
 
-/* =========================================================
-   BAGIAN D (TP5) - PERCABANGAN DAN PERULANGAN
-   ========================================================= */
+
 
 // D.1 TP5: Menentukan huruf mutu berdasarkan nilai angka
 function hurufMutu(nilai) {
@@ -314,10 +305,6 @@ function ujiHurufMutuDanHari() {
 }
 
 
-/* =========================================================
-   BAGIAN E (TP5) - FORMULIR BIODATA DAN POP-UP
-   ========================================================= */
-
 // Memvalidasi biodata dan membuka hasil pada jendela pop-up
 function validasiBiodata() {
     var nim = document.getElementById("nim").value.trim();
@@ -412,9 +399,7 @@ function tampilkanHasilBiodata() {
 }
 
 
-/* =========================================================
-   BAGIAN F (TP5) - CLASS DAN INHERITANCE
-   ========================================================= */
+
 
 // Class Mahasiswa: cetakan objek mahasiswa dengan nama, NIM, tahun masuk
 class Mahasiswa {
@@ -476,10 +461,10 @@ function tampilkanProfil() {
 
     // Objek Praktikan 2: data teman sekelas
     var praktikanTeman = new Praktikan(
-        "Nama Teman Sekelas",
+        "Arkaan Cexing",
         "2510514026",
         2025,
-        "B - Sistem Informasi"
+        "A - Sains Data"
     );
 
     var html = "";
@@ -498,9 +483,7 @@ function tampilkanProfil() {
 }
 
 
-/* =========================================================
-   BAGIAN G (TP5) - TABEL TELUSUR PERULANGAN
-   ========================================================= */
+
 
 // Menjalankan kode Tabel Telusur Perulangan TP5 ke Console
 function jalankanTabelTelusurTP5() {
@@ -548,14 +531,6 @@ function jalankanTabelTelusurTP5() {
         + "Tekan F12 lalu buka tab Console untuk melihat kelima hasil.");
 }
 
-
-/* =========================================================
-   INISIALISASI OTOMATIS SAAT HALAMAN SELESAI DIMUAT
-   ========================================================= */
-
-// Menjalankan fungsi yang sesuai dengan halaman yang sedang dibuka.
-// Masing-masing fungsi sudah punya pengecekan elemen, jadi aman
-// dipanggil di semua halaman.
 document.addEventListener("DOMContentLoaded", function () {
     tampilkanProfil();         // aktif hanya di profil.html
     tampilkanHasilBiodata();   // aktif hanya di hasil.html
