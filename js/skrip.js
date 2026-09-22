@@ -4,9 +4,11 @@
   Kelas         : A - Sains Data
   Berkas        : js/skrip.js
   Perhitungan Variabel Berbasis NIM:
-  - d1 sampai d10 = 2 5 1 0 5 1 4 0 2 5
-  - ANGKA_A       = d9 = 2
-  - ANGKA_B       = d10 = 5
+  - Digit NIM     = 2 5 1 0 5 1 4 0 2 5
+  - d9 (ke-9)     = 2
+  - d10 (ke-10)   = 5
+  - ANGKA_A       = 2
+  - ANGKA_B       = 5
   - BATAS_LULUS   = ((d9 + d10) mod 3) + 60
                   = ((2 + 5) mod 3) + 60
                   = (7 mod 3) + 60
@@ -15,8 +17,8 @@
                   = ((2 + 5) mod 4) + 5
                   = (7 mod 4) + 5
                   = 3 + 5 = 8
-  - TAHUN_MASUK   = 2025
-  Tanggal ketik   : 15/09/2026
+  - TAHUN_MASUK   = 2025 (dari dua digit pertama NIM)
+  Tanggal ketik   : 22/09/2026
 */
 
 var ANGKA_A = 2;
@@ -24,23 +26,28 @@ var ANGKA_B = 5;
 var BATAS_LULUS = 61;
 var BATAS_ULANG = 8;
 
-// D.1: Menyapa pengunjung dengan meminta nama melalui prompt dan menampilkan pesan sambutan lewat pop-up alert
+
+/* =========================================================
+   BAGIAN D (TP4) - FUNGSI DASAR
+   ========================================================= */
+
+// D.1: Menyapa pengunjung dengan meminta nama melalui prompt
 function sapaPengunjung(waktu) {
     var namaPengunjung = prompt("Silakan masukkan nama Anda:");
-    
+
     if (namaPengunjung !== null && namaPengunjung.trim() !== "") {
-        alert(waktu + ", " + namaPengunjung.trim() + "!\nSelamat datang di Sistem Informasi Praktikan (SIPRAK 2.0).");
+        alert(waktu + ", " + namaPengunjung.trim() + "!\nSelamat datang di Sistem Informasi Praktikan (SIPRAK 3.0).");
     } else {
-        alert(waktu + ", Praktikan!\nSelamat datang di Sistem Informasi Praktikan (SIPRAK 2.0).");
+        alert(waktu + ", Praktikan!\nSelamat datang di Sistem Informasi Praktikan (SIPRAK 3.0).");
     }
 }
 
-// D.2: Menjumlahkan tiga jumlah SKS dan mengembalikan hasilnya murni dengan return
+// D.2: Menjumlahkan tiga nilai SKS dan mengembalikan hasilnya dengan return
 function totalSKS(a, b, c) {
     return a + b + c;
 }
 
-// D.3: Memeriksa nilai terhadap batas kelulusan dan mengembalikan status teks dengan return
+// D.3: Memeriksa nilai terhadap batas kelulusan
 function cekNilai(nilai, batas) {
     if (nilai >= batas) {
         return "Lulus";
@@ -49,7 +56,7 @@ function cekNilai(nilai, batas) {
     }
 }
 
-// Meminta nilai SKS dan uji praktikum via prompt, lalu menampilkan hasil ke alert dan DOM
+// Meminta nilai SKS via prompt, lalu menampilkan hasil ke alert dan DOM
 function hitungSKSMahasiswa() {
     var inputSKS1 = prompt("Masukkan jumlah SKS Mata Kuliah 1 (KRS: Pemrograman Web):", "3");
     if (inputSKS1 === null) {
@@ -73,7 +80,6 @@ function hitungSKSMahasiswa() {
     var sks2 = Number(inputSKS2);
     var sks3 = Number(inputSKS3);
 
-    // Validasi agar nilai SKS berupa angka yang valid
     if (isNaN(sks1) || isNaN(sks2) || isNaN(sks3) || sks1 <= 0 || sks2 <= 0 || sks3 <= 0) {
         alert("Kesalahan Input: Seluruh nilai SKS harus berupa angka positif!");
         return;
@@ -99,9 +105,8 @@ function hitungSKSMahasiswa() {
     }
 
     var status = cekNilai(nilaiAngka, BATAS_LULUS);
-    
-    // Tampilan hasil untuk Alert
-    var pesanAlert = 
+
+    var pesanAlert =
         "=========================================\n" +
         "    HASIL KALKULASI SKS & KELULUSAN     \n" +
         "=========================================\n\n" +
@@ -117,35 +122,32 @@ function hitungSKSMahasiswa() {
         "   Status Kelulusan   : " + status.toUpperCase() + "\n\n" +
         "=========================================";
 
-    // Tampilan hasil untuk halaman web (DOM)
     var hasilElemen = document.getElementById("hasilSKS");
     if (hasilElemen) {
         hasilElemen.innerHTML =
             "Total 3 mata kuliah = " + hasilTotalSKS + " SKS.<br>" +
             "Nilai = " + nilaiAngka + ", Batas lulus = " + BATAS_LULUS + ", Status = " + status + ".";
-    } 
+    }
 
     alert(pesanAlert);
 }
 
-// Menghubungkan nama fungsi yang dipanggil tombol pada jadwal.html
+// Menghubungkan tombol di jadwal.html dengan hitungSKSMahasiswa
 function jalankanKalkulator() {
     hitungSKSMahasiswa();
 }
 
-// D.4: Memvalidasi integritas data formulir pendaftaran asisten sebelum dikirimkan ke server
+// D.4: Memvalidasi integritas data formulir pendaftaran asisten
 function validasiFormulir() {
     var inputNama = document.getElementById("nama");
     var inputNim = document.getElementById("nim");
 
-    // Pemeriksaan 1: Kolom nama tidak boleh kosong
     if (!inputNama || inputNama.value.trim() === "") {
         alert("Validasi Gagal: Kolom Nama Lengkap wajib diisi!");
         if (inputNama) inputNama.focus();
         return false;
     }
 
-    // Pemeriksaan 2: Panjang NIM harus tepat 10 digit karakter
     if (!inputNim || inputNim.value.trim().length !== 10) {
         var panjangSaatIni = inputNim ? inputNim.value.trim().length : 0;
         alert("Validasi Gagal: Panjang NIM harus tepat 10 digit angka!\n(NIM saat ini: " + panjangSaatIni + " karakter)");
@@ -157,7 +159,7 @@ function validasiFormulir() {
     return true;
 }
 
-// Menjalankan kode tabel telusur ke panel Developer Tools Console (F12)
+// Menjalankan kode tabel telusur TP4 ke panel Console
 function jalankanTabelTelusur() {
     var a = ANGKA_A;
     var b = ANGKA_B;
@@ -170,23 +172,23 @@ function jalankanTabelTelusur() {
 
     var d = ubah(a);
 
-    console.log("=== HASIL EKSEKUSI TABEL TELUSUR (NIM: 2510514025) ===");
+    console.log("=== HASIL EKSEKUSI TABEL TELUSUR TP4 (NIM: 2510514025) ===");
     console.log(1, a + b);
     console.log(2, c + b);
     console.log(3, a);
     console.log(4, d);
     console.log(5, ubah(b) + ubah(b));
     console.log(6, typeof c);
-    
-    alert("Kode Tabel Telusur berhasil dieksekusi!\nSilakan tekan tombol F12 pada keyboard lalu buka tab Console.");
+
+    alert("Kode Tabel Telusur TP4 berhasil dieksekusi!\nSilakan tekan tombol F12 lalu buka tab Console.");
 }
 
 
 /* =========================================================
-   TAMBAHAN TP5 - BAGIAN D
+   BAGIAN D (TP5) - PERCABANGAN DAN PERULANGAN
    ========================================================= */
 
-// D.1 TP5: Menentukan huruf mutu berdasarkan nilai
+// D.1 TP5: Menentukan huruf mutu berdasarkan nilai angka
 function hurufMutu(nilai) {
     if (nilai >= 80) {
         return "A";
@@ -234,7 +236,7 @@ function namaHari(angka) {
 }
 
 // D.3 TP5: Membuat daftar slot jam kuliah dengan perulangan for,
-// dibangun otomatis sebanyak BATAS_ULANG putaran (dimulai 07.30, tambah 50 menit).
+// dibangun otomatis sebanyak BATAS_ULANG putaran (dimulai 07.30, tambah 50 menit)
 function buatDaftarJam() {
     var wadah = document.getElementById("daftarJam");
     if (!wadah) return; // berhenti kalau bukan halaman jadwal
@@ -249,11 +251,10 @@ function buatDaftarJam() {
     var menit = 30;
 
     for (var i = 1; i <= BATAS_ULANG; i++) {
-        // Simpan jam mulai sebelum ditambah 50 menit
         var jamMulai = jam;
         var menitMulai = menit;
 
-        // Hitung jam selesai = jam mulai + 50 menit
+        // Jam selesai = jam mulai + 50 menit
         var menitSelesai = menit + 50;
         var jamSelesai = jam;
         if (menitSelesai >= 60) {
@@ -261,7 +262,6 @@ function buatDaftarJam() {
             menitSelesai = menitSelesai - 60;
         }
 
-        // Format dua digit untuk menit
         var teksMulai = jamMulai + "." + (menitMulai < 10 ? "0" + menitMulai : menitMulai);
         var teksSelesai = jamSelesai + "." + (menitSelesai < 10 ? "0" + menitSelesai : menitSelesai);
 
@@ -271,7 +271,6 @@ function buatDaftarJam() {
         html += "<td class='tengah'>" + teksSelesai + "</td>";
         html += "</tr>";
 
-        // Majukan 50 menit untuk putaran berikutnya
         jam = jamSelesai;
         menit = menitSelesai;
 
@@ -286,6 +285,39 @@ function buatDaftarJam() {
     html += "</tbody></table>";
     wadah.innerHTML = html;
 }
+
+// Menjalankan uji hurufMutu() dan namaHari() dari halaman jadwal
+function ujiHurufMutuDanHari() {
+    var inputNilai = document.getElementById("nilaiUji");
+    var inputHari = document.getElementById("hariUji");
+    var wadah = document.getElementById("hasilUji");
+    if (!wadah) return;
+
+    var nilai = Number(inputNilai.value);
+    var hari = Number(inputHari.value);
+
+    if (isNaN(nilai) || nilai < 0 || nilai > 100) {
+        wadah.innerHTML = "Nilai harus berupa angka 0 sampai 100.";
+        return;
+    }
+    if (isNaN(hari) || hari < 1 || hari > 7) {
+        wadah.innerHTML = "Angka hari harus 1 sampai 7.";
+        return;
+    }
+
+    var mutu = hurufMutu(nilai);
+    var nama = namaHari(hari);
+
+    wadah.innerHTML =
+        "Nilai " + nilai + " = Huruf Mutu <b>" + mutu + "</b><br>" +
+        "Angka " + hari + " = Hari <b>" + nama + "</b>";
+}
+
+
+/* =========================================================
+   BAGIAN E (TP5) - FORMULIR BIODATA DAN POP-UP
+   ========================================================= */
+
 // Memvalidasi biodata dan membuka hasil pada jendela pop-up
 function validasiBiodata() {
     var nim = document.getElementById("nim").value.trim();
@@ -293,22 +325,24 @@ function validasiBiodata() {
     var jenisKelamin = document.getElementById("jenisKelamin").value;
     var tahunMasuk = document.getElementById("tahunMasuk").value.trim();
 
-    if (nim.length != 10 || isNaN(nim)) {
+    // NIM harus tepat 10 digit angka
+    if (!/^\d{10}$/.test(nim)) {
         alert("Kesalahan: NIM harus berupa 10 digit angka.");
         return false;
     }
 
-    if (nama == "") {
+    if (nama === "") {
         alert("Kesalahan: Nama tidak boleh kosong.");
         return false;
     }
 
-    if (jenisKelamin == "") {
+    if (jenisKelamin === "") {
         alert("Kesalahan: Jenis Kelamin harus dipilih.");
         return false;
     }
 
-    if (tahunMasuk.length != 4 || isNaN(tahunMasuk)) {
+    // Tahun masuk harus tepat 4 digit angka
+    if (!/^\d{4}$/.test(tahunMasuk)) {
         alert("Kesalahan: Tahun Masuk harus berupa 4 digit angka.");
         return false;
     }
@@ -316,12 +350,10 @@ function validasiBiodata() {
     var tahun = Number(tahunMasuk);
     var tahunSekarang = new Date().getFullYear();
 
-    if (tahun > tahunSekarang || tahun < 2000) {
-        alert("Kesalahan: Tahun Masuk tidak masuk akal.");
+    if (tahun < 2000 || tahun > tahunSekarang) {
+        alert("Kesalahan: Tahun Masuk tidak masuk akal (2000 s.d. " + tahunSekarang + ").");
         return false;
     }
-
-    var semester = (tahunSekarang - tahun) * 2;
 
     var alamat = "hasil.html"
         + "?nim=" + encodeURIComponent(nim)
@@ -332,16 +364,14 @@ function validasiBiodata() {
     window.open(
         alamat,
         "hasilBiodata",
-        "width=500,height=500"
+        "width=600,height=500,scrollbars=yes,resizable=yes"
     );
 
     return false;
 }
-/* =========================================================
-   TAMBAHAN TP5 - BAGIAN E: MENAMPILKAN HASIL BIODATA DI POP-UP
-   ========================================================= */
 
 // Membaca query string dari URL lalu menampilkan seluruh data biodata
+// pada halaman hasil.html (jendela pop-up)
 function tampilkanHasilBiodata() {
     var wadah = document.getElementById("hasilBiodata");
     if (!wadah) return; // berhenti kalau bukan halaman hasil.html
@@ -353,8 +383,7 @@ function tampilkanHasilBiodata() {
     var jenisKelamin = params.get("jenisKelamin") || "(tidak ada)";
     var tahunMasuk = params.get("tahunMasuk") || "(tidak ada)";
 
-    // Hitung semester dari tahun sekarang, bukan dari URL,
-    // supaya tetap sesuai aturan PDF "ambil tahun sekarang dari objek Date".
+    // Semester dihitung ulang dari objek Date (sesuai PDF)
     var tahunSekarang = new Date().getFullYear();
     var semester = "(tidak diketahui)";
     if (tahunMasuk !== "(tidak ada)" && !isNaN(tahunMasuk)) {
@@ -382,16 +411,12 @@ function tampilkanHasilBiodata() {
     }
 }
 
-// Jalankan tampilkanHasilBiodata otomatis saat halaman selesai dimuat
-document.addEventListener("DOMContentLoaded", function () {
-    tampilkanHasilBiodata();
-});
 
 /* =========================================================
-   TAMBAHAN TP5 - BAGIAN F: CLASS DAN INHERITANCE
+   BAGIAN F (TP5) - CLASS DAN INHERITANCE
    ========================================================= */
 
-// Class Mahasiswa: cetakan objek mahasiswa dengan nama, NIM, dan tahun masuk
+// Class Mahasiswa: cetakan objek mahasiswa dengan nama, NIM, tahun masuk
 class Mahasiswa {
     // Constructor: menyimpan nama, nim, dan tahunMasuk ke properti this
     constructor(nama, nim, tahunMasuk) {
@@ -449,7 +474,7 @@ function tampilkanProfil() {
         "A - Sains Data"
     );
 
-    // Objek Praktikan 2: data teman sekelas (ganti sesuai data asli)
+    // Objek Praktikan 2: data teman sekelas
     var praktikanTeman = new Praktikan(
         "Nama Teman Sekelas",
         "2510514026",
@@ -472,8 +497,9 @@ function tampilkanProfil() {
     wadah.innerHTML = html;
 }
 
+
 /* =========================================================
-   TAMBAHAN TP5 - BAGIAN G: TABEL TELUSUR PERULANGAN
+   BAGIAN G (TP5) - TABEL TELUSUR PERULANGAN
    ========================================================= */
 
 // Menjalankan kode Tabel Telusur Perulangan TP5 ke Console
@@ -523,9 +549,15 @@ function jalankanTabelTelusurTP5() {
 }
 
 
-// Menjalankan inisialisasi otomatis sesuai halaman yang dibuka
+/* =========================================================
+   INISIALISASI OTOMATIS SAAT HALAMAN SELESAI DIMUAT
+   ========================================================= */
+
+// Menjalankan fungsi yang sesuai dengan halaman yang sedang dibuka.
+// Masing-masing fungsi sudah punya pengecekan elemen, jadi aman
+// dipanggil di semua halaman.
 document.addEventListener("DOMContentLoaded", function () {
-    tampilkanProfil();         // hanya aktif di profil.html
-    tampilkanHasilBiodata();   // hanya aktif di hasil.html
-    buatDaftarJam();           // hanya aktif di jadwal.html
+    tampilkanProfil();         // aktif hanya di profil.html
+    tampilkanHasilBiodata();   // aktif hanya di hasil.html
+    buatDaftarJam();           // aktif hanya di jadwal.html
 });
