@@ -8,7 +8,6 @@
   N_EKSPLORASI  : 6
   Tanggal ketik : 22/09/2026
 -->
-
 <html>
 
 <head>
@@ -19,60 +18,57 @@
 <body>
     <iframe class="header-frame" src="atas.html" title="Kepala Halaman SIPRAK"></iframe>
 
+    <nav class="menu-tabel" aria-label="Navigasi utama">
+        <a href="index.html" accesskey="b">Beranda</a>
+        <a href="profil.html" accesskey="p">Profil</a>
+        <a href="jadwal.html" accesskey="j">Jadwal</a>
+        <a href="galeri.html" accesskey="g">Galeri</a>
+        <a href="daftar.html" accesskey="d">Pendaftaran</a>
+        <a href="jurnal.html" accesskey="r">Jurnal Eksplorasi</a>
+        <a href="profil.html#prestasi" accesskey="t">Prestasi</a>
+        <a href="https://www.upnvj.ac.id" accesskey="u" target="_blank">UPNVJ Resmi</a>
+        <a href="mailto:muhammadpanji@upnvj.ac.id" accesskey="m">Mail Dosen</a>
+    </nav>
 
-<nav class="menu-tabel" aria-label="Navigasi utama">
-    <a href="index.html" accesskey="b">Beranda</a>
-    <a href="profil.html" accesskey="p">Profil</a>
-    <a href="jadwal.html" accesskey="j">Jadwal</a>
-    <a href="galeri.html" accesskey="g">Galeri</a>
-    <a href="daftar.html" accesskey="d">Pendaftaran</a>
-    <a href="jurnal.html" accesskey="r">Jurnal Eksplorasi</a>
-    <a href="profil.html#prestasi" accesskey="t">Prestasi</a>
-    <a href="https://www.upnvj.ac.id" accesskey="u" target="_blank">UPNVJ Resmi</a>
-    <a href="mailto:muhammadpanji@upnvj.ac.id" accesskey="m">Mail Dosen</a>
-</nav>
+    <div id="isi">
+        <h2>FORMULIR BIODATA MAHASISWA</h2>
 
-<div id="isi">
-    <h2>FORMULIR BIODATA MAHASISWA</h2>
+        <p class="contoh-inline">Silakan lengkapi data biodata mahasiswa.</p>
 
-    <p class="contoh-inline">Silakan lengkapi data biodata mahasiswa.</p>
+        <form onsubmit="return validasiBiodata();">
 
-    <form onsubmit="return validasiBiodata();">
+            <p>
+                <label for="nim">NIM</label><br>
+                <input type="text" id="nim" name="nim">
+            </p>
 
-        <p>
-            <label for="nim">NIM</label><br>
-            <input type="text" id="nim" name="nim">
-        </p>
+            <p>
+                <label for="nama">Nama</label><br>
+                <input type="text" id="nama" name="nama">
+            </p>
 
-        <p>
-            <label for="nama">Nama</label><br>
-            <input type="text" id="nama" name="nama">
-        </p>
+            <p>
+                <label for="jenisKelamin">Jenis Kelamin</label><br>
+                <select id="jenisKelamin" name="jenisKelamin">
+                    <option value="">-- Pilih Jenis Kelamin --</option>
+                    <option value="Laki-laki">Laki-laki</option>
+                    <option value="Perempuan">Perempuan</option>
+                </select>
+            </p>
 
-        <p>
-            <label for="jenisKelamin">Jenis Kelamin</label><br>
-            <select id="jenisKelamin" name="jenisKelamin">
-                <option value="">-- Pilih Jenis Kelamin --</option>
-                <option value="Laki-laki">Laki-laki</option>
-                <option value="Perempuan">Perempuan</option>
-            </select>
-        </p>
+            <p>
+                <label for="tahunMasuk">Tahun Masuk</label><br>
+                <input type="text" id="tahunMasuk" name="tahunMasuk">
+            </p>
 
-        <p>
-            <label for="tahunMasuk">Tahun Masuk</label><br>
-            <input type="text" id="tahunMasuk" name="tahunMasuk">
-        </p>
+            <p>
+                <button type="submit" class="tombol-form">Kirim Biodata</button>
+            </p>
 
-        <p>
-            <button type="submit" class="tombol-form">Kirim Biodata</button>
-        </p>
+        </form>
+    </div>
 
-    </form>
-</div>
-
-<script src="js/skrip.js"></script>
-
-
+    <script src="js/skrip.js"></script>
 </body>
 
 </html>
