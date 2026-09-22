@@ -181,6 +181,20 @@
 
         <br><br>
 
+        <!-- BARU TP5: Daftar slot jam dibangun otomatis oleh buatDaftarJam() -->
+        <section>
+            <h3>Daftar Slot Jam Kuliah (Dibangun Perulangan)</h3>
+            <p class="sub-keterangan">
+                Tabel ini dibangun otomatis oleh fungsi <code>buatDaftarJam()</code>
+                dengan perulangan <code>for</code> sebanyak <code>BATAS_ULANG</code> putaran.
+                Ubah nilai <code>BATAS_ULANG</code> di <code>js/skrip.js</code> untuk melihat
+                jumlah baris berubah sendiri.
+            </p>
+            <div id="daftarJam"></div>
+        </section>
+
+        <br><br>
+
         <table class="tabel-rekap" title="Rekapitulasi mata kuliah beserta bobot SKS pada semester berjalan">
             <caption><b>Rekapitulasi Mata Kuliah dan SKS</b></caption>
             <thead>
@@ -210,16 +224,48 @@
 
         <br>
 
-        <!-- Sesuai D.2.c & D.3.c: Tombol pemanggil fungsi totalSKS dan cekNilai -->
+        <!-- Sesuai D.2.c & D.3.c TP4: Tombol pemanggil fungsi totalSKS dan cekNilai -->
         <div class="kotak-kalkulator">
             <h3>Kalkulator SKS &amp; Status Kelulusan Nilai</h3>
             <p class="keterangan-kalkulator">
-                Fitur ini memanggil fungsi <code>totalSKS(a, b, c)</code> untuk 3 mata kuliah pilihan KRS dan fungsi <code>cekNilai(nilai, batas)</code> dengan ambang batas kelulusan <code>BATAS_LULUS = 61</code>.
+                Fitur ini memanggil fungsi <code>totalSKS(a, b, c)</code> untuk 3 mata kuliah pilihan KRS
+                dan fungsi <code>cekNilai(nilai, batas)</code> dengan ambang batas kelulusan
+                <code>BATAS_LULUS = 61</code>.
             </p>
             <button type="button" class="tombol-form" onclick="jalankanKalkulator();">
                 Hitung SKS &amp; Uji Kelulusan Nilai
             </button>
             <p id="hasilSKS" class="hasil-kalkulator">Hasil akan tampil di sini.</p>
+        </div>
+
+        <br>
+
+        <!-- BARU TP5: Uji fungsi hurufMutu() dan namaHari() sesuai TP5 D.1 & D.2 -->
+        <div class="kotak-kalkulator">
+            <h3>Uji Fungsi hurufMutu() dan namaHari()</h3>
+            <p class="keterangan-kalkulator">
+                Masukkan nilai angka (0&ndash;100) untuk melihat huruf mutu,
+                dan angka 1&ndash;7 untuk melihat nama hari. Fungsi memakai
+                <code>if...else if</code> bertingkat dan <code>switch</code>.
+            </p>
+
+            <p>
+                <label for="nilaiUji">Nilai (0&ndash;100):</label>
+                <input type="number" id="nilaiUji" min="0" max="100" value="85">
+            </p>
+
+            <p>
+                <label for="hariUji">Angka Hari (1&ndash;7):</label>
+                <input type="number" id="hariUji" min="1" max="7" value="3">
+            </p>
+
+            <p>
+                <button type="button" class="tombol-form" onclick="ujiHurufMutuDanHari();">
+                    Uji Kedua Fungsi
+                </button>
+            </p>
+
+            <p id="hasilUji" class="hasil-kalkulator">Hasil akan tampil di sini.</p>
         </div>
     </div>
 

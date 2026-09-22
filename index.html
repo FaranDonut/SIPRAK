@@ -15,8 +15,8 @@
     <link rel="stylesheet" href="css/gaya.css">
 </head>
 
-<!-- Sesuai D.1.c: dipanggil melalui onload pada halaman beranda -->
-<body onload="sapaPengunjung('Selamat datang');">
+<!-- Sesuai B.5: pop-up dipicu klik pengguna, bukan onload -->
+<body>
     <iframe class="header-frame" src="atas.html" title="Kepala Halaman SIPRAK"></iframe>
 
     <nav class="menu-tabel" aria-label="Navigasi utama">
@@ -27,13 +27,20 @@
         <a href="daftar.html" accesskey="d">Pendaftaran</a>
         <a href="jurnal.html" accesskey="r">Jurnal Eksplorasi</a>
         <a href="profil.html#prestasi" accesskey="t">Prestasi</a>
-        <a href="https://www.upnvj.ac.id" accesskey="u" target="_blank">UPNVJ Resmi</a> 
+        <a href="https://www.upnvj.ac.id" accesskey="u" target="_blank">UPNVJ Resmi</a>
         <a href="mailto:muhammadpanji@upnvj.ac.id" accesskey="m">Mail Dosen</a>
     </nav>
 
     <div id="isi">
         <h2>SELAMAT DATANG DI SIPRAK 3.0</h2>
         <p class="sub-keterangan">Sistem Informasi Praktikan Laboratorium Fakultas Ilmu Komputer UPN "Veteran" Jakarta.</p>
+
+        <!-- BARU: pop-up dipicu klik pengguna, bukan onload -->
+        <p>
+            <button type="button" class="tombol-form" onclick="sapaPengunjung('Selamat datang');">
+                Sapa Pengunjung
+            </button>
+        </p>
 
         <section class="ringkasan-situs">
             <h3>Ringkasan Situs</h3>
@@ -42,7 +49,8 @@
                 <li><strong>Jadwal:</strong> Informasi jadwal praktikum perkuliahan semester berjalan dan kalkulator interaktif SKS/kelulusan.</li>
                 <li><strong>Galeri:</strong> Dokumentasi kegiatan praktikum dengan pemetaan gambar interaktif (Image Map).</li>
                 <li><strong>Pendaftaran:</strong> Formulir pendaftaran asisten praktikum dilengkapi validasi client-side JavaScript.</li>
-                <li><strong>Jurnal Eksplorasi:</strong> Dokumentasi hasil telusur kode, perburuan bug, dan refleksi JavaScript TP4.</li>
+                <li><strong>Jurnal Eksplorasi:</strong> Dokumentasi hasil telusur kode, perburuan bug, dan refleksi JavaScript TP4 dan TP5.</li>
+                <li><strong>Biodata:</strong> Formulir biodata mahasiswa dengan validasi dan tampilan hasil pada jendela pop-up.</li>
             </ul>
         </section>
     </div>

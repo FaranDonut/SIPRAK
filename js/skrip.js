@@ -233,28 +233,58 @@ function namaHari(angka) {
     return hari;
 }
 
-// D.3 TP5: Membuat daftar slot jam kuliah dengan perulangan for
+// D.3 TP5: Membuat daftar slot jam kuliah dengan perulangan for,
+// dibangun otomatis sebanyak BATAS_ULANG putaran (dimulai 07.30, tambah 50 menit).
 function buatDaftarJam() {
-    var teks = "";
+    var wadah = document.getElementById("daftarJam");
+    if (!wadah) return; // berhenti kalau bukan halaman jadwal
+
+    var html = "";
+    html += "<table class='tabel-rekap' title='Daftar slot jam kuliah'>";
+    html += "<caption><b>Daftar Slot Jam Kuliah (BATAS_ULANG = " + BATAS_ULANG + ")</b></caption>";
+    html += "<thead><tr class='judul'><th class='tengah'>No</th><th class='tengah'>Jam Mulai</th><th class='tengah'>Jam Selesai</th></tr></thead>";
+    html += "<tbody>";
+
     var jam = 7;
     var menit = 30;
 
-    for (var i = 0; i < BATAS_ULANG; i++) {
-        if (menit < 10) {
-            teks = teks + "<p>" + jam + ".0" + menit + "</p>";
-        } else {
-            teks = teks + "<p>" + jam + "." + menit + "</p>";
+    for (var i = 1; i <= BATAS_ULANG; i++) {
+        // Simpan jam mulai sebelum ditambah 50 menit
+        var jamMulai = jam;
+        var menitMulai = menit;
+
+        // Hitung jam selesai = jam mulai + 50 menit
+        var menitSelesai = menit + 50;
+        var jamSelesai = jam;
+        if (menitSelesai >= 60) {
+            jamSelesai = jamSelesai + 1;
+            menitSelesai = menitSelesai - 60;
         }
 
-        menit = menit + 50;
+        // Format dua digit untuk menit
+        var teksMulai = jamMulai + "." + (menitMulai < 10 ? "0" + menitMulai : menitMulai);
+        var teksSelesai = jamSelesai + "." + (menitSelesai < 10 ? "0" + menitSelesai : menitSelesai);
 
-        if (menit >= 60) {
-            jam = jam + 1;
-            menit = menit - 60;
+        html += "<tr>";
+        html += "<td class='tengah'>" + i + "</td>";
+        html += "<td class='tengah'>" + teksMulai + "</td>";
+        html += "<td class='tengah'>" + teksSelesai + "</td>";
+        html += "</tr>";
+
+        // Majukan 50 menit untuk putaran berikutnya
+        jam = jamSelesai;
+        menit = menitSelesai;
+
+        // Pembatas percobaan (nilai tambah PDF):
+        // walau BATAS_ULANG salah diubah, perulangan tetap berhenti di 100.
+        if (i >= 100) {
+            html += "<tr><td colspan='3' class='tengah'><b>Batas percobaan tercapai, perulangan dihentikan paksa.</b></td></tr>";
+            break;
         }
     }
 
-    document.getElementById("daftarJam").innerHTML = teks;
+    html += "</tbody></table>";
+    wadah.innerHTML = html;
 }
 // Memvalidasi biodata dan membuka hasil pada jendela pop-up
 function validasiBiodata() {
@@ -297,8 +327,7 @@ function validasiBiodata() {
         + "?nim=" + encodeURIComponent(nim)
         + "&nama=" + encodeURIComponent(nama)
         + "&jenisKelamin=" + encodeURIComponent(jenisKelamin)
-        + "&tahunMasuk=" + encodeURIComponent(tahunMasuk)
-        + "&semester=" + encodeURIComponent(semester);
+        + "&tahunMasuk=" + encodeURIComponent(tahunMasuk);
 
     window.open(
         alamat,
@@ -308,3 +337,144 @@ function validasiBiodata() {
 
     return false;
 }
+/* =========================================================
+   TAMBAHAN TP5 - BAGIAN E: MENAMPILKAN HASIL BIODATA DI POP-UP
+   ========================================================= */
+
+// Membaca query string dari URL lalu menampilkan seluruh data biodata
+function tampilkanHasilBiodata() {
+    var wadah = document.getElementById("hasilBiodata");
+    if (!wadah) return; // berhenti kalau bukan halaman hasil.html
+
+    var params = new URLSearchParams(window.location.search);
+
+    var nim = params.get("nim") || "(tidak ada)";
+    var nama = params.get("nama") || "(tidak ada)";
+    var jenisKelamin = params.get("jenisKelamin") || "(tidak ada)";
+    var tahunMasuk = params.get("tahunMasuk") || "(tidak ada)";
+
+    // Hitung semester dari tahun sekarang, bukan dari URL,
+    // supaya tetap sesuai aturan PDF "ambil tahun sekarang dari objek Date".
+    var tahunSekarang = new Date().getFullYear();
+    var semester = "(tidak diketahui)";
+    if (tahunMasuk !== "(tidak ada)" && !isNaN(tahunMasuk)) {
+        semester = (tahunSekarang - Number(tahunMasuk)) * 2;
+    }
+
+    var html = "";
+    html += "<table class='tabel-biodata'>";
+    html += "<tr><td class='label'>NIM</td><td>" + nim + "</td></tr>";
+    html += "<tr><td class='label'>Nama</td><td>" + nama + "</td></tr>";
+    html += "<tr><td class='label'>Jenis Kelamin</td><td>" + jenisKelamin + "</td></tr>";
+    html += "<tr><td class='label'>Tahun Masuk</td><td>" + tahunMasuk + "</td></tr>";
+    html += "<tr><td class='label'>Semester Berjalan</td><td>" + semester + "</td></tr>";
+    html += "</table>";
+
+    wadah.innerHTML = html;
+
+    // Pasang aksi tutup jendela pada tautan
+    var tautanTutup = document.getElementById("tutupJendela");
+    if (tautanTutup) {
+        tautanTutup.addEventListener("click", function (e) {
+            e.preventDefault();
+            window.close();
+        });
+    }
+}
+
+// Jalankan tampilkanHasilBiodata otomatis saat halaman selesai dimuat
+document.addEventListener("DOMContentLoaded", function () {
+    tampilkanHasilBiodata();
+});
+
+/* =========================================================
+   TAMBAHAN TP5 - BAGIAN F: CLASS DAN INHERITANCE
+   ========================================================= */
+
+// Class Mahasiswa: cetakan objek mahasiswa dengan nama, NIM, dan tahun masuk
+class Mahasiswa {
+    // Constructor: menyimpan nama, nim, dan tahunMasuk ke properti this
+    constructor(nama, nim, tahunMasuk) {
+        this.nama = nama;
+        this.nim = nim;
+        this.tahunMasuk = tahunMasuk;
+    }
+
+    // Method infoDasar: mengembalikan gabungan nama dan NIM
+    infoDasar() {
+        return this.nama + " - " + this.nim;
+    }
+
+    // Method hitungSemester: menghitung semester berjalan dari selisih tahun
+    hitungSemester(tahunSekarang) {
+        return (tahunSekarang - this.tahunMasuk) * 2;
+    }
+}
+
+// Class Praktikan: turunan (extends) dari Mahasiswa dengan tambahan kelas praktikum
+class Praktikan extends Mahasiswa {
+    // Constructor: wajib memanggil super() sebelum memakai this
+    constructor(nama, nim, tahunMasuk, kelasPraktikum) {
+        super(nama, nim, tahunMasuk);
+        this.kelasPraktikum = kelasPraktikum;
+    }
+
+    // Method infoLengkap: memanggil method induk lalu menambahkan kelas praktikum
+    infoLengkap(tahunSekarang) {
+        return this.infoDasar()
+            + " | Kelas " + this.kelasPraktikum
+            + " | Semester " + this.hitungSemester(tahunSekarang);
+    }
+}
+
+// Menampilkan objek Mahasiswa dan Praktikan ke halaman profil
+function tampilkanProfil() {
+    var wadah = document.getElementById("daftar-profil");
+    if (!wadah) return; // berhenti kalau bukan halaman profil
+
+    var tahunSekarang = new Date().getFullYear();
+
+    // Satu objek Mahasiswa (data saya sendiri)
+    var mhsSaya = new Mahasiswa(
+        "Muhammad Farand Danendra",
+        "2510514025",
+        2025
+    );
+
+    // Objek Praktikan 1: data saya sendiri
+    var praktikanSaya = new Praktikan(
+        "Muhammad Farand Danendra",
+        "2510514025",
+        2025,
+        "A - Sains Data"
+    );
+
+    // Objek Praktikan 2: data teman sekelas (ganti sesuai data asli)
+    var praktikanTeman = new Praktikan(
+        "Nama Teman Sekelas",
+        "2510514026",
+        2025,
+        "B - Sistem Informasi"
+    );
+
+    var html = "";
+
+    html += "<h3>Objek Mahasiswa</h3>";
+    html += "<p>" + mhsSaya.infoDasar()
+        + " | Semester " + mhsSaya.hitungSemester(tahunSekarang) + "</p>";
+
+    html += "<h3>Objek Praktikan 1 (data saya)</h3>";
+    html += "<p>" + praktikanSaya.infoLengkap(tahunSekarang) + "</p>";
+
+    html += "<h3>Objek Praktikan 2 (data teman sekelas)</h3>";
+    html += "<p>" + praktikanTeman.infoLengkap(tahunSekarang) + "</p>";
+
+    wadah.innerHTML = html;
+}
+
+// Menjalankan inisialisasi otomatis sesuai halaman yang dibuka
+document.addEventListener("DOMContentLoaded", function () {
+    tampilkanProfil();         // hanya aktif di profil.html
+    tampilkanHasilBiodata();   // hanya aktif di hasil.html
+    buatDaftarJam();           // hanya aktif di jadwal.html
+});
