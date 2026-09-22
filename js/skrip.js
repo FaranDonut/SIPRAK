@@ -472,6 +472,57 @@ function tampilkanProfil() {
     wadah.innerHTML = html;
 }
 
+/* =========================================================
+   TAMBAHAN TP5 - BAGIAN G: TABEL TELUSUR PERULANGAN
+   ========================================================= */
+
+// Menjalankan kode Tabel Telusur Perulangan TP5 ke Console
+function jalankanTabelTelusurTP5() {
+    var a = ANGKA_A;
+    var b = ANGKA_B;
+
+    // Baris 1: for, akumulasi 1..a
+    var hasil = 0;
+    for (var i = 1; i <= a; i++) {
+        hasil = hasil + i;
+    }
+    console.log(1, hasil);
+
+    // Baris 2: while, naik kelipatan 2 sampai >= b
+    var j = 0;
+    while (j < b) {
+        j = j + 2;
+    }
+    console.log(2, j);
+
+    // Baris 3: do...while, turun kelipatan a sampai <= 0
+    var k = 10;
+    do {
+        k = k - a;
+    } while (k > 0);
+    console.log(3, k);
+
+    // Baris 4: for mundur, menempel angka dari a ke 1
+    var teks = "";
+    for (var i2 = a; i2 >= 1; i2--) {
+        teks = teks + i2;
+    }
+    console.log(4, teks);
+
+    // Baris 5: nested loop 3 x 2
+    var n = 0;
+    for (var p = 0; p < 3; p++) {
+        for (var q = 0; q < 2; q++) {
+            n++;
+        }
+    }
+    console.log(5, n);
+
+    alert("Kode Tabel Telusur Perulangan TP5 berhasil dieksekusi.\n"
+        + "Tekan F12 lalu buka tab Console untuk melihat kelima hasil.");
+}
+
+
 // Menjalankan inisialisasi otomatis sesuai halaman yang dibuka
 document.addEventListener("DOMContentLoaded", function () {
     tampilkanProfil();         // hanya aktif di profil.html
