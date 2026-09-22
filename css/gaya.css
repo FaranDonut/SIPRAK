@@ -153,6 +153,20 @@ legend { background-color: var(--warna-utama); color: #FFFFFF; padding: 4px 10px
 code { background-color: #EEE; padding: 2px 5px; border-radius: 3px; font-family: Consolas, monospace; }
 footer { text-align: center; margin-top: 30px; font-size: 0.9em; color: #777777; border-top: 1px solid #DDDDDD; padding: 15px 0 5px 0; }
 
+/* Menyembunyikan field NIM bawaan (dipakai untuk validasi JS di D.4)
+   agar tidak tampil sebagai kotak input polos di luar tabel formulir */
+.input-tersembunyi {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
 /* ===== Komponen TP4 ===== */
 .contoh-inline { font-style: italic; }
 .kotak-kalkulator { background-color: #FFFFFF; border: 1px solid var(--warna-utama); padding: 16px; border-radius: 6px; width: 60%; box-sizing: border-box; }
