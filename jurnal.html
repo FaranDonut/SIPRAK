@@ -66,10 +66,6 @@ console.log(6, typeof c);</code></pre>
                     -&gt; Eksekusi Kode ke Panel Console (F12)
                 </button>
             </p>
-            <p>
-                Setelah tombol dijalankan, buka <strong>F12 &gt; Console</strong>
-                dan ambil tangkapan layar yang menampilkan keenam hasil di bawah.
-            </p>
 
             <table class="tabel-rekap tabel-telusur">
                 <caption><b>Tabel Telusur TP4: Prediksi vs Hasil Sebenarnya</b></caption>
@@ -120,6 +116,15 @@ console.log(6, typeof c);</code></pre>
                     </tr>
                 </tbody>
             </table>
+
+            <p>Output Console yang sebenarnya:</p>
+            <pre><code>=== HASIL EKSEKUSI TABEL TELUSUR TP4 (NIM: 2510514025) ===
+1 7
+2 25
+3 2
+4 3
+5 12
+6 string</code></pre>
         </section>
 
         <hr>
@@ -165,10 +170,6 @@ console.log(5, n);</code></pre>
                 <button type="button" class="tombol-form" onclick="jalankanTabelTelusurTP5();">
                     -&gt; Eksekusi Kode ke Panel Console (F12)
                 </button>
-            </p>
-            <p>
-                Setelah tombol diklik, buka <strong>F12 &gt; Console</strong>
-                dan ambil tangkapan layar yang menampilkan kelima hasil.
             </p>
 
             <table class="tabel-rekap tabel-telusur">
@@ -220,6 +221,51 @@ console.log(5, n);</code></pre>
                     </tr>
                 </tbody>
             </table>
+
+            <p>Output Console yang sebenarnya:</p>
+            <pre><code>1 3
+2 6
+3 0
+4 21
+5 6</code></pre>
+        </section>
+
+        <hr>
+
+        <!-- ========================================================= -->
+        <!-- PERCOBAAN HAPUS BREAK (TP5 D.2.c)                         -->
+        <!-- ========================================================= -->
+        <section class="bagian-ringkasan">
+            <h3>Percobaan: Hapus Satu <code>break</code> pada <code>namaHari()</code></h3>
+            <p class="sub-keterangan">
+                Sesuai PDF TP5 D.2.c, satu <code>break</code> dihapus untuk melihat akibatnya.
+            </p>
+
+            <p>Kode semula (<code>case 3</code>):</p>
+            <pre><code>case 3:
+    hari = "Rabu";
+    break;
+case 4:
+    hari = "Kamis";
+    break;</code></pre>
+
+            <p>Kode setelah <code>break</code> pada <code>case 3</code> dihapus:</p>
+            <pre><code>case 3:
+    hari = "Rabu";
+    // break dihilangkan sengaja (fall-through)
+case 4:
+    hari = "Kamis";
+    break;</code></pre>
+
+            <p>Hasil pemanggilan <code>namaHari(3)</code>:</p>
+            <ul>
+                <li>Sebelum <code>break</code> dihapus: <code>"Rabu"</code> (benar)</li>
+                <li>Setelah <code>break</code> dihapus: <code>"Kamis"</code> (salah, karena jatuh ke case berikutnya / fall-through)</li>
+            </ul>
+
+            <p>Output Console yang sebenarnya:</p>
+            <pre><code>namaHari(3) sebelum dihapus break = Rabu
+namaHari(3) setelah dihapus break = Kamis</code></pre>
         </section>
 
         <hr>
@@ -351,7 +397,7 @@ function sapa() {
             <ol>
                 <li>
                     <b>Apa yang terjadi bila satu <code>break</code> pada <code>namaHari</code> dihapus?</b><br>
-                    Program akan mengalami <i>fall-through</i>: <code>case</code> yang cocok dijalankan, lalu diteruskan ke <code>case</code> berikutnya tanpa berhenti karena tidak ada <code>break</code>. Akibatnya hasil bisa tertimpa nilai case berikutnya, sehingga fungsi mengembalikan nama hari yang salah. Contoh: kalau <code>break</code> pada <code>case 3</code> dihapus, memanggil <code>namaHari(3)</code> akan mengembalikan "Kamis" karena eksekusi jatuh ke case berikutnya.
+                    Program akan mengalami <i>fall-through</i>: <code>case</code> yang cocok dijalankan, lalu diteruskan ke <code>case</code> berikutnya tanpa berhenti karena tidak ada <code>break</code>. Akibatnya hasil bisa tertimpa nilai case berikutnya, sehingga fungsi mengembalikan nama hari yang salah. Contoh nyata: kalau <code>break</code> pada <code>case 3</code> dihapus, memanggil <code>namaHari(3)</code> akan mengembalikan "Kamis" karena eksekusi jatuh ke case berikutnya.
                 </li>
                 <li>
                     <b>Baris Tabel Telusur Perulangan yang ramalannya meleset dan penyebabnya.</b><br>
@@ -375,42 +421,74 @@ function sapa() {
         <hr>
 
         <!-- ========================================================= -->
-        <!-- PERCOBAAN CONSOLE CLASS (TP5 F.f)                         -->
+        <!-- PERCOBAAN CONSOLE CLASS (TP5 F.f) - KODE + OUTPUT         -->
         <!-- ========================================================= -->
         <section class="bagian-ringkasan">
             <h3>Percobaan Console: Class dan Inheritance (TP5 F.f)</h3>
             <p class="sub-keterangan">
-                Tiga percobaan sengaja dilakukan untuk melihat pesan error,
-                lalu kode dikembalikan seperti semula. Screenshot tiap percobaan
-                dilampirkan pada folder <code>gambar/</code>.
+                Tiga percobaan sengaja dilakukan untuk melihat pesan error di Console,
+                lalu kode dikembalikan seperti semula.
             </p>
 
-            <table class="tabel-rekap tabel-telusur">
-                <thead>
-                    <tr class="judul">
-                        <th>Percobaan</th>
-                        <th>Pesan Error di Console</th>
-                        <th>Mengapa Gagal</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1. Hapus <code>new</code> saat membuat objek</td>
-                        <td><code>TypeError: Class constructor Mahasiswa cannot be invoked without 'new'</code></td>
-                        <td>Constructor <code>class</code> wajib dipanggil dengan <code>new</code>. Tanpa <code>new</code>, JavaScript menolak karena class bukan fungsi biasa.</td>
-                    </tr>
-                    <tr>
-                        <td>2. Hapus <code>super()</code> di constructor <code>Praktikan</code></td>
-                        <td><code>ReferenceError: Must call super constructor in derived class before accessing 'this'</code></td>
-                        <td>Class turunan (<code>extends</code>) tidak boleh memakai <code>this</code> sebelum <code>super()</code> dipanggil. <code>super()</code> memasang properti dari induk dulu.</td>
-                    </tr>
-                    <tr>
-                        <td>3. Panggil <code>infoLengkap</code> pada objek <code>Mahasiswa</code></td>
-                        <td><code>TypeError: m.infoLengkap is not a function</code></td>
-                        <td>Method <code>infoLengkap</code> hanya ada di class <code>Praktikan</code>. Inheritance mengalir dari induk ke anak, bukan sebaliknya, jadi objek <code>Mahasiswa</code> tidak memilikinya.</td>
-                    </tr>
-                </tbody>
-            </table>
+            <!-- PERCOBAAN 1 -->
+            <div class="item-tantangan">
+                <h4>Percobaan 1: Hapus <code>new</code> saat Membuat Objek</h4>
+                <p>Kode yang dijalankan:</p>
+                <pre><code>var m1 = Mahasiswa("Muhammad Farand Danendra", "2510514025", 2025);</code></pre>
+
+                <p>Output di Console:</p>
+                <pre><code>TypeError: Class constructor Mahasiswa cannot be invoked without 'new'</code></pre>
+
+                <p>
+                    <b>Mengapa gagal:</b> Constructor <code>class</code> wajib dipanggil dengan
+                    <code>new</code>. Tanpa <code>new</code>, JavaScript menolak karena class
+                    bukan fungsi biasa. Kalau ingin memanggil seperti fungsi, gunakan
+                    fungsi biasa (<code>function Mahasiswa(...) {}</code>) atau
+                    constructor function, bukan sintaks <code>class</code>.
+                </p>
+            </div>
+
+            <!-- PERCOBAAN 2 -->
+            <div class="item-tantangan">
+                <h4>Percobaan 2: Hapus <code>super()</code> di Constructor <code>Praktikan</code></h4>
+                <p>Kode yang dijalankan:</p>
+                <pre><code>class PraktikanRusak extends Mahasiswa {
+    constructor(nama, nim, tahunMasuk, kelasPraktikum) {
+        // super(nama, nim, tahunMasuk);   &lt;-- dihapus sementara
+        this.kelasPraktikum = kelasPraktikum;
+    }
+}
+var p2 = new PraktikanRusak("Muhammad Farand Danendra", "2510514025", 2025, "A - Sains Data");</code></pre>
+
+                <p>Output di Console:</p>
+                <pre><code>ReferenceError: Must call super constructor in derived class before accessing 'this' or returning from derived constructor</code></pre>
+
+                <p>
+                    <b>Mengapa gagal:</b> Class turunan (<code>extends</code>) tidak boleh
+                    memakai <code>this</code> sebelum <code>super()</code> dipanggil.
+                    <code>super()</code> bertugas memanggil constructor induk
+                    (<code>Mahasiswa</code>) agar properti <code>nama</code>,
+                    <code>nim</code>, dan <code>tahunMasuk</code> terpasang dulu.
+                </p>
+            </div>
+
+            <!-- PERCOBAAN 3 -->
+            <div class="item-tantangan">
+                <h4>Percobaan 3: Panggil <code>infoLengkap</code> pada Objek <code>Mahasiswa</code></h4>
+                <p>Kode yang dijalankan:</p>
+                <pre><code>var m3 = new Mahasiswa("Muhammad Farand Danendra", "2510514025", 2025);
+m3.infoLengkap(2026);</code></pre>
+
+                <p>Output di Console:</p>
+                <pre><code>TypeError: m3.infoLengkap is not a function</code></pre>
+
+                <p>
+                    <b>Mengapa gagal:</b> Method <code>infoLengkap</code> hanya ada di
+                    class <code>Praktikan</code>. Inheritance mengalir dari induk ke anak,
+                    bukan sebaliknya. Objek <code>Mahasiswa</code> adalah induk, jadi
+                    tidak mewarisi method yang hanya ada di anak.
+                </p>
+            </div>
         </section>
     </div>
 
