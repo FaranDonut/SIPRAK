@@ -77,12 +77,14 @@ body.body-header {
 .beranda-ringkas { border-left: 4px solid var(--warna-aksen); padding: 12px 16px; margin-bottom: 20px; background-color: #FFFFFF; }
 
 /* ===== Box Model Biodata ===== */
-.tabel-biodata { width: 100%; padding: 12px; border: var(--tebal-border) solid var(--warna-utama); margin: 14px 0; border-radius: 10px; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25); background-color: #FFFFFF; }
-.tabel-biodata td { padding: 8px; }
-.tabel-biodata td.label { background-color: var(--warna-utama); color: #FFFFFF; font-weight: bold; width: 22%; }
+.tabel-profil { width: 100%; padding: 12px; border: var(--tebal-border) solid var(--warna-utama); margin: 14px 0; border-radius: 10px; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25); background-color: #FFFFFF; }
+.tabel-profil td { padding: 8px; border-bottom: 1px solid #D8CFC0; }
+.tabel-profil tr:last-child td { border-bottom: none; }
+.tabel-profil td.kolom-foto { border-bottom: none; }
+.tabel-profil td.label { background-color: var(--warna-utama); color: #FFFFFF; font-weight: bold; width: 22%; }
 .kolom-foto { text-align: center; vertical-align: middle; width: 25%; }
 .foto-profil { max-width: 160px; height: auto; border: 2px solid var(--warna-utama); border-radius: 8px; }
-.kotak-biodata {position: relative;margin: 14px 0;
+.kotak-profil {position: relative;margin: 14px 0;
 }
 
 .badge-status {position: absolute;top: 10px;right: 12px;background-color: var(--warna-aksen);color: #FFFFFF !important;padding: 4px 10px;font-size: 0.8em;font-weight: bold;border-radius: 4px;text-decoration: none; /* Menghilangkan garis bawah link */z-index: 10;display: inline-block;
