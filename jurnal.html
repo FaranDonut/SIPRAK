@@ -21,6 +21,10 @@
     <nav class="menu-tabel" aria-label="Navigasi utama">
         <a href="index.html" accesskey="b">Beranda</a>
         <a href="profil.html" accesskey="p">Profil</a>
+        <a href="kartu.php" accesskey="k">Kartu Mahasiswa</a>
+        <a href="rekap.php" accesskey="e">Rekap Beban</a>
+        <a href="telusur.php" accesskey="x">Tabel Telusur</a>
+        <a href="bukti.php" accesskey="s">Bukti Server</a>
         <a href="jadwal.html" accesskey="j">Jadwal</a>
         <a href="galeri.html" accesskey="g">Galeri</a>
         <a href="daftar.html" accesskey="d">Pendaftaran</a>
@@ -815,6 +819,133 @@ m3.infoLengkap(2026);</code></pre>
                     Kenapa gagal: Method <code>infoLengkap</code> hanya ada di class <code>Praktikan</code>. Inheritance berjalan dari induk ke anak, bukan sebaliknya. Objek <code>Mahasiswa</code> adalah induk, jadi tidak mewarisi method yang hanya ada di class anak.
                 </p>
             </div>
+        </section>
+
+        <hr>
+
+        <!-- ========================================================= -->
+        <!-- BAGIAN KELIMA (TP6): REFLEKSI PERTEMUAN 6                 -->
+        <!-- SIPRAK 5.0 - MEMINDAHKAN SITUS KE SERVER                   -->
+        <!-- ========================================================= -->
+        <section class="bagian-refleksi">
+            <h3>Bagian Kelima (TP6): Refleksi Pertemuan 6 (SIPRAK 5.0 - Memindahkan Situs ke Server)</h3>
+            <p class="sub-keterangan">
+                Mahasiswa: Muhammad Farand Danendra - NIM 2510514025 (ANGKA_A = 2, ANGKA_B = 5, TAHUN_MASUK = 2025)
+            </p>
+
+            <ol>
+                <li>
+                    <strong>Apa yang tampil ketika bukti.php dibuka dengan klik dua kali, dan mengapa berbeda dengan ketika dibuka melalui localhost?</strong><br>
+                    Ketika berkas <code>bukti.php</code> dibuka dengan cara klik dua kali (melalui protokol <code>file:///</code>), peramban (browser) membacanya sebagai dokumen teks/HTML statis biasa dari media penyimpanan lokal tanpa perantara web server. Karena browser tidak memiliki mesin penerjemah (interpreter) PHP, tag <code>&lt;?php ... ?&gt;</code> beserta instruksi di dalamnya tidak diproses sama sekali. Teks kode mentah atau variabel tidak tampil, dan fungsi <code>date("s")</code> tidak dieksekusi.<br>
+                    Sebaliknya, ketika dibuka melalui <code>http://localhost/siprak_2510514025/bukti.php</code>, permintaan dikirim ke web server Apache. Apache menginstruksikan PHP engine untuk mengeksekusi seluruh skrip PHP di sisi server (<em>server-side</em>). PHP memproses data variabel <code>$nama</code> dan mengevaluasi fungsi waktu <code>date("s")</code>, kemudian mengirimkan hasil kompilasinya murni dalam wujud HTML matang ke browser. Pengunjung hanya menerima output teks yang sudah jadi.
+                </li>
+                <li>
+                    <strong>Mengapa angka detik pada bukti.php berubah setiap kali halaman disegarkan, padahal berkasnya tidak Anda ubah?</strong><br>
+                    Karena fungsi <code>date("s")</code> dieksekusi secara dinamis di server setiap kali ada permintaan HTTP (<em>HTTP request</em>) yang masuk dari browser. Ketika halaman disegarkan (<em>refresh</em>/<code>F5</code>), browser mengirimkan sinyal permintaan baru ke server. Pada milidetik tersebut, server PHP membaca ulang jam sistem server terkini, merender nilai detik saat itu ke dalam dokumen HTML, lalu mengirimkannya kembali ke peramban. Meskipun berkas fisik <code>bukti.php</code> di harddisk tidak pernah disunting, isi outputnya selalu diperbarui secara langsung (<em>real-time dynamic content</em>) mengikuti jam server.
+                </li>
+                <li>
+                    <strong>Pada Pertemuan 4, kata sandi di JavaScript terbaca melalui View Source. Kini $sandi di PHP tidak terbaca. Apakah itu berarti validasi dengan JavaScript tidak diperlukan lagi? Jelaskan pendapat Anda.</strong><br>
+                    Tidak, validasi dengan JavaScript tetap mutlak diperlukan. Keduanya memiliki fungsi dan keunggulan pada lapisannya masing-masing:
+                    <ul>
+                        <li><strong>Validasi JavaScript (Client-Side):</strong> Bertujuan memberikan kenyamanan dan pengalaman interaksi pengguna yang instan (<em>User Experience / UX</em>). JavaScript mengecek kelengkapan formulir seketika di peramban tanpa perlu memuat ulang halaman (tanpa jeda komunikasi jaringan ke server). Jika ada isian yang belum lengkap, pengguna langsung diberitahu seketika, sekaligus menghemat lalu lintas jaringan (bandwidth) dan meringankan kerja server.</li>
+                        <li><strong>Validasi PHP (Server-Side):</strong> Bertujuan sebagai benteng integritas dan keamanan data utama (<em>Security &amp; Data Integrity</em>). Validasi di sisi peramban mudah dimatikan atau dimanipulasi oleh pengguna (misalnya melalui Developer Tools atau pengiriman request langsung via cURL). Oleh karena itu, data sensitif dan pengecekan akhir harus tetap diverifikasi secara ketat di server menggunakan PHP.</li>
+                    </ul>
+                    Kesimpulannya, JavaScript dan PHP tidak saling meniadakan, melainkan bekerja bersama secara berlapis (<em>defense-in-depth</em>).
+                </li>
+                <li>
+                    <strong>Pada Tabel Telusur, baris mana yang ramalan Anda meleset, dan apa penyebabnya?</strong><br>
+                    Ramalan saya meleset pada <strong>Baris 5</strong> (<code>(int) ($b . "5x")</code>). Awalnya saya menduga operasi penggabungan string yang menghasilkan <code>"55x"</code> akan memicu galat (<em>type error</em>) atau menghasilkan nilai 0 ketika dipaksa diubah (<em>type casting</em>) ke tipe <code>(int)</code>. Namun ternyata, PHP memiliki mekanisme konversi otomatis (<em>string-to-integer parsing</em>) yang memindai karakter angka dari awal (karakter 5 dan 5) dan secara cerdas mengabaikan karakter non-numerik yang mengikutinya (huruf <code>x</code>), sehingga menghasilkan nilai integer <code>55</code> (<code>int(55)</code>).<br>
+                    Selain itu, pada <strong>Baris 3</strong> (<code>var_dump($a / 2);</code>), karena digit NIM ke-9 saya adalah 2 (genap), operasinya menghasilkan <code>int(1)</code>, yang berbeda dari teman saya dengan NIM ganjil yang menghasilkan tipe <code>float</code>.
+                </li>
+                <li>
+                    <strong>Sebutkan satu kebiasaan dari JavaScript yang justru menimbulkan kesalahan ketika Anda menulis PHP.</strong><br>
+                    Kebiasaan yang paling sering memicu kesalahan adalah <strong>penggunaan operator tambah (<code>+</code>) untuk penggabungan string (concatenation)</strong>:<br>
+                    Di JavaScript, operator <code>+</code> dapat berfungsi ganda: sebagai penjumlahan angka sekaligus penyambung teks (misal <code>"NIM: " + nim</code>). Namun di PHP, operator <code>+</code> secara ketat hanya diperuntukkan bagi operasi matematika aritmatika. Jika kita menggabungkan teks dengan <code>+</code> di PHP (misal <code>"Farand " + "Danendra"</code>), PHP akan berusaha mengonversi teks tersebut menjadi angka (menghasilkan angka 0 atau peringatan <em>non-numeric value</em>). Penggabungan string di PHP wajib menggunakan operator titik (<code>.</code>). Selain itu, kebiasaan di JavaScript menulis variabel tanpa diawali tanda dollar (<code>$</code>) akan langsung memicu galat sintaksis (<em>Parse Error</em>) di PHP.
+                </li>
+            </ol>
+
+            <br>
+
+            <!-- Tabel Telusur Ringkasan pada Jurnal -->
+            <h4>Ringkasan Tabel Telusur Tipe Data TP6 (ANGKA_A = 2, ANGKA_B = 5)</h4>
+            <table class="tabel-telusur" border="1" title="Tabel Telusur Tipe Data TP6 Farand">
+                <thead>
+                    <tr class="judul">
+                        <th class="kolom-no">No</th>
+                        <th>Ekspresi</th>
+                        <th class="kolom-ramalan">Ramalan Nilai</th>
+                        <th class="kolom-ramalan">Ramalan Tipe</th>
+                        <th class="kolom-hasil">Hasil var_dump</th>
+                        <th>Penjelasan / Keterangan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="tengah">1</td>
+                        <td><code>$a + $b</code></td>
+                        <td class="tengah">7</td>
+                        <td class="tengah">int</td>
+                        <td class="tengah"><code>int(7)</code></td>
+                        <td>Penjumlahan aritmatika integer 2 + 5.</td>
+                    </tr>
+                    <tr>
+                        <td class="tengah">2</td>
+                        <td><code>$a . $b</code></td>
+                        <td class="tengah">"25"</td>
+                        <td class="tengah">string</td>
+                        <td class="tengah"><code>string(2) "25"</code></td>
+                        <td>Penggabungan string menggunakan tanda titik (concatenation).</td>
+                    </tr>
+                    <tr>
+                        <td class="tengah">3</td>
+                        <td><code>$a / 2</code></td>
+                        <td class="tengah">1</td>
+                        <td class="tengah">int</td>
+                        <td class="tengah"><code>int(1)</code></td>
+                        <td>NIM genap (2 / 2 = 1 tanpa sisa) menghasilkan integer, bukan float.</td>
+                    </tr>
+                    <tr>
+                        <td class="tengah">4</td>
+                        <td><code>"$a" + 1</code></td>
+                        <td class="tengah">3</td>
+                        <td class="tengah">int</td>
+                        <td class="tengah"><code>int(3)</code></td>
+                        <td>Type juggling: string "2" dikonversi ke integer 2 lalu ditambah 1.</td>
+                    </tr>
+                    <tr>
+                        <td class="tengah">5</td>
+                        <td><code>(int) ($b . "5x")</code></td>
+                        <td class="tengah">0 / Galat</td>
+                        <td class="tengah">int</td>
+                        <td class="tengah"><code>int(55)</code></td>
+                        <td>Meleset: PHP memindai angka terdepan ("55") dan mengabaikan huruf "x".</td>
+                    </tr>
+                    <tr>
+                        <td class="tengah">6</td>
+                        <td><code>$a == "$a"</code></td>
+                        <td class="tengah">true</td>
+                        <td class="tengah">bool</td>
+                        <td class="tengah"><code>bool(true)</code></td>
+                        <td>Loose comparison: membandingkan kesetaraan nilai setelah konversi.</td>
+                    </tr>
+                    <tr>
+                        <td class="tengah">7</td>
+                        <td><code>$a === "$a"</code></td>
+                        <td class="tengah">false</td>
+                        <td class="tengah">bool</td>
+                        <td class="tengah"><code>bool(false)</code></td>
+                        <td>Strict comparison: tipe berbeda (int vs string), langsung false.</td>
+                    </tr>
+                    <tr>
+                        <td class="tengah">8</td>
+                        <td><code>5 + "10"</code></td>
+                        <td class="tengah">15</td>
+                        <td class="tengah">int</td>
+                        <td class="tengah"><code>int(15)</code></td>
+                        <td>String "10" dikonversi otomatis menjadi integer 10 oleh operator '+'.</td>
+                    </tr>
+                </tbody>
+            </table>
         </section>
     </div>
 

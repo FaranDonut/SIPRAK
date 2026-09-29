@@ -22,6 +22,10 @@
     <nav class="menu-tabel" aria-label="Navigasi utama">
         <a class="aktif" href="index.html" accesskey="b">Beranda</a>
         <a href="profil.html" accesskey="p">Profil</a>
+        <a href="kartu.php" accesskey="k">Kartu Mahasiswa</a>
+        <a href="rekap.php" accesskey="e">Rekap Beban</a>
+        <a href="telusur.php" accesskey="x">Tabel Telusur</a>
+        <a href="bukti.php" accesskey="s">Bukti Server</a>
         <a href="jadwal.html" accesskey="j">Jadwal</a>
         <a href="galeri.html" accesskey="g">Galeri</a>
         <a href="daftar.html" accesskey="d">Pendaftaran</a>
@@ -33,8 +37,8 @@
     </nav>
 
     <div id="isi">
-        <h2>SELAMAT DATANG DI SIPRAK 3.0</h2>
-        <p class="sub-keterangan">Sistem Informasi Praktikan Laboratorium Fakultas Ilmu Komputer UPN "Veteran" Jakarta.</p>
+        <h2>SELAMAT DATANG DI SIPRAK 5.0</h2>
+        <p class="sub-keterangan">Sistem Informasi Praktikan Laboratorium Fakultas Ilmu Komputer UPN "Veteran" Jakarta (Server-Side PHP).</p>
 
         <!-- pop-up dipicu klik pengguna, bukan onload -->
         <p>
@@ -46,11 +50,15 @@
         <section class="ringkasan-situs">
             <h3>Ringkasan Situs</h3>
             <ul>
+                <li><strong>Kartu Mahasiswa (PHP):</strong> Kartu identitas dinamis berbasis variabel PHP dan kalkulasi semester server.</li>
+                <li><strong>Rekap Beban (PHP):</strong> Rekapitulasi SKS KRS semester berjalan otomatis dengan perulangan <code>foreach</code>, status beban (if-else), dan hari ini (switch).</li>
+                <li><strong>Tabel Telusur (PHP):</strong> Pengujian tipe data dan perilaku <code>var_dump()</code> di server PHP berbasis NIM.</li>
+                <li><strong>Bukti Sisi Server (PHP):</strong> Demonstrasi eksekusi kode di server lokal (localhost) vs klik ganda.</li>
                 <li><strong>Profil:</strong> Berisi biodata praktikan, latar belakang pendidikan, dan riwayat prestasi.</li>
                 <li><strong>Jadwal:</strong> Informasi jadwal praktikum perkuliahan semester berjalan dan kalkulator interaktif SKS/kelulusan.</li>
                 <li><strong>Galeri:</strong> Dokumentasi kegiatan praktikum dengan pemetaan gambar interaktif (Image Map).</li>
                 <li><strong>Pendaftaran:</strong> Formulir pendaftaran asisten praktikum dilengkapi validasi client-side JavaScript.</li>
-                <li><strong>Jurnal Eksplorasi:</strong> Dokumentasi hasil telusur kode, perburuan bug, dan refleksi JavaScript TP4 dan TP5.</li>
+                <li><strong>Jurnal Eksplorasi:</strong> Dokumentasi hasil telusur kode, perburuan bug, serta refleksi PHP dan JS.</li>
                 <li><strong>Biodata:</strong> Formulir biodata mahasiswa dengan validasi dan tampilan hasil pada jendela pop-up.</li>
             </ul>
         </section>
